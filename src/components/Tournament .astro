@@ -1,0 +1,20 @@
+---
+const { title, content } = Astro.props;
+---
+
+<div class="my-component">
+  <h1>{title}</h1>
+  <p>{content}</p>
+</div>
+
+<style>
+  .my-component {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .my-component h1 {
+    color: #2589d0;
+  }
+</style>

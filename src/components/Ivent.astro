@@ -1,0 +1,30 @@
+---
+const { image , title, content } = Astro.props;
+---
+
+<div class="my-component">
+  <!-- 画像を表示 -->
+  {image && <img src={image} alt="Image" class="component-image" />}
+  
+  <h1>{title}</h1>
+  <p>{content}</p>
+</div>
+
+<style>
+  .my-component {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .my-component h1 {
+    color: #2589d0;
+  }
+
+  .component-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+</style>

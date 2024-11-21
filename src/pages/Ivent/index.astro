@@ -1,19 +1,27 @@
 ---
 // 絶対パスで
 // 画像はsrc/pages内の各ディレクトリにimagesフォルダを作成する
-import {Image} from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
-// 画像パスはimport形式で
-// これら三つはLayoutファイルで必要
+import "../../scss/styles.scss";
 const title = "";
 const description = "";
 const og_image = "";
 ---
 
+
+
 <Layout title={title} , description={description} og_image={og_image}>
-	<main>
-		<section>
-		
-		<section>
-	</main>
+<main>
+    <section>
+        <h1>タイトル(大会情報)</h1>
+    </section>
+    <section>
+        <p></p>
+        <img src="" alt="">
+    </section>
+    <section>
+        <p></p>
+        <img src="" alt="">
+    </section>
+</main>
 </Layout>

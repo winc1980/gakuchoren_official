@@ -3,9 +3,118 @@
 @use "./variables" as *;
 
 /*-------------　ここから-------------*/
+// メインページ
+.body {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.p-top {
+  width: 1440px;
+  height: 625px;
+  position: relative;
+}
+
+.p-top-mail {
+  position: absolute;
+  top: 408px;
+  left: 883px;
+  max-width: 489px;
+  height: 80px;
+  margin: 1em auto;
+  padding: 1em 1.5em;
+  border: 2px solid #2589d0;
+  border-radius: 3px;
+  background-color: #0000ff;
+  text-align: center;
+  justify-content: center;
+}
+
+.p-top-mail-content {
+  z-index: 100px;
+  color: #ffffff;
+}
+
+.p-about {
+  max-width: 1440px;
+  height: 535px;
+}
+
+.p-about-title {
+  position: relative;
+  left: 160px;
+  top: 131px;
+}
+
+.p-about-content {
+  position: relative;
+  left: 160px;
+  top: 216px;
+}
+
+.p-about-university {
+  position: relative;
+  left: 574px;
+  top: 433px;
+}
+
+.p-about-detail {
+  position: relative;
+  left: 787px;
+  top: 433px;
+}
+
+.p-Tournament {
+  max-width: 1440px;
+  height: 943px;
+}
+
+.p-Ivent {
+  max-width: 1440px;
+  height: 1156px;
+}
+
+.p-Join {
+  max-width: 1440px;
+  height: 695px;
+}
+
 /*-------------　ここまで-------------*/
 
 /*-------------　ここから-------------*/
+//大会情報
+
+.p-information {
+  max-width: 1440px;
+  height: 290px;
+  background-color: #33ccff;
+}
+
+.p-information-title {
+  position: relative;
+  left: 149px;
+  top: 127px;
+}
+
+.p-information-search {
+  position: relative;
+  left: 1010px;
+  top: 194px;
+  width: 297px;
+  height: 42px;
+  background-color: #ffffff;
+  justify-content: center;
+  line-height: 2.5;
+}
+
+.p-content {
+  max-width: 1000px;
+}
+
+.p-content-every {
+}
+
 /*-------------　ここまで-------------*/
 
 /*-------------　ここから-------------*/
