@@ -4,17 +4,76 @@ const { title, content } = Astro.props;
 
 <div class="my-component">
   <h1>{title}</h1>
-  <p>{content}</p>
+  <p class="shortened-text">{content}</p>
+  <p class="next read-more-btn">続きを読む>></p>
 </div>
 
 <style>
   .my-component {
-    background-color: #f0f0f0;
-    padding: 20px;
+    gap: 20px;
     border-radius: 5px;
+    position: relative;
+    width: 1098px;
   }
 
   .my-component h1 {
+    padding-top: 43px;
+    padding-bottom: 60px;
     color: #2589d0;
+    width: 140px;
+    height: 62px;
+    font-size: 30px;
+  }
+
+  .my-component .shortened-text {
+    font-size: 20px;
+    overflow: hidden; /* 必要に応じてスクロールを隠す */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 最大3行まで表示 */
+    -webkit-box-orient: vertical;
+    line-height: 1.5; /* 行の高さ */
+    max-height: calc(1.5em * 3); /* 3行分の高さ */
+    margin-bottom: 20px; /* ボタンとテキストの間に余白を追加 */
+  }
+
+  .my-component.expanded .shortened-text {
+    -webkit-line-clamp: none; /* 制限を解除 */
+    max-height: none;
+  }
+
+  .my-component .next {
+    width: 176px;
+    height: 26px;
+    color: #33CCFF;
+    cursor: pointer; /* ボタン風にする */
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px; /* ボタンとテキストの間に少し余白 */
+    position: absolute; /* 右端に配置 */
+    right: 0; /* 右端に寄せる */
+  }
+
+  .my-component .next.read-more-btn {
+    position: absolute;
+    right: 0; /* ボタンを右端に配置 */
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const readMoreBtn = document.querySelector(".read-more-btn");
+    const textContainer = document.querySelector(".my-component");
+
+    readMoreBtn.addEventListener("click", () => {
+      // "expanded" クラスを付け替え
+      textContainer.classList.toggle("expanded");
+
+      // ボタンの表示テキストを切り替え
+      if (textContainer.classList.contains("expanded")) {
+        readMoreBtn.textContent = "閉じる>>";
+      } else {
+        readMoreBtn.textContent = "続きを読む>>";
+      }
+    });
+  });
+</script>
