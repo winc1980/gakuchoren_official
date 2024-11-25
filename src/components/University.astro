@@ -1,0 +1,35 @@
+---
+import {Image} from "astro:assets";
+const {name, content, image, link_instagram, link_x, link_homepage, link_welcome, createdAt} = Astro.props;
+import favicon from "../../public/favicon.svg";
+import instagram_image from "../../public/assets/images/1161953_instagram_icon 1.svg";
+import x_image from "../../public/assets/images/x_icon.svg";
+---
+<div id="university_component" class="p-university_component">
+    <Image alt="university image" src={image?.url || favicon} width={image?.width} height={image?.height}/>
+    <!-- ↑↑ width, heightを指定しないとエラーになるので一時的に指定してあります。上のクラス名にwidthとheightを指定してデザインを再現するように変更してください。 -->
+    <div>
+        <h2 class="p-university_component__name">{name}</h2>
+        <div>
+            <a href={link_instagram}>
+                <Image alt="university instagram" src={instagram_image}/>
+            </a>
+            <a href={link_x}>
+                <Image alt="university x" src={x_image}/>
+            </a>
+        </div>
+    </div>
+    <hr>
+    <p class="p-university_component__text">{content}</p>
+    <div>
+        <div>
+            <a class="p-university_homepage" href={link_homepage}>ホームページはこちら</a>
+            <a class="p-university_welcome" href={link_welcome}>新歓情報はこちら</a>
+        </div>
+        <a href="" class="p-university_component__readmore">詳しく見る</a>
+    </div>
+</div>
+
+<style>
+    
+</style>
