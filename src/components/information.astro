@@ -1,0 +1,40 @@
+---
+const { title, content ,next } = Astro.props;
+---
+
+<div class="my-component">
+  <h1>{title}</h1>
+  <p>{content}</p>
+  <a href="{next}">続きを読む>></a>
+</div>
+
+<style>
+  .my-component {
+    gap: 20px;
+    border-radius: 5px;
+    position: relative;
+    width: 805px;
+    height: 198px;
+  }
+
+  .my-component h1 {
+    padding-top: 43px;
+    padding-bottom: 60px;
+    width: 140px;
+    height: 62px;
+    font-size: 30px;
+  }
+
+  .my-component p {
+    font-size: 20px;
+  }
+
+  .my-component a {
+    width: 176px;
+    height: 26px;
+    color: #33CCFF;
+    position: absolute;
+    left: 800px;
+    top: 170px;
+  }
+</style>
