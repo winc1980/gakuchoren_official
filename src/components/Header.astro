@@ -1,14 +1,50 @@
----
-
----
-
-<header>
-    <p class="header-title">全日本釣魚連盟関東支部</p>
-</header>
-
-<!-- 各コンポーネントのスタイルはコンポーネントファイル内でOK -->
-<style>
-    .header-title{
-        color: black;
+<header class="site-header">
+    <div class="logo">
+      <h1>全日本釣魚連盟関東支部</h1>
+    </div>
+    <nav class="navigation">
+      <ul>
+        <li><a href="/about">団体について</a></li>
+        <li><a href="/event-info">大会情報</a></li>
+        <li><a href="/universities">加盟大学</a></li>
+        <li><a href="/contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <style>
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      color: #041470;
+      padding: 10px 20px;
+      border-bottom: solid 3px #0000FF;
     }
-</style>
+  
+    .logo h1 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: bold;
+    }
+  
+    .navigation ul {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .navigation a {
+      text-decoration: none;
+      color: black;
+      font-size: 10px;
+    }
+  
+    .navigation a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  

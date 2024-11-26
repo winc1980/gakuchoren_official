@@ -1,0 +1,69 @@
+---
+// 絶対パスで
+// 画像はsrc/pages内の各ディレクトリにimagesフォルダを作成する
+import Layout from "../../layouts/Layout.astro";
+import "../../scss/styles.scss";
+const title = "";
+const description = "";
+const og_image = "";
+import TournamentComponent from '../../components/information.astro'
+---
+
+
+
+<Layout title={title} , description={description} og_image={og_image}>
+<main>
+    <section id="">
+        <div class="p-information">
+            <h1 class="p-information-title">大会情報</h1>
+            <div class="p-information-search">
+                <p class="">検索</p>
+            </div>
+        </div>
+    </section>
+    <section id="" class="p-content">
+        <div class="p-content-bluebox-big"></div>
+        <div class="p-content-bluebox-small"></div>
+        <div class="p-content-sentence">
+            <div class="p-content-sentence-every">
+                <div>
+                    <TournamentComponent title="タイトル" content="ああああああああ" />
+                </div>
+                <div>
+                    <TournamentComponent title="タイトル" content="ああああああああ" />
+                </div>
+                <div>
+                    <TournamentComponent title="タイトル" content="ああああああああ" />
+                </div>
+                <div>
+                    <TournamentComponent title="タイトル" content="ああああああああ" />
+                </div>
+                <div>
+                    <TournamentComponent title="タイトル" content="ああああああああ" />
+                </div>
+                <div>
+                    <TournamentComponent title="タイトル" content="ああああああああ" />
+                </div>
+                <div>
+                    <TournamentComponent title="タイトル" content="ああああああああ" />
+                </div>
+                <div>
+                    <TournamentComponent title="タイトル" content="ああああああああ" />
+                </div>
+                <div>
+                    <TournamentComponent title="タイトル" content="ああああああああ" />
+                </div>
+                <div>
+                    <TournamentComponent title="タイトル" content="ああああああああ" />
+                </div>
+
+            </div>
+            <div class="p-content-sentence-archive">
+                <p class="p-content-sentence-archive-title">月別アーカイブ</p>
+                <p class="p-content-sentence-archive-day">2024/08<p>
+                <p class="p-content-sentence-archive-day">2024/07</p>
+            </div>
+        </div>
+    </section>
+</main>
+</Layout>
