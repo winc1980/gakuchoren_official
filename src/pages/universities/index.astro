@@ -1,0 +1,26 @@
+---
+// 絶対パスで
+// 画像はsrc/pages内の各ディレクトリにimagesフォルダを作成する
+import {Image} from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+import University from "@/components/University.astro";
+import { getUniversities } from "@/lib/microcms";
+const response = await getUniversities({ fields: ["id", "name", "content", "image", "link_instagram", "link_x", "link_homepage", "link_welcome", "createdAt"] });
+// 画像パスはimport形式で
+// これら三つはLayoutファイルで必要
+const title = "";
+const description = "";
+const og_image = "";
+---
+
+<Layout title={title} , description={description} og_image={og_image}>
+	<main>
+		<section>
+			{
+				response.contents.map((content) => (
+					<University name={content.name} content={content.content} image={content.image} link_instagram={content.link_instagram} link_x={content.link_x} link_welcome={content.link_welcome} />
+				))
+			}
+		</section>
+	</main>
+</Layout>

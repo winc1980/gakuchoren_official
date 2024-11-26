@@ -1,0 +1,16 @@
+---
+import {Image} from "astro:assets";
+const {title, description, image} = Astro.props;
+import favicon from "../../public/favicon.svg";
+---
+<div id="event_component" class="p-event_component">
+    <Image class="p-event_component__image" alt="event image" src={image.url || favicon} width={image.width} height={image.height}/>
+    <!-- ↑↑ width, heightを指定しないとエラーになるので一時的に指定してあります。上のクラス名にwidthとheightを指定してデザインを再現するように変更してください。 -->
+    <h2 class="p-event_component__title">{title}</h2>
+    <p class="p-event_component__text">{description}</p>
+    <a href="" class="p-event_component__readmore">続きを読む</a>
+</div>
+
+<style>
+    
+</style>
