@@ -2,6 +2,261 @@
 
 @use "./variables" as *;
 
+// 공통 스타일
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: $primary-color;
+  color: white;
+  padding: $spacing-medium;
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: $spacing-medium;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: $spacing-medium 0;
+  background: $primary-color;
+}
+
+// about 페이지 스타일
+.about-main {
+  background-color: white;
+}
+
+.about-header {
+  background-color: #add8e6; // 하늘색 배경
+  text-align: center;
+  padding: $spacing-large;
+
+  h1 {
+    font-size: 12px;
+    color: black;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-large;
+  padding: $spacing-large;
+
+  .about-item {
+    display: flex;
+    gap: $spacing-large;
+    align-items: center;
+
+    &:first-child {
+      flex-direction: row;
+    }
+
+    &:nth-child(2) {
+      flex-direction: row;
+    }
+
+    &:last-child {
+      flex-direction: column;
+      text-align: justify;
+    }
+
+    .image-placeholder {
+      width: 200px;
+      height: 200px;
+      background-color: $image-placeholder-color;
+      position: relative;
+      box-shadow: 10px 10px 0px 0px #0000ff;
+    }
+  }
+
+  p {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.8;
+    color: $text-color;
+  }
+}
+.contact-main {
+  background-color: white;
+}
+
+.contact-header {
+  background-color: #add8e6; // 하늘색 배경
+  text-align: left;
+  color: black;
+  padding: $spacing-large;
+
+  h1 {
+    font-size: 12px;
+    margin: 0;
+  }
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column; // 섹션 전체는 세로 배치
+  gap: $spacing-large;
+  padding: $spacing-large;
+
+  .contact-form-wrapper {
+    background-color: white;
+    padding: $spacing-medium;
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: $spacing-medium;
+      color: black;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column; // 폼 전체는 세로 정렬
+      gap: $spacing-medium;
+
+      .form-row {
+        display: flex; // 텍스트와 입력 필드를 가로로 배치
+        flex-wrap: wrap; // 좁은 화면에서는 줄바꿈
+        align-items: center;
+        gap: $spacing-small;
+
+        label {
+          width: 150px; // 레이블 너비 고정
+          text-align: right;
+          font-size: 14px;
+          color: $text-color;
+        }
+
+        input,
+        textarea {
+          flex: 1; // 입력 필드가 남은 공간을 차지
+          padding: $spacing-small;
+          border: 1px solid #ccc;
+          background-color: #ccc;
+          font-size: 14px;
+        }
+
+        textarea {
+          resize: vertical;
+          min-height: 100px;
+        }
+      }
+
+      button {
+        align-self: flex-start; // 버튼을 왼쪽 정렬
+        margin-left: 160px;
+        background-color: #0000ff;
+        color: white;
+        border: none;
+        padding: $spacing-small;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+}
+
+// University Detail 페이지 스타일
+.university-detail-main {
+  background-color: $background-color;
+}
+
+.university-header {
+  background-color: #add8e6; // 하늘색 배경
+  text-align: left;
+  padding: $spacing-large;
+
+  h1 {
+    font-size: 24px;
+    color: black;
+    margin: 0;
+  }
+}
+
+.university-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-large;
+  padding: $spacing-large;
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-color;
+    max-width: 600px; // 텍스트 최대 너비 제한
+  }
+
+  .image-placeholder {
+    width: 400px;
+    height: 200px;
+    background-color: $image-placeholder-color;
+    border: 3px solid $primary-color;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 390px;
+      height: 190px;
+      border-right: 10px solid $primary-color;
+      border-bottom: 10px solid $primary-color;
+    }
+  }
+}
+
+.university-footer {
+  text-align: center;
+  padding: $spacing-large;
+
+  .icon-links {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-large;
+    margin-bottom: $spacing-small;
+
+    .icon-placeholder {
+      font-size: 24px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $primary-color;
+    font-size: 14px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+n  
 /*-------------　ここから-------------*/
 // メインページ
 .body {
@@ -612,32 +867,32 @@
   font-size: 30px;
 }
 
-.p-Ivent-sentence{
+.p-Ivent-sentence {
   position: relative;
   margin: 100px auto;
   max-width: 1200px;
 }
 
-.p-Ivent-photo-main{
+.p-Ivent-photo-main {
   position: relative;
   margin: 100px auto;
   max-width: 1200px;
 }
 
-.p-Ivent-photo-main-img{
+.p-Ivent-photo-main-img {
   object-fit: cover;
   width: 1043px;
   height: 411px;
 }
 
-.p-Ivent-photo-sub{
+.p-Ivent-photo-sub {
   position: relative;
   margin: 100px auto;
   max-width: 1200px;
   margin-bottom: 134px;
 }
 
-.p-Ivent-photo-sub-img{
+.p-Ivent-photo-sub-img {
   object-fit: cover;
   width: 777px;
   height: 347px;
