@@ -1,0 +1,55 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+const title = "お問い合わせ";
+const description = "全日本釣魚連盟へのお問い合わせはこちらから。";
+const og_image = "/images/contact.jpg";
+---
+
+<Layout title={title} description={description} og_image={og_image}>
+  <main class="contact-main">
+    <section class="contact-header">
+      <h1>お問い合わせ</h1>
+    </section>
+
+    <section class="contact-section">
+      <div class="contact-form-wrapper">
+        <h2>個人の方はこちら</h2>
+        <form class="contact-form">
+          <div class="form-row">
+            <label for="email-personal">メールアドレス</label>
+            <input type="email" id="email-personal"  />
+          </div>
+          <div class="form-row">
+            <label for="name-personal">お名前</label>
+            <input type="text" id="name-personal"  />
+          </div>
+          <div class="form-row">
+            <label for="message-personal">お問い合わせ内容</label>
+            <textarea id="message-personal"></textarea>
+          </div>
+          <button type="submit">送信</button>
+        </form>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <h2>企業の方はこちら</h2>
+        <form class="contact-form">
+          <div class="form-row">
+            <label for="email-business">メールアドレス</label>
+            <input type="email" id="email-business" />
+          </div>
+          <div class="form-row">
+            <label for="company-name">企業名</label>
+            <input type="text" id="company-name"  />
+          </div>
+          <div class="form-row">
+            <label for="message-business">お問い合わせ</label>
+            <textarea id="message-business" ></textarea>
+          </div>
+          <button type="submit">送信</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</Layout>
