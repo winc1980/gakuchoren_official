@@ -1,0 +1,87 @@
+---
+const { image, title, content } = Astro.props;
+---
+
+<div class="my-component">
+  <!-- 画像を表示 -->
+  <div>
+    {image && <img src={image} alt="Image" class="component-image" />}
+  </div>
+  <div>
+    <h1>{title}</h1>
+    <p class="shortened-text">{content}</p>
+    <p class="next read-more-btn">続きを読む>></p>
+  </div>
+</div>
+
+<style>
+  .my-component {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center; /* 画像とテキストを縦方向に中央揃え */
+    gap: 20px; /* 画像とテキストの間にスペースを追加 */
+    position: relative;
+  }
+
+  .my-component h1 {
+    color: #2589d0;
+    width: 125px;
+    height: 36px;
+    font-size: 30px;
+  }
+
+  .my-component .shortened-text {
+    width: 820px;
+    height: auto;
+    font-size: 20px;
+    overflow: hidden; /* 必要に応じてスクロールを隠す */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 最大3行まで表示 */
+    -webkit-box-orient: vertical;
+    line-height: 1.5; /* 行の高さ */
+    max-height: calc(1.5em * 3); /* 3行分の高さ */
+    margin-bottom: 20px;
+  }
+
+  .my-component.expanded .shortened-text {
+    -webkit-line-clamp: none; /* 制限を解除 */
+    max-height: none;
+  }
+
+  .my-component .next {
+    color: #33CCFF;
+    cursor: pointer; /* ボタン風にする */
+    position: absolute;
+    left: 950px;
+    top: 170px;
+  }
+
+  .component-image {
+    max-width: 205px; /* 画像の最大幅を設定 */
+    height: 205px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const readMoreBtn = document.querySelector(".read-more-btn");
+    const textContainer = document.querySelector(".my-component");
+
+    readMoreBtn.addEventListener("click", () => {
+      // "expanded" クラスを付け替え
+      textContainer.classList.toggle("expanded");
+
+      // ボタンの表示テキストを切り替え
+      if (textContainer.classList.contains("expanded")) {
+        readMoreBtn.textContent = "閉じる>>";
+      } else {
+        readMoreBtn.textContent = "続きを読む>>";
+      }
+    });
+  });
+</script>

@@ -4,6 +4,11 @@ import Layout from "@/layouts/Layout.astro";
 const title = "加盟大学";
 const description = "全日本釣魚連盟に加盟している大学の一覧を紹介します。";
 const og_image = "public/images/university1.png";
+import {Image} from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+import University from "@/components/University.astro";
+//import { getUniversities } from "@/lib/microcms";
+//const response = await getUniversities({ fields: ["id", "name", "content", "image", "link_instagram", "link_x", "link_homepage", "link_welcome", "createdAt"] });
 
 const universities = Array.from({ length: 10 }, (_, i) => ({
   name: `大学名 ${i + 1}`,
@@ -29,6 +34,8 @@ const universities = Array.from({ length: 10 }, (_, i) => ({
     <!-- 대학 리스트 -->
     <section class="university-list">
       {universities.map((university) => (
+        <!-- <University name={content.name} content={content.content} image={content.image} link_instagram={content.link_instagram} link_x={content.link_x} link_welcome={content.link_welcome} /> -->
+        
         <div class="university-item">
           <!-- 이미지 및 SNS 아이콘 -->
           <div class="image-wrapper">
