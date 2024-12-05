@@ -29,6 +29,11 @@ import IventComponent from '../../components/Ivent.astro'
 		</section>
 
 		<section id="" class="p-about">
+			<div class="p-about-blueline">
+				<div class="p-about-blueline-top"></div>
+				<div class="p-about-blueline-middle"></div>
+				<div class="p-about-blueline-under"></div>
+			</div>
 			<div class="">
 				<div class="p-about-bluebox-big"></div>
 				<div class="p-about-bluebox-small"></div>
@@ -38,18 +43,35 @@ import IventComponent from '../../components/Ivent.astro'
 				<a href="" class="p-about-university">加盟大学一覧</a>
 				<a href="" class="p-about-detail">詳しくはこちら</a>
 			</div>
+			<div class="p-about-line">
+				<p class="p-about-line-top"></p>
+				<p class="p-about-line-middle"></p>
+				<p class="p-about-line-under"></p>
+			</div>
 		</section>
 
 		<section id="" class="p-Tournament"> 
 			<div class="p-Tournament-information">
-				<h2 class="p-Tournament-information-title ">大会情報</h2>
+				<h2 class="p-Tournament-information-title">大会情報</h2>
+				<div class="p-Tournament-information-line">
+					<div class="p-Tournament-information-line-top"></div>
+					<div class="p-Tournament-information-line-middle"></div>
+					<div class="p-Tournament-information-line-under"></div>
+				</div>
 				<div class="p-Tournament-information-content">
 					<TournamentComponent title="タイトル" content="趣味というものは、私たちの生活に彩りを加え、日々の疲れを癒やす大切な要素です。忙しい日常の中で、趣味に没頭する時間は心のリフレッシュをもたらし、ストレスを軽減させる効果があります。私は最近、読書と料理を趣味にしているのですが、それぞれに独自の魅力があり、どちらも私の生活に欠かせない存在です。まず、読書についてですが、本を読むことは私にとって知識を深める手段であると同時に、別の世界に没入するための大切な時間です。私は小説が好きで、特にファンタジーやミステリーのジャンルに惹かれます。ページをめくるたびに、物語の中に引き込まれていき、登場人物の思いや葛藤に共感することができます。読書は新たな視点を提供してくれるので、普段の生活に新しいアイデアやインスピレーションをもたらしてくれます。次に、料理についてですが、食事を作ることは私にとってクリエイティブな作業です。新しいレシピに挑戦したり、食材の組み合わせを試したりすることで、手作りの料理に対する愛情が深まります。特に最近は、ヘルシーなレシピに興味を持ち、野菜を多く使った料理に挑戦しています。自分の手で作った料理を家族や友人に振る舞う瞬間は、何とも言えない満足感を得ることができ、作る楽しさと食べる楽しさを同時に味わっています。趣味は、ただの時間つぶしではなく、自己成長を促し、人との繋がりを深める大切な部分だと思います。自分の好きなことをしていると、気づけば時間が経っていることもありますが、その時間は心から楽しむことができる貴重な瞬間です。今後も新たな趣味を見つけて、さらに豊かな生活を送りたいと思っています。" />
 					<TournamentComponent title="タイトル" content="ああああああああ" />
 					<TournamentComponent title="タイトル" content="ああああああああ" />
-					<TournamentComponent title="タイトル" content="ああああああああ" />
-					<TournamentComponent title="タイトル" content="ああああああああ" />
-					<TournamentComponent title="タイトル" content="ああああああああ" />
+					<div class="hidden-items">
+						<TournamentComponent title="タイトル" content="ああああああああ" />
+						<TournamentComponent title="タイトル" content="ああああああああ" />
+						<TournamentComponent title="タイトル" content="ああああああああ" />
+					</div>
+				</div>
+				<div class="p-Tournament-information-buleline">
+					<div class="p-Tournament-information-buleline-top"></div>
+					<div class="p-Tournament-information-buleline-middle"></div>
+					<div class="p-Tournament-information-buleline-under"></div>
 				</div>
 				<p class="p-Tournament-information-more">さらに表示</p>
 			</div>
@@ -126,50 +148,34 @@ import IventComponent from '../../components/Ivent.astro'
 		</section>
 
 		<div class="p-inquiry">
+			<div class="p-inquiry-line">
+				<div class="p-inquiry-line-top"></div>
+				<div class="p-inquiry-line-middle"></div>
+				<div class="p-inquiry-line-under"></div>
+			</div>
 			<div class="p-inquiry-box">
 				<a href="" class="p-inquiry-box-content">お問合せはこちら</a>
+			</div>
+			<div class="p-inquiry-blueline">
+				<div class="p-inquiry-blueline-top"></div>
+				<div class="p-inquiry-blueline-middle"></div>
+				<div class="p-inquiry-blueline-under"></div>
 			</div>
 		</div>
 	</main>
 </Layout>
 
-<!-- <script>
+<script>
 	document.addEventListener("DOMContentLoaded", () => {
-	  const moreButton = document.querySelector(".p-Tournament-information-more");
-	  const content = document.querySelector(".p-Tournament-information-content");
-	  const components = content.children; // コンポーネントのリスト
-	
-	  let visibleCount = 3; // 初期状態では3つのコンポーネントを表示
-	
-	  // 初期状態で表示するコンポーネントを設定
-	  for (let i = 0; i < components.length; i++) {
-		if (i >= visibleCount) {
-		  components[i].style.display = "none"; // 3つ以上は非表示
-		}
-	  }
-	
-	  moreButton.addEventListener("click", () => {
-		if (moreButton.textContent === "閉じる") {
-		  // 「閉じる」ボタンが押された場合、最初の3つだけ表示
-		  visibleCount = 3;
-		  moreButton.textContent = "さらに表示";
-		} else {
-		  // それ以外の時はさらに3つを表示
-		  visibleCount += 3;
-		  moreButton.textContent = "閉じる"; // すべて表示されたら「閉じる」に変更
-		}
-	
-		// コンポーネントを更新
-		for (let i = 0; i < components.length; i++) {
-		  if (i < visibleCount) {
-			components[i].style.display = "block";
-		  } else {
-			components[i].style.display = "none";
-		  }
-		}
-	
-		// コンテンツの高さを調整して下敷きにならないようにする
-		content.style.height = visibleCount * 120 + "px"; // コンテンツの高さを動的に設定
+	  const moreBtn = document.querySelector(".p-Tournament-information-more");
+	  const hiddenItems = document.querySelector(".hidden-items");
+  
+	  moreBtn.addEventListener("click", () => {
+		// 隠れている項目をトグル表示
+		hiddenItems.classList.toggle("is-visible");
+  
+		// ボタンのテキストを切り替え
+		moreBtn.textContent = hiddenItems.classList.contains("is-visible") ? "閉じる" : "さらに表示";
 	  });
 	});
-	</script> -->
+  </script>
