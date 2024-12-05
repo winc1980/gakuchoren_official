@@ -5,11 +5,13 @@ const client1 = createClient({
   serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN,
   apiKey: import.meta.env.MICROCMS_API_KEY,
 });
+//client1に含まれる情報：about,tournaments,events
 
 const client2 = createClient({
   serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN2,
   apiKey: import.meta.env.MICROCMS_API_KEY2,
 });
+//client2に含まれる情報：top-images,admission,universities
 
 //型定義
 export type Event = {
@@ -58,6 +60,7 @@ export type About = {
   updatedAt: string;
   publishedAt: string;
   revisedAt: string;
+  description: string; //topページで使用
   content: string;
   images: MicroCMSImage[];
 };
@@ -85,6 +88,43 @@ export type TournamentResponse = {
   offset: number;
   limit: number;
   contents: Tournament[];
+};
+
+export type TopImages = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  carousel: MicroCMSImage[];
+  universities: MicroCMSImage;
+  events: MicroCMSImage;
+  about: MicroCMSImage;
+  contact: MicroCMSImage;
+  tournaments: MicroCMSImage;
+};
+export type TopImagesResponse = {
+  totalCount: number;
+  offset: number;
+  limit: number;
+  contents: TopImages[];
+};
+
+export type Admission = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  firstStep: string;
+  secondStep: string;
+  ThirdStep: string;
+};
+export type AdmissionResponse = {
+  totalCount: number;
+  offset: number;
+  limit: number;
+  contents: Admission[];
 };
 
 //APIの呼び出し
@@ -152,6 +192,42 @@ export const getTournamentDetail = async (
 ) => {
   return await client1.getListDetail<Tournament>({
     endpoint: "tournaments",
+    contentId,
+    queries,
+  });
+};
+
+export const getTopImages = async (queries?: MicroCMSQueries) => {
+  console.log("getTopImages");
+  return await client2.get<TopImagesResponse>({
+    endpoint: "top-images",
+    queries,
+  });
+};
+export const getTopImagesDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  return await client2.getListDetail<TopImages>({
+    endpoint: "top-images",
+    contentId,
+    queries,
+  });
+};
+
+export const getAdmissions = async (queries?: MicroCMSQueries) => {
+  console.log("getAdmissions");
+  return await client2.get<AdmissionResponse>({
+    endpoint: "admission",
+    queries,
+  });
+};
+export const getAdmissionDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  return await client2.getListDetail<TopImages>({
+    endpoint: "admission",
     contentId,
     queries,
   });
