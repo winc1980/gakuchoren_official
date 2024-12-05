@@ -1,9 +1,14 @@
 import type { MicroCMSImage, MicroCMSQueries } from "microcms-js-sdk";
 import { createClient } from "microcms-js-sdk";
 
-const client = createClient({
+const client1 = createClient({
   serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN,
   apiKey: import.meta.env.MICROCMS_API_KEY,
+});
+
+const client2 = createClient({
+  serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN2,
+  apiKey: import.meta.env.MICROCMS_API_KEY2,
 });
 
 //型定義
@@ -16,6 +21,7 @@ export type Event = {
   title: string;
   description: string;
   images: MicroCMSImage[];
+  og_image: MicroCMSImage;
 };
 export type EventResponse = {
   totalCount: number;
@@ -31,12 +37,13 @@ export type University = {
   publishedAt: string;
   revisedAt: string;
   name: string;
+  image: MicroCMSImage;
+  description: string;
+  content: string;
   link_instagram: string;
   link_x: string;
   link_homepage: string;
   link_welcome: string;
-  content: string;
-  image: MicroCMSImage;
 };
 export type UniversityResponse = {
   totalCount: number;
@@ -45,16 +52,51 @@ export type UniversityResponse = {
   contents: University[];
 };
 
+export type About = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  content: string;
+  images: MicroCMSImage[];
+};
+export type AboutResponse = {
+  totalCount: number;
+  offset: number;
+  limit: number;
+  contents: About[];
+};
+
+export type Tournament = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  title: string;
+  description: string;
+  content: string;
+  images: MicroCMSImage[];
+  og_image: MicroCMSImage;
+};
+export type TournamentResponse = {
+  totalCount: number;
+  offset: number;
+  limit: number;
+  contents: Tournament[];
+};
+
 //APIの呼び出し
 export const getEvents = async (queries?: MicroCMSQueries) => {
   console.log("getEvents");
-  return await client.get<EventResponse>({ endpoint: "events", queries });
+  return await client1.get<EventResponse>({ endpoint: "events", queries });
 };
 export const getEventDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
-  return await client.getListDetail<Event>({
+  return await client1.getListDetail<Event>({
     endpoint: "events",
     contentId,
     queries,
@@ -63,7 +105,7 @@ export const getEventDetail = async (
 
 export const getUniversities = async (queries?: MicroCMSQueries) => {
   console.log("getUniversities");
-  return await client.get<UniversityResponse>({
+  return await client2.get<UniversityResponse>({
     endpoint: "universities",
     queries,
   });
@@ -72,8 +114,44 @@ export const getUniversityDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
-  return await client.getListDetail<University>({
+  return await client2.getListDetail<University>({
     endpoint: "universities",
+    contentId,
+    queries,
+  });
+};
+
+export const getAbout = async (queries?: MicroCMSQueries) => {
+  console.log("getAbout");
+  return await client1.get<AboutResponse>({
+    endpoint: "about",
+    queries,
+  });
+};
+export const getAboutDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  return await client1.getListDetail<About>({
+    endpoint: "about",
+    contentId,
+    queries,
+  });
+};
+
+export const getTournaments = async (queries?: MicroCMSQueries) => {
+  console.log("getTournaments");
+  return await client1.get<TournamentResponse>({
+    endpoint: "tournaments",
+    queries,
+  });
+};
+export const getTournamentDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  return await client1.getListDetail<Tournament>({
+    endpoint: "tournaments",
     contentId,
     queries,
   });
