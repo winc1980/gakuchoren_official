@@ -41,14 +41,26 @@ import slide05 from '/public/assets/yuta12-049_TP_V4.webp'
   }
 
   .swiper-slide-image {
-    height: 625px;
-    width: 1470px;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
   }
 
   .swiper-button::after {
     font-size: 32px;
     color: rgb(215, 119, 22);
+  }
+
+  @media screen and (max-width: 768px) {
+    .swiper-wrapper {
+      width: 100%;
+      max-height: 300px;
+    }
+
+    .swiper-slide {
+      height: 300px;
+      width: 100%;
+    }
   }
 </style>
 

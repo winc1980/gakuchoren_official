@@ -19,6 +19,8 @@ const { image, title, content } = Astro.props;
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     align-items: center; /* 画像とテキストを縦方向に中央揃え */
     gap: 20px; /* 画像とテキストの間にスペースを追加 */
@@ -30,11 +32,11 @@ const { image, title, content } = Astro.props;
     width: 125px;
     height: 36px;
     font-size: 30px;
+    margin-bottom: 20px;
   }
 
   .my-component .shortened-text {
-    width: 820px;
-    height: auto;
+    width: 100%;
     font-size: 20px;
     overflow: hidden; /* 必要に応じてスクロールを隠す */
     display: -webkit-box;
@@ -64,6 +66,12 @@ const { image, title, content } = Astro.props;
     height: auto;
     border-radius: 5px;
     margin-bottom: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .my-component .next{
+    display: none;
+  }
   }
 </style>
 
