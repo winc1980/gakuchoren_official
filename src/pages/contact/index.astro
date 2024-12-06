@@ -15,18 +15,18 @@ const og_image = "/images/contact.jpg";
     <section class="contact-section">
       <div class="contact-form-wrapper">
         <h2>個人の方はこちら</h2>
-        <form class="contact-form">
+        <form class="contact-form" method="post" action="https://ssgform.com/s/Tlyu3FRT8y3m">
           <div class="form-row">
             <label for="email-personal">メールアドレス</label>
-            <input type="email" id="email-personal"  />
+            <input type="email" id="email-personal" name="メールアドレス" required="required" />
           </div>
           <div class="form-row">
             <label for="name-personal">お名前</label>
-            <input type="text" id="name-personal"  />
+            <input type="text" id="name-personal" name="お名前" required="required" />
           </div>
           <div class="form-row">
             <label for="message-personal">お問い合わせ内容</label>
-            <textarea id="message-personal"></textarea>
+            <textarea id="message-personal" name="お問い合わせ内容" required="required"></textarea>
           </div>
           <button type="submit">送信</button>
         </form>
@@ -34,18 +34,18 @@ const og_image = "/images/contact.jpg";
 
       <div class="contact-form-wrapper">
         <h2>企業の方はこちら</h2>
-        <form class="contact-form">
+        <form class="contact-form" method="post" action="https://ssgform.com/s/Tlyu3FRT8y3m">
           <div class="form-row">
             <label for="email-business">メールアドレス</label>
-            <input type="email" id="email-business" />
+            <input type="email" id="email-business" name="メールアドレス" required="required"/>
           </div>
           <div class="form-row">
             <label for="company-name">企業名</label>
-            <input type="text" id="company-name"  />
+            <input type="text" id="company-name" name="企業名" required="required" />
           </div>
           <div class="form-row">
-            <label for="message-business">お問い合わせ</label>
-            <textarea id="message-business" ></textarea>
+            <label for="message-business">お問い合わせ内容</label>
+            <textarea id="message-business" name="お問い合わせ内容" required="required"></textarea>
           </div>
           <button type="submit">送信</button>
         </form>

@@ -7,6 +7,9 @@ const title = "";
 const description = "";
 const og_image = "";
 import TournamentComponent from '../../components/information.astro'
+import { getTournaments } from "@/lib/microcms";
+const response = await getTournaments({fields: ["id", "title", "description", "content", "images", "og_image", "createdAt"]})
+const tournaments = response.contents;
 ---
 
 
@@ -51,35 +54,15 @@ import TournamentComponent from '../../components/information.astro'
         <div class="p-content-sentence">
             <div class="p-content-sentence-every">
                 <div>
-                    <TournamentComponent title="タイトル" content="ああああああああ" />
+                    {tournaments.map((tournament) => {
+                        return (
+                            <div>
+                                <TournamentComponent title={tournament.title} content={tournament.content} />
+                            </div>
+                        )
+                    })}
                 </div>
-                <div>
-                    <TournamentComponent title="タイトル" content="ああああああああ" />
-                </div>
-                <div>
-                    <TournamentComponent title="タイトル" content="ああああああああ" />
-                </div>
-                <div>
-                    <TournamentComponent title="タイトル" content="ああああああああ" />
-                </div>
-                <div>
-                    <TournamentComponent title="タイトル" content="ああああああああ" />
-                </div>
-                <div>
-                    <TournamentComponent title="タイトル" content="ああああああああ" />
-                </div>
-                <div>
-                    <TournamentComponent title="タイトル" content="ああああああああ" />
-                </div>
-                <div>
-                    <TournamentComponent title="タイトル" content="ああああああああ" />
-                </div>
-                <div>
-                    <TournamentComponent title="タイトル" content="ああああああああ" />
-                </div>
-                <div>
-                    <TournamentComponent title="タイトル" content="ああああああああ" />
-                </div>
+                
 
             </div>
             <div class="p-content-sentence-archive">
