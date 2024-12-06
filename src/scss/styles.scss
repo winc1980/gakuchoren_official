@@ -193,6 +193,7 @@
 }
 
 .p-Tournament {
+  width: 100%;
   height: 1000px;
   position: relative;
 }
@@ -227,14 +228,13 @@
   height: 1px; /* 線の太さ */
   background-color: #0000ff; /* 線の色 */
   top: 50%; /* h2の中央位置に線を合わせる */
-  width: 624px; /* ページ全幅 */
+  width: 250%; /* ページ全幅 */
   left: -700px;
   transform: translateY(-50%); /* 縦位置調整 */
 }
 
 .p-Tournament-information-title::after {
   left: 200px;
-  right: 0;
 }
 
 .p-Tournament-information-line {
@@ -281,7 +281,7 @@
   justify-content: center;
   top: 100px;
   left: 200px;
-  width: 1098px;
+  width: 70%;
   gap: 20px;
   transition: height 0.3s ease; /* 高さが変わるときのアニメーションを追加 */
 }
@@ -345,6 +345,7 @@
 
 .p-Ivent {
   height: 900px;
+  width: 100%;
   background-color: #f0f0f0;
   position: relative;
   display: flex;
@@ -383,6 +384,7 @@
   height: 695px;
   position: relative;
   margin-top: 200px;
+  left: 40px;
 }
 
 .p-join-every-title-left {
@@ -1156,7 +1158,12 @@
   margin-bottom: 178px;
 }
 
-.p-detail-subphoto-all {
+.p-detail-subphoto-left {
+  width: 516px;
+  height: 452px;
+}
+
+.p-detail-subphoto-right {
   width: 516px;
   height: 452px;
 }
@@ -1449,9 +1456,15 @@
     overflow-x: hidden; /* 横スクロールを無効化 */
   }
 
+  //トップページ
+  .p-top {
+    width: 100%;
+    height: 300px;
+  }
+
   .p-top-slide {
-    width: 890px;
-    height: 222px;
+    width: 100%;
+    height: 150px;
   }
 
   .p-top-mail {
@@ -1460,8 +1473,38 @@
 
   .p-about {
     position: relative;
-    width: 430px;
+    width: 100%;
     height: 333px;
+  }
+
+  .p-about-bluebox-big {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    top: 40px;
+    left: 100px;
+  }
+
+  .p-about-bluebox-small {
+    position: absolute;
+    top: 30px;
+    left: 90px;
+    width: 17px;
+    height: 17px;
+  }
+
+  .p-about-title {
+    position: absolute;
+    top: 70px;
+    margin: 0 auto; /* ページ全体で中央揃え */
+    font-size: 30px;
+  }
+
+  .p-about-content {
+    position: absolute;
+    top: 150px;
+    margin: 0 auto; /* ページ全体で中央揃え */
+    font-size: 20px;
   }
 
   .p-about-glrybox {
@@ -1470,18 +1513,440 @@
 
   .p-about-university {
     position: absolute;
-    left: 77px;
-    top: 271px;
+    left: 200px;
+    top: 350px;
     width: 121px;
-    height: 26px;
   }
 
-  .p-about-detail{
+  .p-about-detail {
     position: absolute;
-    left: 198px;
-    top: 271px;
-    width: 161px;
-    height: 18px;
+    left: 450px;
+    top: 350px;
+    width: 130px;
+  }
+
+  .p-about-blueline {
+    position: absolute;
+    width: 96px;
+    height: 50px;
+    top: 24x;
+    right: 0px;
+  }
+
+  .p-Ivent-detail-more {
+    position: absolute;
+    left: 350px;
+  }
+
+  .p-Tournament-information-title {
+    position: absolute;
+    left: 350px;
+    font-size: 30px;
+  }
+
+  .p-Tournament-information-title::before,
+  .p-Tournament-information-title::after {
+    content: "";
+    position: absolute;
+    height: 1px; /* 線の太さ */
+    background-color: #0000ff; /* 線の色 */
+    top: 50%; /* h2の中央位置に線を合わせる */
+    width: 110%; /* ページ全幅 */
+    left: -700px;
+    transform: translateY(-50%); /* 縦位置調整 */
+  }
+
+  .p-Tournament-information-title::before {
+    right:-100px;
+    width: 100px;
+  }
+
+  .p-Tournament-information-title::after {
+    left: 150px;
+  }
+
+  .p-Tournament-information-content {
+    position: absolute;
+    left: 100px;
+    width: 80%;
+  }
+
+  .p-Tournament-information-more {
+    position: absolute;
+    left: 340px;
+  }
+
+  .p-Join {
+    width: 100%;
+    height: 2000px;
+  }
+
+  //大会情報
+
+  .p-information {
+    width: 100%;
+    height: 300px;
+  }
+
+  .p-information-title {
+    position: absolute;
+    left: 50px;
+    top: 127px;
+    font-size: 30px;
+  }
+
+  .p-information-search {
+    position: absolute;
+    width: 250px;
+    height: 40px;
+    left: 350px;
+    top: 200px;
+    line-height: 2.5;
+  }
+
+  .p-line {
+    display: none;
+  }
+
+  .p-blue-line {
+    display: none;
+  }
+
+  .p-bottom-line {
+    display: none;
+  }
+
+  .p-bottom-blueline {
+    display: none;
+  }
+
+  .p-bottom-blueline-right {
+    display: none;
+  }
+
+  .p-content-bluebox-big {
+    display: none;
+  }
+
+  .p-content-bluebox-small {
+    display: none;
+  }
+
+  .p-content-sentence {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .p-content-sentence-archive {
+    width: 100%;
+    height: 400px;
+    align-items: center; /* 子要素を中央揃え */
+    text-align: center; /* テキストを中央揃え（必要に応じて） */
+    margin: 0 auto; /* ページ全体で中央揃え */
+  }
+
+  .p-content-sentence-archive-title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+
+  .p-content-sentence-archive-everyday {
+    display: flex;
+    gap: 50px; /* 子要素間にスペースを追加 */
+    justify-content: center; /* 子要素を中央揃え */
+  }
+
+  .p-content-sentence-archive-day {
+    font-size: 40px;
+  }
+
+  .p-content-sentence-every {
+    width: 80%;
+    align-items: center;
+  }
+
+  .p-Join {
+    width: 100%;
+    left: 0px;
+    height: 1500px;
+  }
+
+  .p-Join-every {
+    position: absolute;
+    left: 0px;
+  }
+
+  .p-join-bluebox-big-right {
+    display: none;
+  }
+
+  .p-join-bluebox-small-right {
+    display: none;
+  }
+
+  .p-join-every-content-left{
+    margin-bottom: 10px;
+  }
+
+  .p-join-every-title-right {
+    position: absolute;
+    top: 900px;
+    left: 190px;
+  }
+
+  .p-join-every-content-right {
+    position: absolute;
+    top: 950px;
+    left: 130px;
+  }
+
+  //大会詳細
+  .p-detail-main {
+    width: 100%;
+    height: 120px;
+  }
+
+  .p-detail-main-title {
+    position: absolute;
+    width: 172px;
+    left: 33px;
+    top: 49px;
+    font-size: 18px;
+  }
+
+  .p-detail-sentence {
+    margin-left: 37px;
+    margin-top: 26px;
+  }
+
+  .p-detail-bluebox-big {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 5px;
+    top: 5px;
+  }
+
+  .p-detail-bluebox-small {
+    width: 12px;
+    height: 12px;
+  }
+
+  .p-detail-sentence-content {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 15px;
+  }
+
+  .p-detail-mainphoto-img {
+    width: 307px;
+    height: 140px;
+    margin: 0 auto;
+  }
+
+  .p-detail-subphoto-left {
+    width: 140px;
+    height: 140px;
+    margin-left: 10px;
+    margin-top: -60px;
+  }
+
+  .p-detail-subphoto-right {
+    display: none;
+  }
+
+  .p-detail-subphoto {
+    margin-bottom: 60px;
+  }
+
+  .p-detail-line {
+    width: 96px;
+    height: 24px;
+  }
+
+  .p-detail-line-top {
+    position: absolute;
+    width: 48px;
+    right: 48px;
+  }
+
+  .p-detail-line-middle {
+    position: absolute;
+    top: 19px;
+    width: 48px;
+  }
+
+  .p-detail-line-under {
+    position: absolute;
+    right: 14px;
+    width: 67px;
+  }
+
+  .p-detail-blue-line {
+    position: absolute;
+    width: 96px;
+    height: 24px;
+    top: 756px;
+    left: 0px;
+  }
+
+  .p-detail-blue-line-top {
+    position: absolute;
+    left: 0px;
+    width: 10px;
+  }
+
+  .p-detail-blue-line-middle {
+    position: absolute;
+    left: 12px;
+    top: 19px;
+    width: 48px;
+  }
+
+  .p-detail-blue-line-under {
+    position: absolute;
+    left: 0px;
+    width: 48px;
+  }
+
+  .p-detail-bottom-line {
+    display: none;
+  }
+
+  .p-detail-bottom-blueline {
+    display: none;
+  }
+
+  //イベント詳細
+  .p-Ivent-line-right {
+    right: 0px;
+    height: 24px;
+    top: 400px;
+  }
+
+  .p-Ivent-line-right-top {
+    position: absolute;
+    width: 10%;
+    right: 0px;
+  }
+
+  .p-Ivent-line-right-middle {
+    display: none;
+  }
+
+  .p-Ivent-line-right-under {
+    width: 30px;
+    right: 0px;
+  }
+
+  .p-Ivent-line-left {
+    left: 0px;
+    height: 24px;
+    width: 10%;
+  }
+
+  .p-Ivent-line-left-top {
+    display: none;
+  }
+
+  .p-Ivent-line-left-middle {
+    position: absolute;
+    width: 50%;
+    left: 0px;
+    top: 20px;
+  }
+
+  .p-Ivent-line-bottom-left {
+    display: none;
+  }
+
+  .p-Ivent-line-center-right {
+    display: none;
+  }
+
+  .p-Ivent-line-center-left {
+    height: 90%;
+    width: 10%;
+    top: 1920px;
+  }
+
+  .p-Ivent-line-center-left-top {
+    width: 8%;
+  }
+
+  .p-Ivent-line-center-left-middle {
+    position: absolute;
+    width: 50%;
+    left: 8px;
+    top: 19px;
+  }
+
+  .p-Ivent-line-center-left-under {
+    position: absolute;
+    width: 40%;
+    left: 0px;
+    top: 20px;
+  }
+
+  .p-Ivent-line-bottom-right {
+    position: absolute;
+    width: 10%;
+    height: 5%;
+    top: 1500px;
+    right: 0px;
+  }
+
+  .p-Ivent-line-bottom-right-top {
+    position: absolute;
+    width: 50%;
+    right: 8px;
+  }
+
+  .p-Ivent-line-bottom-right-middle {
+    position: absolute;
+    width: 10%;
+    right: 0px;
+    top: 20px;
+  }
+
+  .p-Ivent-line-bottom-right-under {
+    position: absolute;
+    width: 30%;
+    right: 0px;
+    top: 24px;
+  }
+
+  .p-Ivent-main {
+    position: relative;
+    height: 150px;
+  }
+
+  .p-Ivent-main-title {
+    position: absolute;
+    top: 60px;
+    left: 33px;
+    width: 196px;
+    height: 22px;
+    font-size: 18px;
+  }
+
+  .p-Ivent-sentence {
+    margin-top: 35px;
+    margin-left: 43px;
+  }
+
+  .p-Ivent-photo-main {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .p-Ivent-photo-sub {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 70px;
   }
 }
 /*-------------　ここまで-------------*/
