@@ -8,7 +8,7 @@ const description = "";
 const og_image = "";
 import TournamentComponent from '../../components/information.astro'
 import { getTournaments } from "@/lib/microcms";
-const response = await getTournaments({fields: ["id", "title", "description", "content", "images", "og_image", "createdAt"]})
+const response = await getTournaments({fields: ["id", "title", "description", "content", "images", "og_image", "createdAt", "publishedAt"]})
 const tournaments = response.contents;
 ---
 

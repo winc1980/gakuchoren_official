@@ -5,7 +5,7 @@ const title = "イベント情報";
 const description = "全日本釣魚連盟のイベントを紹介します";
 const og_image = "/images/university1.png";
 import { getEvents } from "@/lib/microcms";
-const response = await getEvents({fields: ["id", "title", "description", "content", "images", "og_image", "createdAt"]});
+const response = await getEvents({fields: ["id", "title", "description", "content", "images", "og_image", "createdAt", "publishedAt"]});
 const events = response.contents;
 ---
 
