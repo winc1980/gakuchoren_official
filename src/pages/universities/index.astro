@@ -58,7 +58,7 @@ const universities = Array.from(response.contents);
             <a href={university.link_homepage} target="_blank" rel="noopener noreferrer" class="hp-link">ホームページはこちら</a>
             <div class="link-row">
              <a href={university.link_welcome} target="_blank" rel="noopener noreferrer" class="welcome-link">新歓情報はこちら</a>
-             <a href={} target="_blank" rel="noopener noreferrer" class="details-link">詳しく見る&gt;&gt;</a>
+             <a href={`/university-detail/${university.id}`} target="_blank" rel="noopener noreferrer" class="details-link">詳しく見る&gt;&gt;</a>
           </div>
           </div>
         </div>

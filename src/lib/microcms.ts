@@ -21,6 +21,7 @@ export type Event = {
   publishedAt: string;
   revisedAt: string;
   title: string;
+  content: string;
   description: string;
   images: MicroCMSImage[];
   og_image: MicroCMSImage;

@@ -57,7 +57,7 @@ const tournaments = response.contents;
                     {tournaments.map((tournament) => {
                         return (
                             <div>
-                                <TournamentComponent title={tournament.title} content={tournament.content} />
+                                <TournamentComponent title={tournament.title} content={tournament.content} tournament={tournament}/>
                             </div>
                         )
                     })}

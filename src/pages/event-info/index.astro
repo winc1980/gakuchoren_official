@@ -27,14 +27,14 @@ const events = response.contents;
           return (
             <div class="event-item">
               <div class="event-image">
-                <div class="image-placeholder"></div>
+                <img src={event.images[0].url} alt="">
               </div>
               <div class="event-details">
                 <h2 class="event-title">{event.title}</h2>
                 <p class="event-description">
                   {event.description}
                 </p>
-                <a href="#" class="event-link">続きを読む&gt;&gt;</a>
+                <a href={`/Iventdetail/${event.id}`} class="event-link">続きを読む&gt;&gt;</a>
               </div>
             </div>
           )
