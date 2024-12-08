@@ -3,23 +3,9 @@ import Layout from "@/layouts/Layout.astro";
 const title = "加盟大学";
 const description = "全日本釣魚連盟に加盟している大学の一覧を紹介します。";
 const og_image = "public/images/university1.png";
-//import {Image} from "astro:assets";
-//import University from "@/components/University.astro";
 import { getUniversities } from "@/lib/microcms";
 const response = await getUniversities({ fields: ["id", "name", "content", "description", "image", "link_instagram", "link_x", "link_homepage", "link_welcome", "createdAt"] });
 const universities = Array.from(response.contents);
-// const universities = Array.from({ length: 10 }, (_, i) => ({
-//   name: `大学名 ${i + 1}`,
-//   description: `大学 ${i + 1} の釣りサークル活動内容がここに入ります。`,
-//   image: "public/images/university1.png", 
-//   links: {
-//     instagram: `https://instagram.com/university${i + 1}`,
-//     twitter: `https://twitter.com/university${i + 1}`,
-//     homepage: `https://university${i + 1}.com`,
-//     welcome: `https://university${i + 1}.com/welcome`,
-//     details: `http://localhost:4321/university-detail${i + 1}`,
-//   },
-// }));
 ---
 
 <Layout title={title} description={description} og_image={og_image}>

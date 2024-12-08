@@ -1176,12 +1176,12 @@ footer {
 }
 
 .p-information-search {
-  position: relative;
-  left: 1010px;
+  position: absolute;
+  right: 20px;
   top: 194px;
   width: 297px;
   height: 42px;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.9); /* 半透明の白背景 */
   justify-content: center;
   line-height: 2.5;
 }

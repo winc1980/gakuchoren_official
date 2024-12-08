@@ -10,6 +10,8 @@ import TournamentComponent from '../../components/information.astro'
 import { getTournaments } from "@/lib/microcms";
 const response = await getTournaments({fields: ["id", "title", "description", "content", "images", "og_image", "createdAt", "publishedAt"]})
 const tournaments = response.contents;
+
+import Search from "@/components/Search.astro";
 ---
 
 
@@ -20,7 +22,8 @@ const tournaments = response.contents;
         <div class="p-information">
             <h1 class="p-information-title">大会情報</h1>
             <div class="p-information-search">
-                <p class="">検索</p>
+                <Search />
+                <!-- <p class="">検索</p> -->
             </div>
         </div>
     </section>
