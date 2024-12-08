@@ -385,6 +385,7 @@
   position: relative;
   margin-top: 200px;
   left: 40px;
+  width: 100%;
 }
 
 .p-join-every-title-left {
@@ -433,7 +434,7 @@
 
 .p-join-every-content-under-left {
   position: absolute;
-  top: 198px;
+  top: 188px;
   left: 339px;
 }
 
@@ -444,7 +445,7 @@
   line-height: 1;
   position: relative;
   width: 0.1em;
-  height: 2em;
+  height: 1.5em;
   background: currentColor;
 }
 
@@ -465,7 +466,7 @@
 
 .p-join-every-content-under-aicon-left {
   position: absolute;
-  top: 349px;
+  top: 389px;
   left: 339px;
 }
 
@@ -496,7 +497,7 @@
 
 .p-join-every-content-under-right {
   position: absolute;
-  top: 198px;
+  top: 178px;
   left: 300px;
 }
 
@@ -507,7 +508,7 @@
   line-height: 1;
   position: relative;
   width: 0.1em;
-  height: 2em;
+  height: 1.5em;
   background: currentColor;
 }
 
@@ -528,7 +529,7 @@
 
 .p-join-every-content-under-aicon-right {
   position: absolute;
-  top: 349px;
+  top: 379px;
   left: 300px;
 }
 .p-join-bluebox-big-right {
@@ -598,7 +599,6 @@
 .p-inquiry-box {
   display: flex; /* Flexboxを有効化 */
   justify-content: center; /* 水平方向の中央揃え */
-  align-items: center; /* 垂直方向の中央揃え */
   max-width: 489px;
   height: 80px;
   margin: 1em auto;
@@ -606,7 +606,6 @@
   border: 2px solid #2589d0;
   border-radius: 3px;
   background-color: #0000ff;
-  text-align: center;
 }
 
 .p-inquiry-box-content {
@@ -1474,7 +1473,36 @@
   .p-about {
     position: relative;
     width: 100%;
-    height: 333px;
+    height: 400px;
+  }
+
+  .p-about-blueline {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    right: 0px;
+    top: 300px;
+  }
+
+  .p-about-blueline-top {
+    position: absolute;
+    width: 48px;
+    right: 17px;
+    top: 0px;
+  }
+
+  .p-about-blueline-middle {
+    position: absolute;
+    width: 20px;
+    right: 0px;
+    top: 17px;
+  }
+
+  .p-about-blueline-under {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 50px;
   }
 
   .p-about-bluebox-big {
@@ -1525,12 +1553,29 @@
     width: 130px;
   }
 
-  .p-about-blueline {
+  .p-about-line {
+    height: 24px;
+    width: 20%;
+  }
+
+  .p-about-line-top {
     position: absolute;
-    width: 96px;
-    height: 50px;
-    top: 24x;
-    right: 0px;
+    width: 48px;
+    left: 0px;
+    top: 0px;
+  }
+
+  .p-about-line-middle {
+    position: absolute;
+    top: 19px;
+    left: 48px;
+    width: 48px;
+  }
+
+  .p-about-line-under {
+    position: absolute;
+    width: 67px;
+    left: 14px;
   }
 
   .p-Ivent-detail-more {
@@ -1552,17 +1597,20 @@
     background-color: #0000ff; /* 線の色 */
     top: 50%; /* h2の中央位置に線を合わせる */
     width: 110%; /* ページ全幅 */
-    left: -700px;
+    left: -400px;
     transform: translateY(-50%); /* 縦位置調整 */
   }
 
   .p-Tournament-information-title::before {
-    right:-100px;
-    width: 100px;
+    width: 370px;
   }
 
   .p-Tournament-information-title::after {
-    left: 150px;
+    left: 140px;
+  }
+
+  .p-Tournament-information-line {
+    display: none;
   }
 
   .p-Tournament-information-content {
@@ -1571,9 +1619,30 @@
     width: 80%;
   }
 
+  .p-Tournament-information-buleline {
+    display: none;
+  }
+
   .p-Tournament-information-more {
     position: absolute;
-    left: 340px;
+    left: 330px;
+    color: #33ccff;
+  }
+
+  .p-Ivent {
+    height: 900px;
+  }
+
+  .p-Ivent-detail {
+    position: absolute;
+    top: 50px;
+    height: 300px;
+  }
+
+  .p-Ivent-detail-more {
+    position: absolute;
+    top: 750px;
+    left: 300px;
   }
 
   .p-Join {
@@ -1584,6 +1653,7 @@
   //大会情報
 
   .p-information {
+    position: relative;
     width: 100%;
     height: 300px;
   }
@@ -1674,6 +1744,146 @@
     height: 1500px;
   }
 
+  .p-Join-line-center-right {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    top: 0px;
+    right: 0px;
+  }
+
+  .p-Join-line-center-right-top {
+    position: absolute;
+    width: 48px;
+    right: 48px;
+    top: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Join-line-center-right-middle {
+    position: absolute;
+    width: 48px;
+    right: 0px;
+    top: 19px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Join-line-center-right-under {
+    position: absolute;
+    width: 67px;
+    right: 14px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    bottom: 0px;
+  }
+
+  .p-Join-line-center-left {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    top: 100px;
+    left: 0px;
+  }
+
+  .p-Join-line-center-left-top {
+    position: absolute;
+    width: 10px;
+    left: 0px;
+    top: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Join-line-center-left-middle {
+    position: absolute;
+    width: 48px;
+    left: 17px;
+    top: 19px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Join-line-center-left-under {
+    position: absolute;
+    width: 50px;
+    left: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    bottom: 0px;
+  }
+
+  .p-Join-line-bottom-left {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    top: 800px;
+    left: 0px;
+  }
+
+  .p-Join-line-bottom-left-top {
+    position: absolute;
+    width: 40px;
+    left: 0px;
+    top: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Join-line-bottom-left-middle {
+    position: absolute;
+    width: 48px;
+    left: 41px;
+    top: 19px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Join-line-bottom-left-under {
+    position: absolute;
+    width: 67px;
+    left: 7px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    bottom: 0px;
+  }
+
+  .p-Join-line-bottom-right {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    top: 700px;
+    right: 0px;
+  }
+
+  .p-Join-line-bottom-right-top {
+    position: absolute;
+    width: 48px;
+    right: 24px;
+    top: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Join-line-bottom-right-middle {
+    position: absolute;
+    width: 20px;
+    right: 0px;
+    top: 19px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Join-line-bottom-right-under {
+    position: absolute;
+    width: 60px;
+    right: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    bottom: 0px;
+  }
+
   .p-Join-every {
     position: absolute;
     left: 0px;
@@ -1687,7 +1897,7 @@
     display: none;
   }
 
-  .p-join-every-content-left{
+  .p-join-every-content-left {
     margin-bottom: 10px;
   }
 
@@ -1703,18 +1913,86 @@
     left: 130px;
   }
 
+  .p-inquiry {
+    width: 100%;
+  }
+
+  .p-inquiry-line {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    top: 300px;
+    left: 0px;
+  }
+
+  .p-inquiry-line-top {
+    position: absolute;
+    width: 48px;
+    left: 0px;
+    top: 0px;
+  }
+
+  .p-inquiry-line-middle {
+    position: absolute;
+    width: 48px;
+    left: 48px;
+    top: 19px;
+  }
+
+  .p-inquiry-line-under {
+    position: absolute;
+    width: 67px;
+    left: 15px;
+  }
+
+  .p-inquiry-blueline {
+    position: absolute;
+    right: -90px;
+    top: 0px;
+    width: 20%;
+    height: 24px;
+  }
+
+  .p-inquiry-blueline-top {
+    position: absolute;
+    width: 48px;
+    left: -16px;
+    top: 0px;
+  }
+
+  .p-inquiry-blueline-middle {
+    position: absolute;
+    width: 20px;
+    left: 43px;
+    top: 19px;
+  }
+
+  .p-inquiry-blueline-under {
+    position: absolute;
+    width: 40px;
+    left: 25px;
+    bottom: 0px;
+  }
+
+  .p-inquiry-line {
+    position: absolute;
+    height: 24px;
+    width: 20%;
+    left: 0px;
+    top: 100px;
+  }
+
   //大会詳細
   .p-detail-main {
     width: 100%;
-    height: 120px;
+    height: 300px;
   }
 
   .p-detail-main-title {
     position: absolute;
-    width: 172px;
-    left: 33px;
-    top: 49px;
-    font-size: 18px;
+    width: 300px;
+    text-align: left;
+    font-size: 30px;
   }
 
   .p-detail-sentence {
@@ -1742,15 +2020,16 @@
   }
 
   .p-detail-mainphoto-img {
-    width: 307px;
-    height: 140px;
+    width: 80%;
+    height: 300px;
     margin: 0 auto;
+    overflow: hidden;
   }
 
   .p-detail-subphoto-left {
-    width: 140px;
-    height: 140px;
-    margin-left: 10px;
+    width: 30%;
+    height: 200px;
+    margin-left: 70px;
     margin-top: -60px;
   }
 
@@ -1921,16 +2200,15 @@
 
   .p-Ivent-main {
     position: relative;
-    height: 150px;
+    height: 300px;
   }
 
   .p-Ivent-main-title {
     position: absolute;
-    top: 60px;
-    left: 33px;
-    width: 196px;
+    text-align: left;
+    width: 400px;
     height: 22px;
-    font-size: 18px;
+    font-size: 30px;
   }
 
   .p-Ivent-sentence {
