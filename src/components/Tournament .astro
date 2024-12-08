@@ -1,11 +1,11 @@
 ---
-const { title, content } = Astro.props;
+const { title, content, id } = Astro.props;
 ---
 
 <div class="my-component">
   <h1>{title}</h1>
   <p class="shortened-text">{content}</p>
-  <button class="read-more-btn">続きを読む>></button>
+  <a class="read-more-btn" href={`/Tournamentdetail/${id}`}>続きを読む>></a>
   <button class="close-btn" style="display: none;">閉じる>></button>
 </div>
 
@@ -64,16 +64,16 @@ const { title, content } = Astro.props;
     const closeBtn = document.querySelector(".close-btn");
     const textContainer = document.querySelector(".shortened-text");
 
-    readMoreBtn.addEventListener("click", () => {
-      textContainer.classList.add("expanded-text");
-      readMoreBtn.style.display = "none"; // "続きを読む" ボタンを隠す
-      closeBtn.style.display = "inline-block"; // "閉じる" ボタンを表示
+    readMoreBtn!.addEventListener("click", () => {
+      textContainer!.classList.add("expanded-text");
+      readMoreBtn!.style.display = "none"; // "続きを読む" ボタンを隠す
+      closeBtn!.style.display = "inline-block"; // "閉じる" ボタンを表示
     });
 
-    closeBtn.addEventListener("click", () => {
-      textContainer.classList.remove("expanded-text");
-      readMoreBtn.style.display = "inline-block"; // "続きを読む" ボタンを再表示
-      closeBtn.style.display = "none"; // "閉じる" ボタンを隠す
+    closeBtn!.addEventListener("click", () => {
+      textContainer!.classList.remove("expanded-text");
+      readMoreBtn!.style.display = "inline-block"; // "続きを読む" ボタンを再表示
+      closeBtn!.style.display = "none"; // "閉じる" ボタンを隠す
     });
   });
 </script>

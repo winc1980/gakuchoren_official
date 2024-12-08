@@ -37,35 +37,8 @@ const tournament = await getTournamentDetail(id);
             <p class="p-detail-sentence-content">{tournament.content}</p>
         </div>
     </section>
-    <!-- <div class="p-detail-line">
-        <div class="p-detail-line-top"></div>
-        <div class="p-detail-line-middle"></div>
-        <div class="p-detail-line-under"></div>
-    </div> -->
 
-    <!-- <section class="p-detail-mainphoto">
-        <img class="p-detail-mainphoto-img" src="../../../public/assets/hasu_1.jpg" alt="">
-    </section> -->
-    <!-- 実装してくれたのに申し訳ないけど上の大きい画像は、書類とか載せることを考えると無くした方がいいかも -->
-    
-    <!-- <div class="p-detail-blue-line">
-        <div class="p-detail-blue-line-top"></div>
-        <div class="p-detail-blue-line-middle"></div>
-        <div class="p-detail-blue-line-under"></div>
-    </div>
-    <div class="p-detail-bottom-line">
-        <div class="p-detail-bottom-line-top"></div>
-        <div class="p-detail-bottom-line-middle"></div>
-        <div class="p-detail-bottom-line-under"></div>
-    </div>
-    <div class="p-detail-bottom-blueline">
-        <div class="p-detail-bottom-blueline-top"></div>
-        <div class="p-detail-bottom-blueline-middle"></div>
-        <div class="p-detail-bottom-blueline-under"></div>
-    </div> -->
-
-
-    <section>
+    <!-- <section>
         <div class="p-detail-subphoto">
             {tournament.images && tournament.images.map((image) => {
                 return (
@@ -73,13 +46,20 @@ const tournament = await getTournamentDetail(id);
                 )
             })}
         </div>
-    </section>
-
-    <!-- <div class="p-detail-bottom-line">
-        <div class="p-detail-bottom-line-top"></div>
-        <div class="p-detail-bottom-line-middle"></div>
-        <div class="p-detail-bottom-line-under"></div>
-    </div> --> 
+    </section> -->
+    <section>
+        <div class="p-detail-subphoto">
+          {tournament.images && tournament.images.map((image) => (
+            <a href={image.url} data-lightbox="tournament-images" data-title={image.url}>
+              <img
+                class="p-detail-subphoto-all"
+                src={image.url}
+                alt={"Images for tournaments"}
+              />
+            </a>
+          ))}
+        </div>
+      </section>
 
 </main>
 </Layout>

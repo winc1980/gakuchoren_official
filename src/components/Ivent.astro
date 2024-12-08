@@ -1,5 +1,5 @@
 ---
-const { image, title, content } = Astro.props;
+const { image, title, content, id } = Astro.props;
 ---
 
 <div class="my-component">
@@ -10,7 +10,7 @@ const { image, title, content } = Astro.props;
   <div>
     <h1>{title}</h1>
     <p class="shortened-text">{content}</p>
-    <p class="next read-more-btn">続きを読む>></p>
+    <a class="next read-more-btn" href={`/Iventdetail/${id}`}>続きを読む>></a>
   </div>
 </div>
 
@@ -72,15 +72,15 @@ const { image, title, content } = Astro.props;
     const readMoreBtn = document.querySelector(".read-more-btn");
     const textContainer = document.querySelector(".my-component");
 
-    readMoreBtn.addEventListener("click", () => {
+    readMoreBtn!.addEventListener("click", () => {
       // "expanded" クラスを付け替え
-      textContainer.classList.toggle("expanded");
+      textContainer!.classList.toggle("expanded");
 
       // ボタンの表示テキストを切り替え
-      if (textContainer.classList.contains("expanded")) {
-        readMoreBtn.textContent = "閉じる>>";
+      if (textContainer!.classList.contains("expanded")) {
+        readMoreBtn!.textContent = "閉じる>>";
       } else {
-        readMoreBtn.textContent = "続きを読む>>";
+        readMoreBtn!.textContent = "続きを読む>>";
       }
     });
   });

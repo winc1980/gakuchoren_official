@@ -119,7 +119,10 @@ export type Admission = {
   revisedAt: string;
   firstStep: string;
   secondStep: string;
-  ThirdStep: string;
+  thirdStep: string;
+  firstStepGroup: string;
+  secondStepGroup: string;
+  thirdStepGroup: string;
 };
 export type AdmissionResponse = {
   totalCount: number;

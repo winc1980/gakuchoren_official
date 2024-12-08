@@ -206,7 +206,7 @@ footer {
 
 .university-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   padding: 20px;
 }
@@ -283,8 +283,8 @@ footer {
 
     .link-row {
       display: flex;
-      justify-content: space-between; 
-      align-items: center; 
+      justify-content: space-between;
+      align-items: center;
     }
 
     a:hover {
@@ -1649,14 +1649,24 @@ footer {
 }
 
 .p-detail-subphoto {
-  display: flex;
-  gap: 80px;
+  display: grid;
+  gap: 40px;
   margin-bottom: 178px;
+
+  /* 左右に余白を追加 */
+  padding: 0 20px; /* 画面左右に20pxの余白 */
+  box-sizing: border-box; /* paddingを含めて幅を計算 */
+
+  /* グリッドのカラム設定 */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center; /* 画像を中央揃えにする */
 }
 
 .p-detail-subphoto-all {
-  width: 516px;
-  height: 452px;
+  width: 100%;
+  max-width: 516px; /* 最大幅を設定 */
+  height: auto; /* アスペクト比を維持 */
+  object-fit: cover; /* 画像が適切に収まるようにする */
 }
 
 /*-------------　ここまで-------------*/
@@ -1974,7 +1984,7 @@ footer {
     height: 26px;
   }
 
-  .p-about-detail{
+  .p-about-detail {
     position: absolute;
     left: 198px;
     top: 271px;
@@ -1983,4 +1993,3 @@ footer {
   }
 }
 /*-------------　ここまで-------------*/
-
