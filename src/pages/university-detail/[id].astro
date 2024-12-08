@@ -1,0 +1,50 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getUniversities, getUniversityDetail } from "@/lib/microcms";
+
+const title = "加盟大学詳細";
+const description = "加盟大学の詳細情報を表示します。";
+const og_image = "/images/university1.png"; 
+
+export async function getStaticPaths() {
+  const response = await getUniversities();
+  const universities = Array.from(response.contents);
+  return universities.map(university => ({
+    params: { id: university.id },
+  }));
+}
+
+const {id} = Astro.params;
+const university = await getUniversityDetail(id);
+---
+
+<Layout title={title} description={description} og_image={og_image}>
+  <main class="university-detail-main">
+    <!-- 상단 헤더 -->
+    <section class="university-header">
+      <h1>{university.name}</h1>
+    </section>
+
+    <!-- 텍스트 및 이미지 섹션 -->
+    <section class="university-content">
+      <p>{university.description}</p>
+      <div class="image-placeholder">
+        <img src={university.image.url} alt={university.name} class="university-image" />
+      </div>
+    </section>
+
+    <!-- 하단 아이콘 및 링크 -->
+    <section class="university-footer">
+      <div class="icon-links">
+        <a href={university.link_instagram} target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href={university.link_x} target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </div>
+      <p><a href={university.link_homepage} target="_blank" rel="noopener noreferrer">ホームページはこちら</a></p>
+      <p><a href={university.link_welcome} target="_blank" rel="noopener noreferrer">新歓情報はこちら</a></p>
+    </section>
+  </main>
+</Layout>
