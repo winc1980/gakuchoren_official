@@ -479,6 +479,18 @@
   top: 95px;
 }
 
+.p-join-every-title-mobile{
+  display: none;
+}
+
+.p-join-every-title-nmobile-Individual{
+  display: none;
+}
+
+.p-join-every-title-Organization{
+  display: none;
+}
+
 .p-join-every-content-right {
   position: absolute;
   top: 164px;
@@ -1648,6 +1660,19 @@
   .p-Join {
     width: 100%;
     height: 2000px;
+  }
+
+  .p-join-every-title-left{
+    display: none;
+  }
+
+  .p-join-every-title-mobile{
+    font-size: 40px;
+    width: 500px;
+    height: 47px;
+    position: absolute;
+    left: 185px;
+    top: 95px;
   }
 
   //大会情報
