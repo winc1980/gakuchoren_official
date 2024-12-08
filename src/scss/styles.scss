@@ -362,7 +362,8 @@ footer {
   }
 
   .image-placeholder {
-    width: 100%;
+    width: 500px;
+    max-width: 100%;
     height: auto;
     background-color: transparent;
     box-shadow: 10px 10px 0px 0px #0000ff; // 파란색 그림자 효과
@@ -383,6 +384,18 @@ footer {
       left: 0;
       width: 100%;
       height: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .image-placeholder {
+    width: 80%;
+    max-width: 80%;
+
+    &::after {
+      width: 80%;
+      max-width: 80%;
     }
   }
 }
