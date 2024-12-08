@@ -56,6 +56,13 @@ const { title, content, id } = Astro.props;
     border: none;
     background: transparent;
   }
+
+  @media screen and (max-width: 768px) {
+    .read-more-btn,
+  .close-btn {
+    display: none;
+  }
+  }
 </style>
 
 <script>
