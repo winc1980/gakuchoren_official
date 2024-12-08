@@ -54,6 +54,7 @@ footer {
   }
 }
 
+/* 通常のスタイル */
 .about-section {
   display: flex;
   flex-direction: column;
@@ -65,25 +66,28 @@ footer {
     gap: $spacing-large;
     align-items: center;
 
-    &:first-child {
-      flex-direction: row;
-    }
-
+    &:first-child,
     &:nth-child(2) {
-      flex-direction: row;
+      /* 上下の画像に適用 */
+      flex-direction: column; /* 縦並びに固定 */
+      align-items: center;
+
+      .image-placeholder {
+        width: 500px; /* 横幅を広げる */
+        max-width: 100%; /* 必要に応じて親幅に対応 */
+        height: auto; /* 縦横比を保つ */
+        margin-bottom: $spacing-large; /* 画像とテキストの間にスペース */
+      }
+
+      p {
+        text-align: center; /* テキストを中央揃え */
+        max-width: 700px; /* 必要ならテキストの幅を制限 */
+      }
     }
 
     &:last-child {
       flex-direction: column;
       text-align: justify;
-    }
-
-    .image-placeholder {
-      width: 200px;
-      height: 200px;
-      background-color: $image-placeholder-color;
-      position: relative;
-      box-shadow: 10px 10px 0px 0px #0000ff;
     }
   }
 
@@ -92,6 +96,25 @@ footer {
     font-size: 16px;
     line-height: 1.8;
     color: $text-color;
+  }
+}
+
+/* 728px以下のレスポンシブスタイル */
+@media (max-width: 728px) {
+  .about-section {
+    .about-item:first-child,
+    .about-item:nth-child(2) {
+      /* 上下の画像に同じスタイルを適用 */
+      .image-placeholder {
+        width: 100%; /* 横幅いっぱい */
+        max-width: 600px; /* 最大幅の指定 */
+        margin-bottom: $spacing-large; /* 画像とテキストの間にスペース */
+      }
+
+      p {
+        text-align: center; /* テキストを中央揃え */
+      }
+    }
   }
 }
 
