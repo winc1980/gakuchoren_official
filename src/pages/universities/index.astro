@@ -1,0 +1,54 @@
+---
+import Layout from "@/layouts/Layout.astro";
+const title = "加盟大学";
+const description = "全日本釣魚連盟に加盟している大学の一覧を紹介します。";
+const og_image = "public/images/university1.png";
+import { getUniversities } from "@/lib/microcms";
+const response = await getUniversities({ fields: ["id", "name", "content", "description", "image", "link_instagram", "link_x", "link_homepage", "link_welcome", "createdAt"] });
+const universities = Array.from(response.contents);
+---
+
+<Layout title={title} description={description} og_image={og_image}>
+  <main class="universities-main">
+    <!--배경 -->
+    <section class="universities-header">
+      <h1>加盟大学</h1>
+    </section>
+
+    <!-- 대학 리스트 -->
+    <section class="university-list">
+      {universities.map((university) => (
+        <!-- <University name={content.name} content={content.content} image={content.image} link_instagram={content.link_instagram} link_x={content.link_x} link_welcome={content.link_welcome} /> -->
+        
+        <div class="university-item">
+          <!-- 이미지 및 SNS 아이콘 -->
+          <div class="image-wrapper">
+            <img src={university.image.url} alt={university.name} class="university-image" />
+            <div class="social-icons">
+              <a href={university.link_instagram} target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href={university.link_x} target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 대학 정보 -->
+          <h2 class="university-name">{university.name}</h2>
+          <hr class="divider" />
+          <p class="university-description">{university.description}</p>
+
+          <!-- 링크 -->
+          <div class="university-links">
+            <a href={university.link_homepage} target="_blank" rel="noopener noreferrer" class="hp-link">ホームページはこちら</a>
+            <div class="link-row">
+             <a href={university.link_welcome} target="_blank" rel="noopener noreferrer" class="welcome-link">新歓情報はこちら</a>
+             <a href={`/university-detail/${university.id}`} target="_blank" rel="noopener noreferrer" class="details-link">詳しく見る&gt;&gt;</a>
+          </div>
+          </div>
+        </div>
+      ))}
+    </section>
+  </main>
+</Layout>

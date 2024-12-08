@@ -1,0 +1,50 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+const title = "加盟大学詳細";
+const description = "加盟大学の詳細情報を表示します。";
+const og_image = "/images/university1.png"; // "public" 경로를 제거, Astro는 /public 디렉터리를 루트로 간주합니다.
+
+const university = {
+  name: "OO大学",
+  description: "あああああああああああああああああああああああああ",
+  image: "public/images/university1.png", 
+  links: {
+    instagram: "https://instagram.com/university1",
+    twitter: "https://twitter.com/university1",
+    homepage: "https://university1.com",
+    welcome: "https://university1.com/welcome",
+  },
+};
+---
+
+<Layout title={title} description={description} og_image={og_image}>
+  <main class="university-detail-main">
+    <!-- 상단 헤더 -->
+    <section class="university-header">
+      <h1>{university.name}</h1>
+    </section>
+
+    <!-- 텍스트 및 이미지 섹션 -->
+    <section class="university-content">
+      <p>{university.description}</p>
+      <div class="image-placeholder">
+        <img src={university.image} alt={university.name} class="university-image" />
+      </div>
+    </section>
+
+    <!-- 하단 아이콘 및 링크 -->
+    <section class="university-footer">
+      <div class="icon-links">
+        <a href={university.links.instagram} target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href={university.links.twitter} target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </div>
+      <p><a href={university.links.homepage} target="_blank" rel="noopener noreferrer">ホームページはこちら</a></p>
+      <p><a href={university.links.welcome} target="_blank" rel="noopener noreferrer">新歓情報はこちら</a></p>
+    </section>
+  </main>
+</Layout>

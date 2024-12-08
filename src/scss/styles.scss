@@ -2,6 +2,550 @@
 
 @use "./variables" as *;
 
+// ===== 공통 스타일 =====
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: $primary-color;
+  color: white;
+  padding: $spacing-medium;
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: $spacing-medium;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: $spacing-medium 0;
+  background: $primary-color;
+}
+
+// ===== About 페이지 스타일 =====
+.about-main {
+  background-color: white;
+}
+
+.about-header {
+  background-color: #add8e6;
+  text-align: center;
+  padding: $spacing-large;
+
+  h1 {
+    font-size: 12px;
+    color: black;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-large;
+  padding: $spacing-large;
+
+  .about-item {
+    display: flex;
+    gap: $spacing-large;
+    align-items: center;
+
+    &:first-child {
+      flex-direction: row;
+    }
+
+    &:nth-child(2) {
+      flex-direction: row;
+    }
+
+    &:last-child {
+      flex-direction: column;
+      text-align: justify;
+    }
+
+    .image-placeholder {
+      width: 200px;
+      height: 200px;
+      background-color: $image-placeholder-color;
+      position: relative;
+      box-shadow: 10px 10px 0px 0px #0000ff;
+    }
+  }
+
+  p {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.8;
+    color: $text-color;
+  }
+}
+
+// ===== Contact 페이지 스타일 =====
+.contact-main {
+  background-color: white;
+}
+
+.contact-header {
+  background-color: #add8e6;
+  text-align: left;
+  color: black;
+  padding: $spacing-large;
+
+  h1 {
+    font-size: 12px;
+    color: black;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-large;
+  padding: $spacing-large;
+
+  .contact-form-wrapper {
+    background-color: white;
+    padding: $spacing-medium;
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: $spacing-medium;
+      color: black;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-medium;
+
+      .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: $spacing-small;
+
+        label {
+          width: 150px;
+          text-align: right;
+          font-size: 14px;
+          color: $text-color;
+        }
+
+        input,
+        textarea {
+          flex: 1;
+          padding: $spacing-small;
+          border: 1px solid #ccc;
+          background-color: #ccc;
+          font-size: 14px;
+        }
+
+        textarea {
+          resize: vertical;
+          min-height: 100px;
+        }
+      }
+
+      button {
+        align-self: flex-start;
+        margin-left: 160px;
+        background-color: #0000ff;
+        color: white;
+        border: none;
+        padding: $spacing-small;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+}
+
+// ===== University List 페이지 스타일 =====
+.universities-main {
+  padding: 0;
+  margin: 0;
+}
+
+.universities-header {
+  background-color: #a7e0ff;
+  text-align: left;
+  font-size: 10px;
+  padding: 30px;
+
+  h1 {
+    font-size: 12px;
+    color: black;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+.university-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.university-item {
+  padding: 15px;
+  background-color: #fff;
+  text-align: left;
+  position: relative;
+
+  .image-wrapper {
+    position: relative;
+
+    .university-image {
+      width: 100%;
+      height: auto;
+      border-radius: 0px;
+    }
+
+    .university-name {
+      font-size: 20px;
+      margin: 10px 0;
+      color: #333;
+      display: inline-block;
+    }
+
+    .social-icons {
+      position: absolute;
+      right: 10px;
+      display: flex;
+      gap: 10px;
+      font-size: 20px;
+
+      a img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid black;
+    margin: 10px 0;
+  }
+
+  .university-description {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+  }
+
+  .university-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    a {
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .hp-link,
+    .welcome-link {
+      color: black;
+      font-weight: bold;
+      text-decoration: underline;
+      text-decoration-color: skyblue;
+    }
+
+    .details-link {
+      color: skyblue;
+      text-align: right;
+    }
+
+    .link-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .university-list {
+    grid-template-columns: 1fr; /* 한 줄에 한 개의 열 */
+    gap: 20px; /* 항목 간 간격 유지 */
+  }
+
+  .university-item {
+    width: 100%; /* 각 항목이 전체 너비를 차지하도록 설정 */
+  }
+}
+
+// ===== University Detail 페이지 스타일 =====
+.university-detail-main {
+  background-color: $background-color;
+}
+
+.university-header {
+  background-color: #add8e6;
+  text-align: left;
+  padding: 30px;
+
+  h1 {
+    font-size: 20px;
+    color: black;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+.university-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+
+  p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: $text-color;
+    max-width: 80%;
+    text-align: justify;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    box-shadow: 10px 10px 0px 0px #0000ff; // 파란색 그림자 효과
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.university-footer {
+  text-align: center;
+  padding: 20px;
+
+  .icon-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    a {
+      text-decoration: none;
+      font-size: 20px;
+      color: black;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    margin: 5px 0;
+    text-decoration: underline;
+    text-decoration-color: skyblue;
+  }
+}
+
+.event-main {
+  background-color: white;
+  padding: 0;
+}
+
+.event-header {
+  background-color: #a7e0ff;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-size: 12px;
+    color: black;
+    margin: 0;
+    text-align: left;
+  }
+
+  .search-box {
+    input {
+      position: absolute;
+      top: 100px;
+      right: 20px;
+      font-size: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+
+      &:focus {
+        border-color: #0000ff;
+      }
+    }
+  }
+}
+
+.event-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  .event-list {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .event-item {
+      display: flex;
+      gap: 15px;
+      border-bottom: 1px solid skyblue;
+      padding-bottom: 20px;
+
+      .event-image {
+        width: 120px;
+        height: 120px;
+
+        .image-placeholder {
+          width: 100%;
+          height: 100%;
+          background-color: #e0e0e0;
+        }
+      }
+
+      .event-details {
+        flex: 1;
+
+        .event-title {
+          font-size: 18px;
+          color: black;
+          margin: 0 0 10px;
+        }
+
+        .event-description {
+          font-size: 14px;
+          color: #555;
+          margin-bottom: 10px;
+        }
+
+        .event-link {
+          text-align: right;
+          font-size: 14px;
+          color: skyblue;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .event-archive {
+    width: 25%;
+    border: 1px solid blue;
+    padding: 20px;
+
+    h3 {
+      font-size: 16px;
+      color: black;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 10px;
+
+        a {
+          font-size: 14px;
+          color: black;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 768px 이하에서의 반응형 스타일 */
+@media (max-width: 768px) {
+  .event-content {
+    display: flex; // 부모 컨테이너를 플렉스 컨테이너로 유지
+    flex-direction: column; // 세로 정렬로 변경
+    align-items: center; // 자식 요소를 가운데 정렬
+    gap: 20px;
+    padding: 0px; // 리스트와 아카이브 간의 간격 추 // 패딩 제거
+  }
+
+  .event-list {
+    padding: 30px;
+  }
+
+  .event-list,
+  .event-archive {
+    width: 100% !important;
+    box-sizing: border-box; // 패딩과 보더 포함한 너비 계산
+    max-width: 768px; // 최대 너비 설정
+  }
+
+  .event-archive {
+    margin-top: 20px; // 이벤트 리스트 아래 간격 추가
+  }
+}
+
 /*-------------　ここから-------------*/
 // メインページ
 .body {
@@ -691,12 +1235,12 @@
 }
 
 .p-information-search {
-  position: relative;
-  left: 1010px;
+  position: absolute;
+  right: 20px;
   top: 194px;
   width: 297px;
   height: 42px;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.9); /* 半透明の白背景 */
   justify-content: center;
   line-height: 2.5;
 }
@@ -1164,128 +1708,114 @@
 }
 
 .p-detail-subphoto {
-  display: flex;
-  gap: 80px;
+  display: grid;
+  gap: 40px;
   margin-bottom: 178px;
+
+  /* 左右に余白を追加 */
+  padding: 0 20px; /* 画面左右に20pxの余白 */
+  box-sizing: border-box; /* paddingを含めて幅を計算 */
+
+  /* グリッドのカラム設定 */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center; /* 画像を中央揃えにする */
 }
 
-.p-detail-subphoto-left {
-  width: 516px;
-  height: 452px;
-}
+.p-detail-subphoto-all {
+  width: 100%;
+  max-width: 516px; /* 最大幅を設定 */
+  height: auto; /* アスペクト比を維持 */
+  object-fit: cover; /* 画像が適切に収まるようにする */
 
-.p-detail-subphoto-right {
-  width: 516px;
-  height: 452px;
-}
+  .p-detail-subphoto-left {
+    width: 516px;
+    height: 452px;
+  }
 
-/*-------------　ここまで-------------*/
+  .p-detail-subphoto-right {
+    width: 516px;
+    height: 452px;
+  }
 
-/*-------------　ここから-------------*/
-//イベント情報詳細ページ
+  /*-------------　ここまで-------------*/
 
-.body {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 15px;
-  overflow-x: hidden; /* 横スクロールを無効化 */
-}
+  /*-------------　ここから-------------*/
+  //イベント情報詳細ページ
 
-.p-Ivent-line-right {
-  position: absolute;
-  width: 200px; /* 全体の幅 */
-  height: 50px; /* 全体の高さ */
-  top: 377px;
-  right: 0px;
-}
+  .body {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 15px;
+    overflow-x: hidden; /* 横スクロールを無効化 */
+  }
 
-.p-Ivent-line-right-top {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  right: 0px;
-  top: 0px;
-  width: 140px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-}
+  .p-Ivent-line-right {
+    position: absolute;
+    width: 200px; /* 全体の幅 */
+    height: 50px; /* 全体の高さ */
+    top: 377px;
+    right: 0px;
+  }
 
-.p-Ivent-line-right-middle {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  right: 0px;
-  top: 9px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-  transform: translateY(-50%); /* 完全に中央に整列 */
-}
+  .p-Ivent-line-right-top {
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    right: 0px;
+    top: 0px;
+    width: 140px; /* 親要素の幅いっぱいに広がる */
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
 
-.p-Ivent-line-right-under {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  bottom: 0; /* 下に配置 */
-  right: 58px;
-  height: 1px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  background-color: #33ccff; /* 線の色 */
-}
+  .p-Ivent-line-right-middle {
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    right: 0px;
+    top: 9px;
+    width: 100px; /* 親要素の幅いっぱいに広がる */
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    transform: translateY(-50%); /* 完全に中央に整列 */
+  }
 
-.p-Ivent-line-left {
-  position: absolute;
-  width: 200px; /* 全体の幅 */
-  height: 50px; /* 全体の高さ */
-  top: 741px;
-  left: 0px;
-}
+  .p-Ivent-line-right-under {
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    bottom: 0; /* 下に配置 */
+    right: 58px;
+    height: 1px;
+    width: 100px; /* 親要素の幅いっぱいに広がる */
+    background-color: #33ccff; /* 線の色 */
+  }
 
-.p-Ivent-line-left-top {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  left: 0px;
-  top: 0px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-}
+  .p-Ivent-line-left {
+    position: absolute;
+    width: 200px; /* 全体の幅 */
+    height: 50px; /* 全体の高さ */
+    top: 741px;
+    left: 0px;
+  }
 
-.p-Ivent-line-left-middle {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  left: 25px;
-  top: 9px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-  transform: translateY(-50%); /* 完全に中央に整列 */
-}
+  .p-Ivent-line-left-top {
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    left: 0px;
+    top: 0px;
+    width: 100px; /* 親要素の幅いっぱいに広がる */
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
 
-.p-Ivent-line-left-under {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  bottom: 0; /* 下に配置 */
-  left: 0px;
-  height: 1px;
-  width: 25px; /* 親要素の幅いっぱいに広がる */
-  background-color: #33ccff; /* 線の色 */
-}
-
-.p-Ivent-line-center-left {
-  position: absolute;
-  width: 200px; /* 全体の幅 */
-  height: 50px; /* 全体の高さ */
-  top: 1383px;
-  left: 0px;
-}
-
-.p-Ivent-line-center-left-top {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  left: 0px;
-  top: 0px;
-  width: 140px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-}
+  .p-Ivent-line-left-middle {
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    left: 25px;
+    top: 9px;
+    width: 100px; /* 親要素の幅いっぱいに広がる */
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    transform: translateY(-50%); /* 完全に中央に整列 */
+  }
 
 .p-Ivent-line-center-left-middle {
   position: absolute; /* 必須: 親要素を基準に位置を設定 */
@@ -2087,143 +2617,165 @@
     position: absolute;
     right: 14px;
     width: 67px;
-  }
 
-  .p-detail-blue-line {
-    position: absolute;
-    width: 96px;
-    height: 24px;
-    top: 756px;
+  .p-Ivent-line-left-under {
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    bottom: 0; /* 下に配置 */
     left: 0px;
-  }
-
-  .p-detail-blue-line-top {
-    position: absolute;
-    left: 0px;
-    width: 10px;
-  }
-
-  .p-detail-blue-line-middle {
-    position: absolute;
-    left: 12px;
-    top: 19px;
-    width: 48px;
-  }
-
-  .p-detail-blue-line-under {
-    position: absolute;
-    left: 0px;
-    width: 48px;
-  }
-
-  .p-detail-bottom-line {
-    display: none;
-  }
-
-  .p-detail-bottom-blueline {
-    display: none;
-  }
-
-  //イベント詳細
-  .p-Ivent-line-right {
-    right: 0px;
-    height: 24px;
-    top: 400px;
-  }
-
-  .p-Ivent-line-right-top {
-    position: absolute;
-    width: 10%;
-    right: 0px;
-  }
-
-  .p-Ivent-line-right-middle {
-    display: none;
-  }
-
-  .p-Ivent-line-right-under {
-    width: 30px;
-    right: 0px;
-  }
-
-  .p-Ivent-line-left {
-    left: 0px;
-    height: 24px;
-    width: 10%;
-  }
-
-  .p-Ivent-line-left-top {
-    display: none;
-  }
-
-  .p-Ivent-line-left-middle {
-    position: absolute;
-    width: 50%;
-    left: 0px;
-    top: 20px;
-  }
-
-  .p-Ivent-line-bottom-left {
-    display: none;
-  }
-
-  .p-Ivent-line-center-right {
-    display: none;
+    height: 1px;
+    width: 25px; /* 親要素の幅いっぱいに広がる */
+    background-color: #33ccff; /* 線の色 */
   }
 
   .p-Ivent-line-center-left {
-    height: 90%;
-    width: 10%;
-    top: 1920px;
+    position: absolute;
+    width: 200px; /* 全体の幅 */
+    height: 50px; /* 全体の高さ */
+    top: 1383px;
+    left: 0px;
   }
 
   .p-Ivent-line-center-left-top {
-    width: 8%;
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    left: 0px;
+    top: 0px;
+    width: 140px; /* 親要素の幅いっぱいに広がる */
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
   }
 
   .p-Ivent-line-center-left-middle {
-    position: absolute;
-    width: 50%;
-    left: 8px;
-    top: 19px;
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    left: 55px;
+    top: 9px;
+    width: 100px; /* 親要素の幅いっぱいに広がる */
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    transform: translateY(-50%); /* 完全に中央に整列 */
   }
 
   .p-Ivent-line-center-left-under {
-    position: absolute;
-    width: 40%;
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    bottom: 0; /* 下に配置 */
     left: 0px;
-    top: 20px;
+    height: 1px;
+    width: 55px; /* 親要素の幅いっぱいに広がる */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Ivent-line-center-right {
+    position: absolute;
+    width: 200px; /* 全体の幅 */
+    height: 50px; /* 全体の高さ */
+    top: 1176px;
+    right: 0px;
+  }
+
+  .p-Ivent-line-center-right-top {
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    right: 0px;
+    top: 0px;
+    width: 70px; /* 親要素の幅いっぱいに広がる */
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Ivent-line-center-right-under {
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    bottom: 0; /* 下に配置 */
+    right: 0px;
+    height: 1px;
+    width: 100px; /* 親要素の幅いっぱいに広がる */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Ivent-line-bottom-left {
+    position: absolute;
+    width: 200px; /* 全体の幅 */
+    height: 50px; /* 全体の高さ */
+    top: 2540px;
+    left: 0px;
+  }
+
+  .p-Ivent-line-bottom-left-top {
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    left: 0px;
+    top: 0px;
+    width: 140px; /* 親要素の幅いっぱいに広がる */
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
+
+  .p-Ivent-line-bottom-left-middle {
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    left: 71px;
+    top: 9px;
+    width: 100px; /* 親要素の幅いっぱいに広がる */
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    transform: translateY(-50%); /* 完全に中央に整列 */
+  }
+
+  .p-Ivent-line-bottom-left-under {
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    bottom: 0; /* 下に配置 */
+    left: 0px;
+    height: 1px;
+    width: 71px; /* 親要素の幅いっぱいに広がる */
+    background-color: #33ccff; /* 線の色 */
   }
 
   .p-Ivent-line-bottom-right {
     position: absolute;
-    width: 10%;
-    height: 5%;
-    top: 1500px;
-    right: 0px;
+    width: 200px; /* 全体の幅 */
+    height: 50px; /* 全体の高さ */
+    top: 2100px;
+    right: 116px;
   }
 
   .p-Ivent-line-bottom-right-top {
-    position: absolute;
-    width: 50%;
-    right: 8px;
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    right: 30px;
+    top: 0px;
+    width: 140px; /* 親要素の幅いっぱいに広がる */
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
   }
 
   .p-Ivent-line-bottom-right-middle {
-    position: absolute;
-    width: 10%;
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
     right: 0px;
-    top: 20px;
+    top: 9px;
+    width: 100px; /* 親要素の幅いっぱいに広がる */
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    transform: translateY(-50%); /* 完全に中央に整列 */
   }
 
   .p-Ivent-line-bottom-right-under {
-    position: absolute;
-    width: 30%;
-    right: 0px;
-    top: 24px;
+    position: absolute; /* 必須: 親要素を基準に位置を設定 */
+    z-index: 100;
+    bottom: 0; /* 下に配置 */
+    right: 100px;
+    height: 1px;
+    width: 100px; /* 親要素の幅いっぱいに広がる */
+    background-color: #33ccff; /* 線の色 */
   }
 
   .p-Ivent-main {
+    height: 290px;
+    background-color: #33ccff;
     position: relative;
     height: 300px;
   }
@@ -2237,19 +2789,537 @@
   }
 
   .p-Ivent-sentence {
-    margin-top: 35px;
-    margin-left: 43px;
+    position: relative;
+    margin: 100px auto;
+    max-width: 1200px;
   }
 
   .p-Ivent-photo-main {
-    width: 80%;
-    margin: 0 auto;
+    position: relative;
+    margin: 200px;
+    max-width: 1200px;
+  }
+
+  .p-Ivent-photo-main-img {
+    object-fit: cover;
+    width: 1043px;
+    height: 411px;
   }
 
   .p-Ivent-photo-sub {
-    width: 80%;
-    margin: 0 auto;
-    margin-bottom: 70px;
+    position: relative;
+    margin: 198px;
+    max-width: 1200px;
+    margin-bottom: 134px;
   }
+
+  .p-Ivent-photo-sub-img {
+    object-fit: cover;
+    width: 777px;
+    height: 347px;
+  }
+
+  /*-------------　ここまで-------------*/
+
+  /*-------------　ここから-------------*/
+  @media screen and (max-width: 768px) {
+    body {
+      margin: 0 auto;
+      overflow-x: hidden; /* 横スクロールを無効化 */
+    }
+
+    //トップページ
+    .p-top {
+      width: 100%;
+      height: 300px;
+    }
+
+    .p-top-slide {
+      width: 100%;
+      height: 150px;
+    }
+
+    .p-top-mail {
+      display: none;
+    }
+
+    .p-about {
+      position: relative;
+      width: 100%;
+      height: 333px;
+    }
+
+    .p-about-bluebox-big {
+      position: absolute;
+      width: 23px;
+      height: 23px;
+      top: 40px;
+      left: 100px;
+    }
+
+    .p-about-bluebox-small {
+      position: absolute;
+      top: 30px;
+      left: 90px;
+      width: 17px;
+      height: 17px;
+    }
+
+    .p-about-title {
+      position: absolute;
+      top: 70px;
+      margin: 0 auto; /* ページ全体で中央揃え */
+      font-size: 30px;
+    }
+
+    .p-about-content {
+      position: absolute;
+      top: 150px;
+      margin: 0 auto; /* ページ全体で中央揃え */
+      font-size: 20px;
+    }
+
+    .p-about-glrybox {
+      display: none;
+    }
+
+    .p-about-university {
+      position: absolute;
+      left: 200px;
+      top: 350px;
+      width: 121px;
+    }
+
+    .p-about-detail {
+      position: absolute;
+      left: 450px;
+      top: 350px;
+      width: 130px;
+    }
+
+    .p-about-blueline {
+      position: absolute;
+      width: 96px;
+      height: 50px;
+      top: 24x;
+      right: 0px;
+    }
+
+    .p-Ivent-detail-more {
+      position: absolute;
+      left: 350px;
+    }
+
+    .p-Tournament-information-title {
+      position: absolute;
+      left: 350px;
+      font-size: 30px;
+    }
+
+    .p-Tournament-information-title::before,
+    .p-Tournament-information-title::after {
+      content: "";
+      position: absolute;
+      height: 1px; /* 線の太さ */
+      background-color: #0000ff; /* 線の色 */
+      top: 50%; /* h2の中央位置に線を合わせる */
+      width: 110%; /* ページ全幅 */
+      left: -700px;
+      transform: translateY(-50%); /* 縦位置調整 */
+    }
+
+    .p-Tournament-information-title::before {
+      right: -100px;
+      width: 100px;
+    }
+
+    .p-Tournament-information-title::after {
+      left: 150px;
+    }
+
+    .p-Tournament-information-content {
+      position: absolute;
+      left: 100px;
+      width: 80%;
+    }
+
+    .p-Tournament-information-more {
+      position: absolute;
+      left: 340px;
+    }
+
+    .p-Join {
+      width: 100%;
+      height: 2000px;
+    }
+
+    //大会情報
+
+    .p-information {
+      width: 100%;
+      height: 300px;
+    }
+
+    .p-information-title {
+      position: absolute;
+      left: 50px;
+      top: 127px;
+      font-size: 30px;
+    }
+
+    .p-information-search {
+      position: absolute;
+      width: 250px;
+      height: 40px;
+      left: 350px;
+      top: 200px;
+      line-height: 2.5;
+    }
+
+    .p-line {
+      display: none;
+    }
+
+    .p-blue-line {
+      display: none;
+    }
+
+    .p-bottom-line {
+      display: none;
+    }
+
+    .p-bottom-blueline {
+      display: none;
+    }
+
+    .p-bottom-blueline-right {
+      display: none;
+    }
+
+    .p-content-bluebox-big {
+      display: none;
+    }
+
+    .p-content-bluebox-small {
+      display: none;
+    }
+
+    .p-content-sentence {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .p-content-sentence-archive {
+      width: 100%;
+      height: 400px;
+      align-items: center; /* 子要素を中央揃え */
+      text-align: center; /* テキストを中央揃え（必要に応じて） */
+      margin: 0 auto; /* ページ全体で中央揃え */
+    }
+
+    .p-content-sentence-archive-title {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+
+    .p-content-sentence-archive-everyday {
+      display: flex;
+      gap: 50px; /* 子要素間にスペースを追加 */
+      justify-content: center; /* 子要素を中央揃え */
+    }
+
+    .p-content-sentence-archive-day {
+      font-size: 40px;
+    }
+
+    .p-content-sentence-every {
+      width: 80%;
+      align-items: center;
+    }
+
+    .p-Join {
+      width: 100%;
+      left: 0px;
+      height: 1500px;
+    }
+
+    .p-Join-every {
+      position: absolute;
+      left: 0px;
+    }
+
+    .p-join-bluebox-big-right {
+      display: none;
+    }
+
+    .p-join-bluebox-small-right {
+      display: none;
+    }
+
+    .p-join-every-content-left {
+      margin-bottom: 10px;
+    }
+
+    .p-join-every-title-right {
+      position: absolute;
+      top: 900px;
+      left: 190px;
+    }
+
+    .p-join-every-content-right {
+      position: absolute;
+      top: 950px;
+      left: 130px;
+    }
+
+    //大会詳細
+    .p-detail-main {
+      width: 100%;
+      height: 120px;
+    }
+
+    .p-detail-main-title {
+      position: absolute;
+      width: 172px;
+      left: 33px;
+      top: 49px;
+      font-size: 18px;
+    }
+
+    .p-detail-sentence {
+      margin-left: 37px;
+      margin-top: 26px;
+    }
+
+    .p-detail-bluebox-big {
+      position: absolute;
+      width: 17px;
+      height: 17px;
+      left: 5px;
+      top: 5px;
+    }
+
+    .p-detail-bluebox-small {
+      width: 12px;
+      height: 12px;
+    }
+
+    .p-detail-sentence-content {
+      margin-top: 10px;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
+    .p-detail-mainphoto-img {
+      width: 307px;
+      height: 140px;
+      margin: 0 auto;
+    }
+
+    .p-detail-subphoto-left {
+      width: 140px;
+      height: 140px;
+      margin-left: 10px;
+      margin-top: -60px;
+    }
+
+    .p-detail-subphoto-right {
+      display: none;
+    }
+
+    .p-detail-subphoto {
+      margin-bottom: 60px;
+    }
+
+    .p-detail-line {
+      width: 96px;
+      height: 24px;
+    }
+
+    .p-detail-line-top {
+      position: absolute;
+      width: 48px;
+      right: 48px;
+    }
+
+    .p-detail-line-middle {
+      position: absolute;
+      top: 19px;
+      width: 48px;
+    }
+
+    .p-detail-line-under {
+      position: absolute;
+      right: 14px;
+      width: 67px;
+    }
+
+    .p-detail-blue-line {
+      position: absolute;
+      width: 96px;
+      height: 24px;
+      top: 756px;
+      left: 0px;
+    }
+
+    .p-detail-blue-line-top {
+      position: absolute;
+      left: 0px;
+      width: 10px;
+    }
+
+    .p-detail-blue-line-middle {
+      position: absolute;
+      left: 12px;
+      top: 19px;
+      width: 48px;
+    }
+
+    .p-detail-blue-line-under {
+      position: absolute;
+      left: 0px;
+      width: 48px;
+    }
+
+    .p-detail-bottom-line {
+      display: none;
+    }
+
+    .p-detail-bottom-blueline {
+      display: none;
+    }
+
+    //イベント詳細
+    .p-Ivent-line-right {
+      right: 0px;
+      height: 24px;
+      top: 400px;
+    }
+
+    .p-Ivent-line-right-top {
+      position: absolute;
+      width: 10%;
+      right: 0px;
+    }
+
+    .p-Ivent-line-right-middle {
+      display: none;
+    }
+
+    .p-Ivent-line-right-under {
+      width: 30px;
+      right: 0px;
+    }
+
+    .p-Ivent-line-left {
+      left: 0px;
+      height: 24px;
+      width: 10%;
+    }
+
+    .p-Ivent-line-left-top {
+      display: none;
+    }
+
+    .p-Ivent-line-left-middle {
+      position: absolute;
+      width: 50%;
+      left: 0px;
+      top: 20px;
+    }
+
+    .p-Ivent-line-bottom-left {
+      display: none;
+    }
+
+    .p-Ivent-line-center-right {
+      display: none;
+    }
+
+    .p-Ivent-line-center-left {
+      height: 90%;
+      width: 10%;
+      top: 1920px;
+    }
+
+    .p-Ivent-line-center-left-top {
+      width: 8%;
+    }
+
+    .p-Ivent-line-center-left-middle {
+      position: absolute;
+      width: 50%;
+      left: 8px;
+      top: 19px;
+    }
+
+    .p-Ivent-line-center-left-under {
+      position: absolute;
+      width: 40%;
+      left: 0px;
+      top: 20px;
+    }
+
+    .p-Ivent-line-bottom-right {
+      position: absolute;
+      width: 10%;
+      height: 5%;
+      top: 1500px;
+      right: 0px;
+    }
+
+    .p-Ivent-line-bottom-right-top {
+      position: absolute;
+      width: 50%;
+      right: 8px;
+    }
+
+    .p-Ivent-line-bottom-right-middle {
+      position: absolute;
+      width: 10%;
+      right: 0px;
+      top: 20px;
+    }
+
+    .p-Ivent-line-bottom-right-under {
+      position: absolute;
+      width: 30%;
+      right: 0px;
+      top: 24px;
+    }
+
+    .p-Ivent-main {
+      position: relative;
+      height: 150px;
+    }
+
+    .p-Ivent-main-title {
+      position: absolute;
+      top: 60px;
+      left: 33px;
+      width: 196px;
+      height: 22px;
+      font-size: 18px;
+    }
+
+    .p-Ivent-sentence {
+      margin-top: 35px;
+      margin-left: 43px;
+    }
+
+    .p-Ivent-photo-main {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .p-Ivent-photo-sub {
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 70px;
+    }
+  }
+  /*-------------　ここまで-------------*/
 }
-/*-------------　ここまで-------------*/

@@ -9,6 +9,22 @@ const og_image = "";
 import Carousel from '../../components/Carousel.astro'
 import TournamentComponent from '../../components/Tournament .astro'
 import IventComponent from '../../components/Ivent.astro'
+import { getAbout, getTournaments, getEvents, getAdmissions } from "@/lib/microcms";
+
+const responseAbout = await getAbout({fields: ["description", "images"]});
+const aboutDescription = responseAbout.contents[0].description;
+const aboutImage = responseAbout.contents[0].images[0];
+
+const responseTournaments = await getTournaments({fields: ["id", "title", "content"]});
+const tournaments = responseTournaments.contents;
+const firstThreeTournaments = tournaments.slice(0,3);
+
+const responseEvents = await getEvents({fields: ["id", "title", "content", "images"]});
+const events = responseEvents.contents;
+const firstThreeEvents = events.slice(0,3);
+
+const responseAdmission = await getAdmissions({fields: ["firstStep", "secondStep", "thirdStep", "firstStepGroup", "secondStepGroup", "thirdStepGroup"]});
+const admission = responseAdmission.contents[0];
 ---
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -38,8 +54,8 @@ import IventComponent from '../../components/Ivent.astro'
 				<div class="p-about-bluebox-big"></div>
 				<div class="p-about-bluebox-small"></div>
 				<h1 class="p-about-title">全日本釣魚連盟関東支部について</h1>
-				<p class="p-about-content">あああああ</p>
-				<div class="p-about-glrybox"></div>
+				<p class="p-about-content">{aboutDescription}</p>
+				<img src={aboutImage.url} alt="" class="p-about-glrybox">
 				<a href="" class="p-about-university">加盟大学一覧</a>
 				<a href="" class="p-about-detail">詳しくはこちら</a>
 			</div>
@@ -59,21 +75,18 @@ import IventComponent from '../../components/Ivent.astro'
 					<div class="p-Tournament-information-line-under"></div>
 				</div>
 				<div class="p-Tournament-information-content">
-					<TournamentComponent title="タイトル" content="趣味というものは、私たちの生活に彩りを加え、日々の疲れを癒やす大切な要素です。忙しい日常の中で、趣味に没頭する時間は心のリフレッシュをもたらし、ストレスを軽減させる効果があります。私は最近、読書と料理を趣味にしているのですが、それぞれに独自の魅力があり、どちらも私の生活に欠かせない存在です。まず、読書についてですが、本を読むことは私にとって知識を深める手段であると同時に、別の世界に没入するための大切な時間です。私は小説が好きで、特にファンタジーやミステリーのジャンルに惹かれます。ページをめくるたびに、物語の中に引き込まれていき、登場人物の思いや葛藤に共感することができます。読書は新たな視点を提供してくれるので、普段の生活に新しいアイデアやインスピレーションをもたらしてくれます。次に、料理についてですが、食事を作ることは私にとってクリエイティブな作業です。新しいレシピに挑戦したり、食材の組み合わせを試したりすることで、手作りの料理に対する愛情が深まります。特に最近は、ヘルシーなレシピに興味を持ち、野菜を多く使った料理に挑戦しています。自分の手で作った料理を家族や友人に振る舞う瞬間は、何とも言えない満足感を得ることができ、作る楽しさと食べる楽しさを同時に味わっています。趣味は、ただの時間つぶしではなく、自己成長を促し、人との繋がりを深める大切な部分だと思います。自分の好きなことをしていると、気づけば時間が経っていることもありますが、その時間は心から楽しむことができる貴重な瞬間です。今後も新たな趣味を見つけて、さらに豊かな生活を送りたいと思っています。" />
-					<TournamentComponent title="タイトル" content="ああああああああ" />
-					<TournamentComponent title="タイトル" content="ああああああああ" />
-					<div class="hidden-items">
-						<TournamentComponent title="タイトル" content="ああああああああ" />
-						<TournamentComponent title="タイトル" content="ああああああああ" />
-						<TournamentComponent title="タイトル" content="ああああああああ" />
-					</div>
+					{firstThreeTournaments.map((tournament) => {
+						if(tournament){
+							return <TournamentComponent title={tournament.title} content={tournament.content} id={tournament.id}/>
+						}
+					})}
 				</div>
 				<div class="p-Tournament-information-buleline">
 					<div class="p-Tournament-information-buleline-top"></div>
 					<div class="p-Tournament-information-buleline-middle"></div>
 					<div class="p-Tournament-information-buleline-under"></div>
 				</div>
-				<p class="p-Tournament-information-more">さらに表示</p>
+				<a class="p-Tournament-information-more" href="/Tournamentinformation">さらに表示</a>
 			</div>
 		</section>
 
@@ -81,38 +94,17 @@ import IventComponent from '../../components/Ivent.astro'
 			<div class="p-Ivent-detail">
 				<h2 class="p-Ivent-detail-title">イベント情報（活動記録）</h2>
 				<div class="p-Ivent-detail-content">
-					<IventComponent image="/assets/elly-DSC_1501-Edit_TP_V4.webp" title="タイトル" content="趣味というものは、私たちの生活に彩りを加え、日々の疲れを癒やす大切な要素です。忙しい日常の中で、趣味に没頭する時間は心のリフレッシュをもたらし、ストレスを軽減させる効果があります。私は最近、読書と料理を趣味にしているのですが、それぞれに独自の魅力があり、どちらも私の生活に欠かせない存在です。まず、読書についてですが、本を読むことは私にとって知識を深める手段であると同時に、別の世界に没入するための大切な時間です。私は小説が好きで、特にファンタジーやミステリーのジャンルに惹かれます。ページをめくるたびに、物語の中に引き込まれていき、登場人物の思いや葛藤に共感することができます。読書は新たな視点を提供してくれるので、普段の生活に新しいアイデアやインスピレーションをもたらしてくれます。次に、料理についてですが、食事を作ることは私にとってクリエイティブな作業です。新しいレシピに挑戦したり、食材の組み合わせを試したりすることで、手作りの料理に対する愛情が深まります。特に最近は、ヘルシーなレシピに興味を持ち、野菜を多く使った料理に挑戦しています。自分の手で作った料理を家族や友人に振る舞う瞬間は、何とも言えない満足感を得ることができ、作る楽しさと食べる楽しさを同時に味わっています。趣味は、ただの時間つぶしではなく、自己成長を促し、人との繋がりを深める大切な部分だと思います。自分の好きなことをしていると、気づけば時間が経っていることもありますが、その時間は心から楽しむことができる貴重な瞬間です。今後も新たな趣味を見つけて、さらに豊かな生活を送りたいと思っています。"/>
-					<IventComponent image="/assets/elly-DSC_1501-Edit_TP_V4.webp" title="タイトル" content="aaaaa"/>
-					<IventComponent image="/assets/elly-DSC_1501-Edit_TP_V4.webp" title="タイトル" content="aaaaa"/>
+					{firstThreeEvents.map((event) => {
+						if(event){
+							return <IventComponent image={event.images[0].url} title={event.title} content={event.content} id={event.id}/>
+						}
+					})}
 				</div>
-				<p class="p-Ivent-detail-more">さらに表示</p>
+				<a class="p-Ivent-detail-more" href="/event-info">さらに表示</a>
 			</div>
 		</section>
 
-		<div id="" class="p-Join">
-			<div class="p-Join-line-center-left">
-				<div class="p-Join-line-center-left-top"></div>
-				<div class="p-Join-line-center-left-middle"></div>
-				<div class="p-Join-line-center-left-under"></div>
-			</div>
-		
-			<div class="p-Join-line-center-right">
-				<div class="p-Join-line-center-right-top"></div>
-				<div class="p-Join-line-center-right-middle"></div>
-				<div class="p-Join-line-center-right-under"></div>
-			</div>
-		
-			<div class="p-Join-line-bottom-left">
-				<div class="p-Join-line-bottom-left-top"></div>
-				<div class="p-Join-line-bottom-left-middle"></div>
-				<div class="p-Join-line-bottom-left-under"></div>
-			</div>
-		
-			<div class="p-Join-line-bottom-right">
-				<div class="p-Join-line-bottom-right-top"></div>
-				<div class="p-Join-line-bottom-right-middle"></div>
-				<div class="p-Join-line-bottom-right-under"></div>
-			</div>
+		<div id="join" class="p-Join">
 			<div class="p-Join-box">
 				<div class="p-Join-every">
 					<div class="p-join-bluebox-big-left"></div>
@@ -124,23 +116,23 @@ import IventComponent from '../../components/Ivent.astro'
 							<p class="p-join-every-title-nmobile-Individual">個人の場合</p>
 						</div>
 						<div class="p-join-every-content-left">
-							<div>
-								<p class="p-join-every-content-number-left">01</p>
-								<p class="p-join-every-content-sentence-left">ああああああ</p>
-							</div>
-							<div class="p-join-every-content-under-left">
-								<span class="p-join-every-content-underline-left"></span>
-							</div>
-							<div>
-								<p class="p-join-every-content-number-left">02</p>
-								<p class="p-join-every-content-sentence-left">ああああああ</p>
-							</div>
-							<div class="p-join-every-content-under-aicon-left">
-								<span class="p-join-every-content-underline-left"></span>
-							</div>
-							<div>
-								<p class="p-join-every-content-number-left">03</p>
-								<p class="p-join-every-content-sentence-left">ああああああ</p>
+              <div>
+                <p class="p-join-every-content-number-left">01</p>
+                <p class="p-join-every-content-sentence-left">{admission.firstStep}</p>
+              </div>
+              <div class="p-join-every-content-under-left">
+                <span class="p-join-every-content-underline-left"></span>
+              </div>
+              <div>
+                <p class="p-join-every-content-number-left">02</p>
+                <p class="p-join-every-content-sentence-left">{admission.secondStep}</p>
+              </div>
+              <div class="p-join-every-content-under-aicon-left">
+                <span class="p-join-every-content-underline-left"></span>
+              </div>
+              <div>
+                <p class="p-join-every-content-number-left">03</p>
+                <p class="p-join-every-content-sentence-left">{admission.thirdStep}</p>
 							</div>
 						</div>
 					</div>
@@ -152,48 +144,44 @@ import IventComponent from '../../components/Ivent.astro'
 								<h2 class="p-join-every-title-pc">ご入会までの流れ（団体）</h2>
 								<p class="p-join-every-title-Organization">団体の場合</p>
 							</div>
-							<div class="p-join-every-content-right">
-								<div>
-									<p class="p-join-every-content-number-right">01</p>
-									<p class="p-join-every-content-sentence-right">ああああああ</p>
-								</div>
-								<div class="p-join-every-content-under-right">
-									<span class="p-join-every-content-underline-right"></span>
-								</div>
-								<div>
-									<p class="p-join-every-content-number-right">02</p>
-									<p class="p-join-every-content-sentence-right">ああああああ</p>
-								</div>
-								<div class="p-join-every-content-under-aicon-right">
-									<span class="p-join-every-content-underline-right"></span>
-								</div>
-								<div>
-									<p class="p-join-every-content-number-right">03</p>
-									<p class="p-join-every-content-sentence-right">ああああああ</p>
-								</div>
-							</div>
-						</divn>
+				<div class="p-join-every-content-right">
+					<div>
+						<p class="p-join-every-content-number-right">01</p>
+						<p class="p-join-every-content-sentence-right">{admission.firstStepGroup}</p>
 					</div>
-				</div>
-			</div>
-
-			<div class="p-inquiry">
-				<div class="p-inquiry-line">
-					<div class="p-inquiry-line-top"></div>
-					<div class="p-inquiry-line-middle"></div>
-					<div class="p-inquiry-line-under"></div>
-				</div>
-				<div class="p-inquiry-box">
-					<a href="" class="p-inquiry-box-content">お問合せはこちら</a>
-				</div>
-				<div class="p-inquiry-blueline">
-					<div class="p-inquiry-blueline-top"></div>
-					<div class="p-inquiry-blueline-middle"></div>
-					<div class="p-inquiry-blueline-under"></div>
+					<div class="p-join-every-content-under-right">
+						<span class="p-join-every-content-underline-right"></span>
+					</div>
+					<div>
+						<p class="p-join-every-content-number-right">02</p>
+						<p class="p-join-every-content-sentence-right">{admission.secondStepGroup}</p>
+					</div>
+					<div class="p-join-every-content-under-aicon-right">
+						<span class="p-join-every-content-underline-right"></span>
+					</div>
+					<div>
+						<p class="p-join-every-content-number-right">03</p>
+						<p class="p-join-every-content-sentence-right">{admission.thirdStepGroup}</p>
+					</div>
 				</div>
 			</div>
 		</section>
 
+		<div class="p-inquiry">
+			<div class="p-inquiry-line">
+				<div class="p-inquiry-line-top"></div>
+				<div class="p-inquiry-line-middle"></div>
+				<div class="p-inquiry-line-under"></div>
+			</div>
+			<div class="p-inquiry-box">
+				<a href="/contact" class="p-inquiry-box-content">お問合せはこちら</a>
+			</div>
+			<div class="p-inquiry-blueline">
+				<div class="p-inquiry-blueline-top"></div>
+				<div class="p-inquiry-blueline-middle"></div>
+				<div class="p-inquiry-blueline-under"></div>
+			</div>
+		</div>
 	</main>
 </Layout>
 
@@ -202,12 +190,12 @@ import IventComponent from '../../components/Ivent.astro'
 	  const moreBtn = document.querySelector(".p-Tournament-information-more");
 	  const hiddenItems = document.querySelector(".hidden-items");
   
-	  moreBtn.addEventListener("click", () => {
+	  moreBtn!.addEventListener("click", () => {
 		// 隠れている項目をトグル表示
-		hiddenItems.classList.toggle("is-visible");
+		hiddenItems!.classList.toggle("is-visible");
   
 		// ボタンのテキストを切り替え
-		moreBtn.textContent = hiddenItems.classList.contains("is-visible") ? "閉じる" : "さらに表示";
+		moreBtn!.textContent = hiddenItems!.classList.contains("is-visible") ? "閉じる" : "さらに表示";
 	  });
 	});
   </script>
