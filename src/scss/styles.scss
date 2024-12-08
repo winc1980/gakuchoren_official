@@ -11,6 +11,7 @@ body {
   padding: 0;
 }
 
+
 header {
   background-color: $primary-color;
   color: white;
@@ -30,6 +31,7 @@ header {
   }
 }
 
+
 footer {
   text-align: center;
   padding: $spacing-medium 0;
@@ -42,7 +44,7 @@ footer {
 }
 
 .about-header {
-  background-color: #add8e6; // 하늘색 배경
+  background-color: #add8e6; 
   text-align: center;
   padding: $spacing-large;
 
@@ -95,13 +97,15 @@ footer {
   }
 }
 
+
+
 // ===== Contact 페이지 스타일 =====
 .contact-main {
   background-color: white;
 }
 
 .contact-header {
-  background-color: #add8e6; // 하늘색 배경
+  background-color: #add8e6;
   text-align: left;
   color: black;
   padding: $spacing-large;
@@ -116,7 +120,7 @@ footer {
 
 .contact-section {
   display: flex;
-  flex-direction: column; // 섹션 전체는 세로 배치
+  flex-direction: column;
   gap: $spacing-large;
   padding: $spacing-large;
 
@@ -134,17 +138,17 @@ footer {
 
     .contact-form {
       display: flex;
-      flex-direction: column; // 폼 전체는 세로 정렬
+      flex-direction: column; 
       gap: $spacing-medium;
 
       .form-row {
-        display: flex; // 텍스트와 입력 필드를 가로로 배치
-        flex-wrap: wrap; // 좁은 화면에서는 줄바꿈
+        display: flex; 
+        flex-wrap: wrap;
         align-items: center;
         gap: $spacing-small;
 
         label {
-          width: 150px; // 레이블 너비 고정
+          width: 150px;
           text-align: right;
           font-size: 14px;
           color: $text-color;
@@ -152,7 +156,7 @@ footer {
 
         input,
         textarea {
-          flex: 1; // 입력 필드가 남은 공간을 차지
+          flex: 1; 
           padding: $spacing-small;
           border: 1px solid #ccc;
           background-color: #ccc;
@@ -166,7 +170,7 @@ footer {
       }
 
       button {
-        align-self: flex-start; // 버튼을 왼쪽 정렬
+        align-self: flex-start;
         margin-left: 160px;
         background-color: #0000ff;
         color: white;
@@ -215,6 +219,7 @@ footer {
   padding: 15px;
   background-color: #fff;
   text-align: left;
+  position: relative;
 
   .image-wrapper {
     position: relative;
@@ -225,9 +230,15 @@ footer {
       border-radius: 0px;
     }
 
+    .university-name {
+      font-size: 20px;
+      margin: 10px 0;
+      color: #333;
+      display: inline-block;
+    }
+
     .social-icons {
       position: absolute;
-      top: 183px;
       right: 10px;
       display: flex;
       gap: 10px;
@@ -238,12 +249,6 @@ footer {
         height: 20px;
       }
     }
-  }
-
-  .university-name {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #333;
   }
 
   .divider {
@@ -260,8 +265,8 @@ footer {
 
   .university-links {
     display: flex;
-    flex-direction: column; /* 기본적으로 수직 정렬 */
-    gap: 5px; /* 요소 간 간격 */
+    flex-direction: column; 
+    gap: 5px; 
 
     a {
       text-decoration: none;
@@ -293,18 +298,29 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  .university-list {
+    grid-template-columns: 1fr; /* 한 줄에 한 개의 열 */
+    gap: 20px; /* 항목 간 간격 유지 */
+  }
+
+  .university-item {
+    width: 100%; /* 각 항목이 전체 너비를 차지하도록 설정 */
+  }
+}
+
 // ===== University Detail 페이지 스타일 =====
 .university-detail-main {
   background-color: $background-color;
 }
 
 .university-header {
-  background-color: #add8e6; // 하늘색 배경
+  background-color: #add8e6; 
   text-align: left;
   padding: 30px;
 
   h1 {
-    font-size: 20px; // 헤더 크기 조정
+    font-size: 20px;
     color: black;
     margin: 0;
     text-align: left;
@@ -314,29 +330,37 @@ footer {
 .university-content {
   display: flex;
   flex-direction: column;
-  align-items: center; // 가운데 정렬
-  gap: 20px; // 요소 간 간격
+  align-items: center; 
+  gap: 20px;
   padding: 20px;
 
   p {
-    font-size: 14px; // 텍스트 크기 조정
+    font-size: 14px;
     line-height: 1.8;
     color: $text-color;
-    max-width: 80%; // 텍스트 너비 조정
-    text-align: justify; // 텍스트 정렬
+    max-width: 80%; 
+    text-align: justify; 
   }
 
   .image-placeholder {
-    width: 80%; // 이미지 크기 조정 (텍스트와 균형)
-    height: auto; // 이미지 비율 유지
-    background-color: $image-placeholder-color;
+    width: 100%; 
+    height: auto; 
+    background-color: transparent;
     box-shadow: 10px 10px 0px 0px #0000ff; // 파란색 그림자 효과
     position: relative;
+    overflow: hidden;
+
+    img{
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
 
     &::after {
       content: "";
       position: absolute;
-      top: 0; // `box-shadow` 효과와 분리
+      top: 0; 
       left: 0;
       width: 100%;
       height: 100%;
@@ -345,28 +369,28 @@ footer {
 }
 
 .university-footer {
-  text-align: center; // 가운데 정렬
+  text-align: center; 
   padding: 20px;
 
   .icon-links {
     display: flex;
-    justify-content: center; // 아이콘 가운데 정렬
-    gap: 15px; // 아이콘 간 간격
+    justify-content: center; 
+    gap: 15px; 
 
     a {
       text-decoration: none;
-      font-size: 20px; // 아이콘 크기
+      font-size: 20px;
       color: black;
 
       &:hover {
-        color: $primary-color; // 호버 시 색상 변경
+        color: $primary-color; 
       }
     }
   }
 
   a {
     text-decoration: none;
-    font-size: 14px; // 텍스트 크기 조정
+    font-size: 14px;
     color: black;
     font-weight: bold;
     margin: 5px 0;
@@ -381,7 +405,7 @@ footer {
 }
 
 .event-header {
-  background-color: #a7e0ff; // 하늘색 배경
+  background-color: #a7e0ff;
   padding: 30px;
   display: flex;
   justify-content: space-between;
@@ -417,7 +441,7 @@ footer {
   padding: 20px;
 
   .event-list {
-    width: 70%; // 이벤트 리스트 영역
+    width: 70%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -469,7 +493,7 @@ footer {
   }
 
   .event-archive {
-    width: 25%; // 아카이브 영역
+    width: 25%;
     border: 1px solid blue;
     padding: 20px;
 
@@ -499,6 +523,34 @@ footer {
     }
   }
 }
+
+/* 768px 이하에서의 반응형 스타일 */
+@media (max-width: 768px) {
+  .event-content {
+    display: flex; // 부모 컨테이너를 플렉스 컨테이너로 유지
+    flex-direction: column; // 세로 정렬로 변경
+    align-items: center; // 자식 요소를 가운데 정렬
+    gap: 20px;
+    padding: 0px; // 리스트와 아카이브 간의 간격 추 // 패딩 제거
+  }
+
+  .event-list{
+    padding: 30px;
+  }
+
+  .event-list,
+  .event-archive {
+    width: 100% !important; 
+    box-sizing: border-box; // 패딩과 보더 포함한 너비 계산
+    max-width: 768px; // 최대 너비 설정
+  }
+
+  .event-archive {
+    margin-top: 20px; // 이벤트 리스트 아래 간격 추가
+  }
+}
+
+
 
 /*-------------　ここから-------------*/
 // メインページ
