@@ -12,8 +12,8 @@
   "dependencies": {
     "@astrojs/check": "^0.9.3",
     "@astrojs/tailwind": "^5.1.2",
+    "astro": "^4.14.2",
     "@pagefind/default-ui": "^1.2.0",
-    "astro": "^4.16.17",
     "lightbox2": "^2.11.5",
     "microcms-js-sdk": "^3.1.2",
     "pagefind": "^1.2.0",
