@@ -1,0 +1,56 @@
+---
+// 絶対パスで
+// 画像はsrc/pages内の各ディレクトリにimagesフォルダを作成する
+import Layout from "../../layouts/Layout.astro";
+import "../../scss/styles.scss";
+const title = "";
+const description = "";
+const og_image = "";
+import { getTournaments, getTournamentDetail } from "@/lib/microcms";
+
+export async function getStaticPaths() {
+  const response = await getTournaments();
+  const tournaments = Array.from(response.contents);
+  return tournaments.map(tournament => ({
+    params: { id: tournament.id },
+  }));
+}
+
+const {id} = Astro.params;
+const tournament = await getTournamentDetail(id);
+---
+
+
+
+<Layout title={title} , description={description} og_image={og_image}>
+<main>
+    <section id="">
+        <div class="p-detail-main">
+            <h1 class="p-detail-main-title">{tournament.title}</h1>
+        </div>
+    </section>
+
+    <section>
+        <div class="p-detail-sentence">
+            <div class="p-detail-bluebox-big"></div>
+            <div class="p-detail-bluebox-small"></div>
+            <p class="p-detail-sentence-content">{tournament.content}</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="p-detail-subphoto">
+          {tournament.images && tournament.images.map((image) => (
+            <a href={image.url} data-lightbox="tournament-images" data-title={image.url}>
+              <img
+                class="p-detail-subphoto-all"
+                src={image.url}
+                alt={"Images for tournaments"}
+              />
+            </a>
+          ))}
+        </div>
+      </section>
+
+</main>
+</Layout>

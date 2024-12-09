@@ -1,0 +1,45 @@
+---
+// 絶対パスで
+// 画像はsrc/pages内の各ディレクトリにimagesフォルダを作成する
+import Layout from "../../layouts/Layout.astro";
+import "../../scss/styles.scss";
+const title = "";
+const description = "";
+const og_image = "";
+import { getEvents, getEventDetail } from "@/lib/microcms";
+
+export async function getStaticPaths() {
+  const response = await getEvents();
+  const events = Array.from(response.contents);
+  return events.map(event => ({
+    params: { id: event.id },
+  }));
+}
+
+const {id} = Astro.params;
+const event = await getEventDetail(id);
+---
+
+
+
+<Layout title={title} , description={description} og_image={og_image}>
+<main>
+    <section>
+        <div class="p-Ivent-main">
+            <h1 class="p-Ivent-main-title ">{event.title}</h1>
+        </div>
+    </section>
+    <section>
+        <div class="p-Ivent-sentence">
+            <p>{event.content}</p>
+        </div>
+        {event.images.map((image) => (
+            <div class="p-Ivent-photo-main">
+                <a href={image.url} data-lightbox="event-images" data-title={image.url}>
+                    <img class="p-Ivent-photo-main-img" src={image.url} alt="Image for events">
+                </a>
+            </div>
+        ))}
+    </section>
+</main>
+</Layout>

@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 
 const title = "加盟大学詳細";
 const description = "加盟大学の詳細情報を表示します。";
-const og_image = "/images/university1.png"; 
+const og_image = "/images/university1.png"; // "public" 경로를 제거, Astro는 /public 디렉터리를 루트로 간주합니다.
 
 const university = {
   name: "OO大学",
