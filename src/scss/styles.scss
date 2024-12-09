@@ -584,12 +584,6 @@ footer {
 
 /*-------------　ここから-------------*/
 // メインページ
-.body {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 15px;
-  overflow-x: hidden; /* 横スクロールを無効化 */
-}
 
 .p-top {
   height: 625px;
@@ -597,11 +591,10 @@ footer {
 }
 
 .p-top-mail {
-  display: flex; /* Flexboxを有効化 */
   position: absolute;
   top: 424px;
-  left: 903px;
-  width: 489px;
+  right: 40px;
+  width: 40%;
   height: 80px;
   margin: 1em auto;
   padding: 1em 1.5em;
@@ -610,108 +603,68 @@ footer {
   background-color: #0000ff;
   text-align: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 99;
 }
 
 .p-top-mail-content {
-  z-index: 100;
   color: #ffffff;
   font-weight: bold;
   font-size: 30px;
 }
 
 .p-about {
-  height: 535px;
+  height: auto;
   margin-top: 57px;
   position: relative;
 }
 
-.p-about-blueline {
-  position: absolute;
-  width: 200px; /* 全体の幅 */
-  height: 50px; /* 全体の高さ */
-  background-color: white; /* 背景色（必要なら） */
-  right: 0px;
-}
+// .p-about-bluebox-big {
+//   position: absolute;
+//   width: 42px;
+//   height: 42px;
+//   left: 118px;
+//   top: 89px;
+//   background: rgba(0, 0, 255, 0.6);
+// }
 
-.p-about-blueline-top {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  top: 9px; /* 上に配置 */
-  right: 0px;
-  width: 140px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-}
-
-.p-about-blueline-middle {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  top: 50%; /* 親要素の中央に配置 */
-  right: 0;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-  transform: translateY(-50%); /* 完全に中央に整列 */
-}
-
-.p-about-blueline-under {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  bottom: 0; /* 下に配置 */
-  right: 72px;
-  height: 1px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  background-color: #33ccff; /* 線の色 */
-}
-.p-about-bluebox-big {
-  position: absolute;
-  width: 42px;
-  height: 42px;
-  left: 118px;
-  top: 89px;
-  background: rgba(0, 0, 255, 0.6);
-}
-
-.p-about-bluebox-small {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 103px;
-  top: 74px;
-  z-index: 10px;
-  background: rgba(0, 0, 255, 0.6);
-}
+// .p-about-bluebox-small {
+//   position: absolute;
+//   width: 30px;
+//   height: 30px;
+//   left: 103px;
+//   top: 74px;
+//   z-index: 10px;
+//   background: rgba(0, 0, 255, 0.6);
+// }
 
 .p-about-title {
-  position: absolute;
-  left: 161px;
-  top: 131px;
-  width: 599px;
-  height: 48px;
+  padding-top: 50px;
+  margin-left: 15%;
   font-weight: bold;
   font-family: "Inter", sans-serif;
   font-size: 40px;
 }
 
 .p-about-content {
-  position: absolute;
-  left: 160px;
+  margin-left: 15%;
   top: 216px;
   font-family: "Inter", sans-serif;
+  margin-top: 30px;
+  width: 50%;
 }
 
-.p-about-glrybox {
-  width: 700px;
-  height: 446px;
-  background-color: #d9d9d9;
+.p-about-image {
   position: absolute;
-  left: 770px;
-  top: 89px;
+  width: 53%;
+  background-color: #d9d9d9;
+  right: 0px;
+  top: 0px;
+  opacity: 0.4;
+  z-index: -1;
 }
 
 .p-about-university {
-  position: absolute;
+  display: block;
   left: 574px;
   top: 433px;
   font-family: "Inter", sans-serif;
@@ -723,214 +676,221 @@ footer {
 }
 
 .p-about-detail {
-  position: absolute;
+  display: block;
   left: 787px;
   top: 433px;
   font-family: "Inter", sans-serif;
   font-weight: bold;
   padding: 0 0.4em 0.2em;
   border-bottom: 3px solid #33ccff;
-  background-color: #ffffff;
+  background-color: transparent;
   color: #333333;
 }
 
-.p-about-line {
-  position: absolute;
-  width: 200px; /* 全体の幅 */
-  height: 50px; /* 全体の高さ */
-  top: 440px;
+.p-about-links {
+  display: flex;
+  width: 30%;
+  margin: 40px auto 0 auto;
+  justify-content: space-between;
 }
 
-.p-about-line-top {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  left: 0px;
-  top: 0px;
-  width: 140px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-}
+// .p-about-line {
+//   position: absolute;
+//   width: 200px; /* 全体の幅 */
+//   height: 50px; /* 全体の高さ */
+//   top: 440px;
+// }
 
-.p-about-line-middle {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  left: 60px;
-  top: 9px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-  transform: translateY(-50%); /* 完全に中央に整列 */
-}
+// .p-about-line-top {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   left: 0px;
+//   top: 0px;
+//   width: 140px; /* 親要素の幅いっぱいに広がる */
+//   height: 1px; /* 線の太さ */
+//   background-color: #33ccff; /* 線の色 */
+// }
 
-.p-about-line-under {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  bottom: 0; /* 下に配置 */
-  left: 0px;
-  height: 1px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  background-color: #33ccff; /* 線の色 */
-}
+// .p-about-line-middle {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   left: 60px;
+//   top: 9px;
+//   width: 100px; /* 親要素の幅いっぱいに広がる */
+//   height: 1px; /* 線の太さ */
+//   background-color: #33ccff; /* 線の色 */
+//   transform: translateY(-50%); /* 完全に中央に整列 */
+// }
+
+// .p-about-line-under {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   bottom: 0; /* 下に配置 */
+//   left: 0px;
+//   height: 1px;
+//   width: 100px; /* 親要素の幅いっぱいに広がる */
+//   background-color: #33ccff; /* 線の色 */
+// }
 
 .p-Tournament {
-  width: 100%;
-  height: 1000px;
-  position: relative;
+  margin-top: 120px;
 }
 
-.p-Tournament-information {
-  margin-top: 116px;
-}
+// .p-Tournament-information {
+//   margin-top: 116px;
+// }
 
-/* 隠れている項目の初期状態を非表示にする */
-.hidden-items {
-  display: none;
-}
+// /* 隠れている項目の初期状態を非表示にする */
+// .hidden-items {
+//   display: none;
+// }
 
-/* 表示状態のスタイル */
-.hidden-items.is-visible {
-  display: block;
-}
+// /* 表示状態のスタイル */
+// .hidden-items.is-visible {
+//   display: block;
+// }
 
 .p-Tournament-information-title {
-  position: absolute;
-  left: 650px;
-  font-weight: Bold;
-  width: 251px;
-  height: 41px;
+  text-align: center;
+  font-weight: bold;
   font-size: 35px;
 }
 
-.p-Tournament-information-title::before,
-.p-Tournament-information-title::after {
-  content: "";
-  position: absolute;
-  height: 1px; /* 線の太さ */
-  background-color: #0000ff; /* 線の色 */
-  top: 50%; /* h2の中央位置に線を合わせる */
-  width: 250%; /* ページ全幅 */
-  left: -700px;
-  transform: translateY(-50%); /* 縦位置調整 */
-}
-
-.p-Tournament-information-title::after {
-  left: 200px;
-}
-
-.p-Tournament-information-line {
-  position: absolute;
-  width: 200px; /* 全体の幅 */
-  height: 50px; /* 全体の高さ */
-  top: 50px;
-  right: 0px;
-}
-
-.p-Tournament-information-line-top {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  right: 0px;
-  top: 0px;
-  width: 140px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-}
-
-.p-Tournament-information-line-middle {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  right: 0px;
-  top: 9px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-  transform: translateY(-50%); /* 完全に中央に整列 */
-}
-
-.p-Tournament-information-line-under {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  bottom: 0; /* 下に配置 */
-  right: 36px;
-  height: 1px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  background-color: #33ccff; /* 線の色 */
-}
-
 .p-Tournament-information-content {
-  position: absolute;
-  justify-content: center;
-  top: 100px;
-  left: 200px;
-  width: 70%;
-  gap: 20px;
-  transition: height 0.3s ease; /* 高さが変わるときのアニメーションを追加 */
+  margin-top: 50px;
+  // justify-content: center;
+  // top: 100px;
+  // left: 200px;
+  // width: 70%;
+  // gap: 20px;
 }
 
-.p-Tournament-information-content > * {
-  border-bottom: 2px solid #33ccff; /* 各要素の下に青いライン */
-  padding-bottom: 70px; /* ラインと内容の間隔 */
-}
+// .p-Tournament-information-title::before,
+// .p-Tournament-information-title::after {
+//   content: "";
+//   position: absolute;
+//   height: 1px; /* 線の太さ */
+//   background-color: #0000ff; /* 線の色 */
+//   top: 50%; /* h2の中央位置に線を合わせる */
+//   width: 100%; /* ページ全幅 */
+//   right: 0;
+//   transform: translateY(-50%); /* 縦位置調整 */
+// }
 
-.p-Tournament-information-buleline {
-  position: absolute;
-  width: 200px; /* 全体の幅 */
-  height: 50px; /* 全体の高さ */
-  top: 850px;
-  left: 0px;
-}
+// // .p-Tournament-information-title::after {
+// //   left: 200px;
+// // }
 
-.p-Tournament-information-buleline-top {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  left: 30px;
-  top: 0px;
-  width: 140px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-}
+// .p-Tournament-information-line {
+//   position: absolute;
+//   width: 200px; /* 全体の幅 */
+//   height: 50px; /* 全体の高さ */
+//   top: 50px;
+//   right: 0px;
+// }
 
-.p-Tournament-information-buleline-middle {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  left: 100px;
-  top: 9px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-  transform: translateY(-50%); /* 完全に中央に整列 */
-}
+// .p-Tournament-information-line-top {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   right: 0px;
+//   top: 0px;
+//   width: 140px; /* 親要素の幅いっぱいに広がる */
+//   height: 1px; /* 線の太さ */
+//   background-color: #33ccff; /* 線の色 */
+// }
 
-.p-Tournament-information-buleline-under {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  bottom: 0; /* 下に配置 */
-  left: 0px;
-  height: 1px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  background-color: #33ccff; /* 線の色 */
-}
+// .p-Tournament-information-line-middle {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   right: 0px;
+//   top: 9px;
+//   width: 100px; /* 親要素の幅いっぱいに広がる */
+//   height: 1px; /* 線の太さ */
+//   background-color: #33ccff; /* 線の色 */
+//   transform: translateY(-50%); /* 完全に中央に整列 */
+// }
+
+// .p-Tournament-information-line-under {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   bottom: 0; /* 下に配置 */
+//   right: 36px;
+//   height: 1px;
+//   width: 100px; /* 親要素の幅いっぱいに広がる */
+//   background-color: #33ccff; /* 線の色 */
+// }
+
+// .p-Tournament-information-content > * {
+//   border-bottom: 2px solid #33ccff; /* 各要素の下に青いライン */
+//   padding-bottom: 70px; /* ラインと内容の間隔 */
+// }
+
+// .p-Tournament-information-buleline {
+//   position: absolute;
+//   width: 200px; /* 全体の幅 */
+//   height: 50px; /* 全体の高さ */
+//   top: 850px;
+//   left: 0px;
+// }
+
+// .p-Tournament-information-buleline-top {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   left: 30px;
+//   top: 0px;
+//   width: 140px; /* 親要素の幅いっぱいに広がる */
+//   height: 1px; /* 線の太さ */
+//   background-color: #33ccff; /* 線の色 */
+// }
+
+// .p-Tournament-information-buleline-middle {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   left: 100px;
+//   top: 9px;
+//   width: 100px; /* 親要素の幅いっぱいに広がる */
+//   height: 1px; /* 線の太さ */
+//   background-color: #33ccff; /* 線の色 */
+//   transform: translateY(-50%); /* 完全に中央に整列 */
+// }
+
+// .p-Tournament-information-buleline-under {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   bottom: 0; /* 下に配置 */
+//   left: 0px;
+//   height: 1px;
+//   width: 100px; /* 親要素の幅いっぱいに広がる */
+//   background-color: #33ccff; /* 線の色 */
+// }
 
 .p-Tournament-information-more {
-  position: absolute;
-  top: 900px;
-  left: 639px;
+  display: block;
   font-family: "Inter", sans-serif;
   font-weight: bold;
   padding: 0 0.4em 0.2em;
+  width: 150px;
   border-bottom: 3px solid #33ccff;
-  width: 168px;
   font-size: 25px;
-  text-align: center;
+  margin: 0 auto;
+}
+
+.p-Ivent-detail-more {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  padding: 0 0.4em 0.2em;
+  width: 150px;
+  border-bottom: 3px solid #33ccff;
+  font-size: 25px;
+  margin: 10px auto 0 auto;
 }
 
 .p-Ivent {
-  height: 900px;
-  width: 100%;
   background-color: #f0f0f0;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: auto;
+  padding: 20px 0;
+  margin-top: 20px;
 }
 
 .p-Ivent-detail-title {
@@ -940,311 +900,312 @@ footer {
   font-size: 35px;
   text-align: center;
   margin-bottom: 40px;
+  margin-top: 20px;
 }
 
-.p-Ivent-detail-more {
-  position: absolute;
-  top: 1006px;
-  left: 640px;
-  font-family: "Inter", sans-serif;
-  font-weight: bold;
-  padding: 0 0.4em 0.2em;
-  border-bottom: 3px solid #33ccff;
-  width: 168px;
-  text-align: center;
-  font-size: 25px;
-}
+// .p-Ivent-detail-more {
+//   position: absolute;
+//   top: 1006px;
+//   left: 640px;
+//   font-family: "Inter", sans-serif;
+//   font-weight: bold;
+//   padding: 0 0.4em 0.2em;
+//   border-bottom: 3px solid #33ccff;
+//   width: 168px;
+//   text-align: center;
+//   font-size: 25px;
+// }
 
-.p-Ivent-detail-content > * {
-  border-bottom: 2px solid #33ccff;
-  padding-bottom: 10px;
-}
+// .p-Ivent-detail-content > * {
+//   border-bottom: 2px solid #33ccff;
+//   padding-bottom: 10px;
+// }
 
-.p-Join {
-  height: 695px;
-  position: relative;
-  margin-top: 200px;
-  left: 40px;
-  width: 100%;
-}
+// .p-Join {
+//   height: 695px;
+//   position: relative;
+//   margin-top: 200px;
+//   left: 40px;
+//   width: 100%;
+// }
 
-.p-join-every-title-left {
-  font-size: 40px;
-  width: 500px;
-  height: 47px;
-  position: absolute;
-  left: 185px;
-  top: 95px;
-}
+// .p-join-every-title-left {
+//   font-size: 40px;
+//   width: 500px;
+//   height: 47px;
+//   position: absolute;
+//   left: 185px;
+//   top: 95px;
+// }
 
-.p-join-bluebox-big-left {
-  position: absolute;
-  width: 42px;
-  height: 42px;
-  left: 150px;
-  top: 68px;
-  background: rgba(0, 0, 255, 0.6);
-}
+// .p-join-bluebox-big-left {
+//   position: absolute;
+//   width: 42px;
+//   height: 42px;
+//   left: 150px;
+//   top: 68px;
+//   background: rgba(0, 0, 255, 0.6);
+// }
 
-.p-join-bluebox-small-left {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 135px;
-  top: 53px;
-  z-index: 10px;
-  background: rgba(0, 0, 255, 0.6);
-}
+// .p-join-bluebox-small-left {
+//   position: absolute;
+//   width: 30px;
+//   height: 30px;
+//   left: 135px;
+//   top: 53px;
+//   z-index: 10px;
+//   background: rgba(0, 0, 255, 0.6);
+// }
 
-.p-join-every-content-left {
-  position: absolute;
-  top: 164px;
-  left: 125px;
-}
+// .p-join-every-content-left {
+//   position: absolute;
+//   top: 164px;
+//   left: 125px;
+// }
 
-.p-join-every-content-number-left {
-  font-weight: Light;
-  font-size: 50px;
-}
+// .p-join-every-content-number-left {
+//   font-weight: Light;
+//   font-size: 50px;
+// }
 
-.p-join-every-content-sentence-left {
-  font-size: 20px;
-  margin-bottom: 100px;
-}
+// .p-join-every-content-sentence-left {
+//   font-size: 20px;
+//   margin-bottom: 100px;
+// }
 
-.p-join-every-content-under-left {
-  position: absolute;
-  top: 188px;
-  left: 339px;
-}
+// .p-join-every-content-under-left {
+//   position: absolute;
+//   top: 188px;
+//   left: 339px;
+// }
 
-.p-join-every-content-underline-left {
-  display: inline-block;
-  vertical-align: middle;
-  color: #333;
-  line-height: 1;
-  position: relative;
-  width: 0.1em;
-  height: 1.5em;
-  background: currentColor;
-}
+// .p-join-every-content-underline-left {
+//   display: inline-block;
+//   vertical-align: middle;
+//   color: #333;
+//   line-height: 1;
+//   position: relative;
+//   width: 0.1em;
+//   height: 1.5em;
+//   background: currentColor;
+// }
 
-.p-join-every-content-underline-left:before {
-  content: "";
-  width: 0.65em;
-  height: 0.65em;
-  border: 0.1em solid currentColor;
-  border-top: 0;
-  border-right: 0;
-  transform: rotate(-45deg);
-  transform-origin: bottom left;
-  position: absolute;
-  left: 50%;
-  bottom: -0.05em;
-  box-sizing: border-box;
-}
+// .p-join-every-content-underline-left:before {
+//   content: "";
+//   width: 0.65em;
+//   height: 0.65em;
+//   border: 0.1em solid currentColor;
+//   border-top: 0;
+//   border-right: 0;
+//   transform: rotate(-45deg);
+//   transform-origin: bottom left;
+//   position: absolute;
+//   left: 50%;
+//   bottom: -0.05em;
+//   box-sizing: border-box;
+// }
 
-.p-join-every-content-under-aicon-left {
-  position: absolute;
-  top: 389px;
-  left: 339px;
-}
+// .p-join-every-content-under-aicon-left {
+//   position: absolute;
+//   top: 389px;
+//   left: 339px;
+// }
 
-.p-join-every-title-right {
-  font-size: 40px;
-  width: 500px;
-  height: 47px;
-  position: absolute;
-  left: 808px;
-  top: 95px;
-}
+// .p-join-every-title-right {
+//   font-size: 40px;
+//   width: 500px;
+//   height: 47px;
+//   position: absolute;
+//   left: 808px;
+//   top: 95px;
+// }
 
-.p-join-every-title-mobile {
-  display: none;
-}
+// .p-join-every-title-mobile {
+//   display: none;
+// }
 
-.p-join-every-title-nmobile-Individual {
-  display: none;
-}
+// .p-join-every-title-nmobile-Individual {
+//   display: none;
+// }
 
-.p-join-every-title-Organization {
-  display: none;
-}
+// .p-join-every-title-Organization {
+//   display: none;
+// }
 
-.p-join-every-content-right {
-  position: absolute;
-  top: 164px;
-  left: 752px;
-}
+// .p-join-every-content-right {
+//   position: absolute;
+//   top: 164px;
+//   left: 752px;
+// }
 
-.p-join-every-content-number-right {
-  font-weight: Light;
-  font-size: 50px;
-}
+// .p-join-every-content-number-right {
+//   font-weight: Light;
+//   font-size: 50px;
+// }
 
-.p-join-every-content-sentence-right {
-  font-size: 20px;
-  margin-bottom: 100px;
-}
+// .p-join-every-content-sentence-right {
+//   font-size: 20px;
+//   margin-bottom: 100px;
+// }
 
-.p-join-every-content-under-right {
-  position: absolute;
-  top: 178px;
-  left: 300px;
-}
+// .p-join-every-content-under-right {
+//   position: absolute;
+//   top: 178px;
+//   left: 300px;
+// }
 
-.p-join-every-content-underline-right {
-  display: inline-block;
-  vertical-align: middle;
-  color: #333;
-  line-height: 1;
-  position: relative;
-  width: 0.1em;
-  height: 1.5em;
-  background: currentColor;
-}
+// .p-join-every-content-underline-right {
+//   display: inline-block;
+//   vertical-align: middle;
+//   color: #333;
+//   line-height: 1;
+//   position: relative;
+//   width: 0.1em;
+//   height: 1.5em;
+//   background: currentColor;
+// }
 
-.p-join-every-content-underline-right:before {
-  content: "";
-  width: 0.65em;
-  height: 0.65em;
-  border: 0.1em solid currentColor;
-  border-top: 0;
-  border-right: 0;
-  transform: rotate(-45deg);
-  transform-origin: bottom left;
-  position: absolute;
-  left: 50%;
-  bottom: -0.05em;
-  box-sizing: border-box;
-}
+// .p-join-every-content-underline-right:before {
+//   content: "";
+//   width: 0.65em;
+//   height: 0.65em;
+//   border: 0.1em solid currentColor;
+//   border-top: 0;
+//   border-right: 0;
+//   transform: rotate(-45deg);
+//   transform-origin: bottom left;
+//   position: absolute;
+//   left: 50%;
+//   bottom: -0.05em;
+//   box-sizing: border-box;
+// }
 
-.p-join-every-content-under-aicon-right {
-  position: absolute;
-  top: 379px;
-  left: 300px;
-}
-.p-join-bluebox-big-right {
-  position: absolute;
-  width: 42px;
-  height: 42px;
-  left: 770px;
-  top: 68px;
-  background: rgba(0, 0, 255, 0.6);
-}
+// .p-join-every-content-under-aicon-right {
+//   position: absolute;
+//   top: 379px;
+//   left: 300px;
+// }
+// .p-join-bluebox-big-right {
+//   position: absolute;
+//   width: 42px;
+//   height: 42px;
+//   left: 770px;
+//   top: 68px;
+//   background: rgba(0, 0, 255, 0.6);
+// }
 
-.p-join-bluebox-small-right {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 755px;
-  top: 53px;
-  z-index: 10px;
-  background: rgba(0, 0, 255, 0.6);
-}
+// .p-join-bluebox-small-right {
+//   position: absolute;
+//   width: 30px;
+//   height: 30px;
+//   left: 755px;
+//   top: 53px;
+//   z-index: 10px;
+//   background: rgba(0, 0, 255, 0.6);
+// }
 
-.p-inquiry {
-  height: 200px;
-  position: relative;
-  margin-top: 200px;
-}
+// .p-inquiry {
+//   height: 200px;
+//   position: relative;
+//   margin-top: 200px;
+// }
 
-.p-inquiry-line {
-  position: absolute;
-  width: 200px; /* 全体の幅 */
-  height: 50px; /* 全体の高さ */
-  top: -50px;
-  left: 0px;
-}
+// .p-inquiry-line {
+//   position: absolute;
+//   width: 200px; /* 全体の幅 */
+//   height: 50px; /* 全体の高さ */
+//   top: -50px;
+//   left: 0px;
+// }
 
-.p-inquiry-line-top {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  left: 0px;
-  top: 0px;
-  width: 140px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-}
+// .p-inquiry-line-top {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   left: 0px;
+//   top: 0px;
+//   width: 140px; /* 親要素の幅いっぱいに広がる */
+//   height: 1px; /* 線の太さ */
+//   background-color: #33ccff; /* 線の色 */
+// }
 
-.p-inquiry-line-middle {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  left: 70px;
-  top: 9px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-  transform: translateY(-50%); /* 完全に中央に整列 */
-}
+// .p-inquiry-line-middle {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   left: 70px;
+//   top: 9px;
+//   width: 100px; /* 親要素の幅いっぱいに広がる */
+//   height: 1px; /* 線の太さ */
+//   background-color: #33ccff; /* 線の色 */
+//   transform: translateY(-50%); /* 完全に中央に整列 */
+// }
 
-.p-inquiry-line-under {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  bottom: 0; /* 下に配置 */
-  left: 0px;
-  height: 1px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  background-color: #33ccff; /* 線の色 */
-}
+// .p-inquiry-line-under {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   bottom: 0; /* 下に配置 */
+//   left: 0px;
+//   height: 1px;
+//   width: 100px; /* 親要素の幅いっぱいに広がる */
+//   background-color: #33ccff; /* 線の色 */
+// }
 
-.p-inquiry-box {
-  display: flex; /* Flexboxを有効化 */
-  justify-content: center; /* 水平方向の中央揃え */
-  max-width: 489px;
-  height: 80px;
-  margin: 1em auto;
-  padding: 1em 1.5em;
-  border: 2px solid #2589d0;
-  border-radius: 3px;
-  background-color: #0000ff;
-}
+// .p-inquiry-box {
+//   display: flex; /* Flexboxを有効化 */
+//   justify-content: center; /* 水平方向の中央揃え */
+//   max-width: 489px;
+//   height: 80px;
+//   margin: 1em auto;
+//   padding: 1em 1.5em;
+//   border: 2px solid #2589d0;
+//   border-radius: 3px;
+//   background-color: #0000ff;
+// }
 
-.p-inquiry-box-content {
-  z-index: 100;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 30px;
-}
+// .p-inquiry-box-content {
+//   z-index: 100;
+//   color: #ffffff;
+//   font-weight: bold;
+//   font-size: 30px;
+// }
 
-.p-inquiry-blueline {
-  position: absolute;
-  width: 200px; /* 全体の幅 */
-  height: 50px; /* 全体の高さ */
-  top: 100px;
-  right: 0px;
-}
+// .p-inquiry-blueline {
+//   position: absolute;
+//   width: 200px; /* 全体の幅 */
+//   height: 50px; /* 全体の高さ */
+//   top: 100px;
+//   right: 0px;
+// }
 
-.p-inquiry-blueline-top {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  right: 20px;
-  top: 0px;
-  width: 140px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-}
+// .p-inquiry-blueline-top {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   right: 20px;
+//   top: 0px;
+//   width: 140px; /* 親要素の幅いっぱいに広がる */
+//   height: 1px; /* 線の太さ */
+//   background-color: #33ccff; /* 線の色 */
+// }
 
-.p-inquiry-blueline-middle {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  right: 0px;
-  top: 9px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  height: 1px; /* 線の太さ */
-  background-color: #33ccff; /* 線の色 */
-  transform: translateY(-50%); /* 完全に中央に整列 */
-}
+// .p-inquiry-blueline-middle {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   right: 0px;
+//   top: 9px;
+//   width: 100px; /* 親要素の幅いっぱいに広がる */
+//   height: 1px; /* 線の太さ */
+//   background-color: #33ccff; /* 線の色 */
+//   transform: translateY(-50%); /* 完全に中央に整列 */
+// }
 
-.p-inquiry-blueline-under {
-  position: absolute; /* 必須: 親要素を基準に位置を設定 */
-  z-index: 100;
-  bottom: 0; /* 下に配置 */
-  right: 90px;
-  height: 1px;
-  width: 100px; /* 親要素の幅いっぱいに広がる */
-  background-color: #33ccff; /* 線の色 */
-}
+// .p-inquiry-blueline-under {
+//   position: absolute; /* 必須: 親要素を基準に位置を設定 */
+//   z-index: 100;
+//   bottom: 0; /* 下に配置 */
+//   right: 90px;
+//   height: 1px;
+//   width: 100px; /* 親要素の幅いっぱいに広がる */
+//   background-color: #33ccff; /* 線の色 */
+// }
 /*-------------　ここまで-------------*/
 
 /*-------------　ここから-------------*/
@@ -2056,241 +2017,240 @@ footer {
 /*-------------　ここまで-------------*/
 
 /*-------------　ここから-------------*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 728px) {
   body {
     margin: 0 auto;
     overflow-x: hidden; /* 横スクロールを無効化 */
   }
 
   //トップページ
-  .p-top {
+  // .p-top {
+  //   width: 100%;
+  //   height: 300px;
+  // }
+
+  // .p-top-slide {
+  //   width: 100%;
+  //   height: 150px;
+  // }
+  // .p-about {
+  //   position: relative;
+  //   width: 100%;
+  //   height: 400px;
+  // }
+
+  // .p-about-blueline {
+  //   position: absolute;
+  //   width: 20%;
+  //   height: 24px;
+  //   right: 0px;
+  //   top: 300px;
+  // }
+
+  // .p-about-blueline-top {
+  //   position: absolute;
+  //   width: 48px;
+  //   right: 17px;
+  //   top: 0px;
+  // }
+
+  // .p-about-blueline-middle {
+  //   position: absolute;
+  //   width: 20px;
+  //   right: 0px;
+  //   top: 17px;
+  // }
+
+  // .p-about-blueline-under {
+  //   position: absolute;
+  //   right: 0px;
+  //   bottom: 0px;
+  //   width: 50px;
+  // }
+
+  // .p-top-mail {
+  //   display: none;
+  // }
+
+  // .p-about {
+  //   position: relative;
+  //   width: 100%;
+  //   height: 333px;
+  // }
+
+  // .p-about-bluebox-big {
+  //   position: absolute;
+  //   width: 23px;
+  //   height: 23px;
+  //   top: 40px;
+  //   left: 100px;
+  // }
+
+  // .p-about-bluebox-small {
+  //   position: absolute;
+  //   top: 30px;
+  //   left: 90px;
+  //   width: 17px;
+  //   height: 17px;
+  // }
+
+  // .p-about-title {
+  //   top: 70px;
+  //   margin: 0 auto; /* ページ全体で中央揃え */
+  //   font-size: 30px;
+  // }
+
+  // .p-about-content {
+  //   position: absolute;
+  //   top: 150px;
+  //   margin: 0 auto; /* ページ全体で中央揃え */
+  //   font-size: 20px;
+  // }
+
+  // .p-about-glrybox {
+  //   display: none;
+  // }
+
+  // .p-about-university {
+  //   position: absolute;
+  //   left: 200px;
+  //   top: 350px;
+  //   width: 121px;
+  // }
+  // .p-about-line {
+  //   height: 24px;
+  //   width: 20%;
+  // }
+
+  // .p-about-line-top {
+  //   position: absolute;
+  //   width: 48px;
+  //   left: 0px;
+  //   top: 0px;
+  // }
+
+  // .p-about-line-middle {
+  //   position: absolute;
+  //   top: 19px;
+  //   left: 48px;
+  //   width: 48px;
+  // }
+
+  // .p-about-line-under {
+  //   position: absolute;
+  //   width: 67px;
+  //   left: 14px;
+  // }
+
+  // .p-about-detail {
+  //   position: absolute;
+  //   left: 450px;
+  //   top: 350px;
+  //   width: 130px;
+  // }
+
+  // .p-about-blueline {
+  //   position: absolute;
+  //   width: 96px;
+  //   height: 50px;
+  //   top: 24x;
+  //   right: 0px;
+  // }
+
+  // .p-Ivent-detail-more {
+  //   position: absolute;
+  //   left: 350px;
+  // }
+
+  // .p-Tournament-information-title {
+  //   position: absolute;
+  //   left: 350px;
+  //   font-size: 30px;
+  // }
+
+  // .p-Tournament-information-title::before,
+  // .p-Tournament-information-title::after {
+  //   content: "";
+  //   position: absolute;
+  //   height: 1px; /* 線の太さ */
+  //   background-color: #0000ff; /* 線の色 */
+  //   top: 50%; /* h2の中央位置に線を合わせる */
+  //   width: 110%; /* ページ全幅 */
+  //   left: -700px;
+  //   transform: translateY(-50%); /* 縦位置調整 */
+  // }
+
+  // .p-Tournament-information-line {
+  //   display: none;
+  // }
+
+  // .p-Tournament-information-title::before {
+  //   right: -100px;
+  //   width: 100px;
+  // }
+
+  // .p-Tournament-information-title::after {
+  //   left: 150px;
+  // }
+
+  // .p-Tournament-information-buleline {
+  //   display: none;
+  // }
+
+  // .p-Ivent {
+  //   height: 900px;
+  // }
+
+  // .p-Ivent-detail {
+  //   position: absolute;
+  //   top: 50px;
+  //   height: 300px;
+  // }
+
+  // .p-Ivent-detail-more {
+  //   position: absolute;
+  //   top: 750px;
+  //   left: 300px;
+  // }
+
+  // .p-Tournament-information-content {
+  //   position: absolute;
+  //   left: 100px;
+  //   width: 80%;
+  // }
+
+  // .p-Tournament-information-more {
+  //   text-align: center;
+  //   margin-top: 10px;
+  //   font-size: 25px;
+  // }
+
+  // .p-Join {
+  //   width: 100%;
+  //   height: 2000px;
+  // }
+
+  // .p-join-every-title-left {
+  //   display: none;
+  // }
+
+  // .p-join-every-title-mobile {
+  //   font-size: 40px;
+  //   width: 500px;
+  //   height: 47px;
+  //   position: absolute;
+  //   left: 185px;
+  //   top: 95px;
+  // }
+
+  //大会情報
+
+  .p-information {
+    position: relative;
     width: 100%;
     height: 300px;
   }
 
-  .p-top-slide {
-    width: 100%;
-    height: 150px;
-  }
-    .p-about {
-      position: relative;
-      width: 100%;
-      height: 400px;
-    }
-
-    .p-about-blueline {
-      position: absolute;
-      width: 20%;
-      height: 24px;
-      right: 0px;
-      top: 300px;
-    }
-
-    .p-about-blueline-top {
-      position: absolute;
-      width: 48px;
-      right: 17px;
-      top: 0px;
-    }
-
-    .p-about-blueline-middle {
-      position: absolute;
-      width: 20px;
-      right: 0px;
-      top: 17px;
-    }
-
-    .p-about-blueline-under {
-      position: absolute;
-      right: 0px;
-      bottom: 0px;
-      width: 50px;
-    }
-
-  .p-top-mail {
-    display: none;
-  }
-
-  .p-about {
-    position: relative;
-    width: 100%;
-    height: 333px;
-  }
-
-  .p-about-bluebox-big {
-    position: absolute;
-    width: 23px;
-    height: 23px;
-    top: 40px;
-    left: 100px;
-  }
-
-  .p-about-bluebox-small {
-    position: absolute;
-    top: 30px;
-    left: 90px;
-    width: 17px;
-    height: 17px;
-  }
-
-  .p-about-title {
-    position: absolute;
-    top: 70px;
-    margin: 0 auto; /* ページ全体で中央揃え */
-    font-size: 30px;
-  }
-
-  .p-about-content {
-    position: absolute;
-    top: 150px;
-    margin: 0 auto; /* ページ全体で中央揃え */
-    font-size: 20px;
-  }
-
-  .p-about-glrybox {
-    display: none;
-  }
-
-  .p-about-university {
-    position: absolute;
-    left: 200px;
-    top: 350px;
-    width: 121px;
-  }
-    .p-about-line {
-      height: 24px;
-      width: 20%;
-    }
-
-    .p-about-line-top {
-      position: absolute;
-      width: 48px;
-      left: 0px;
-      top: 0px;
-    }
-
-    .p-about-line-middle {
-      position: absolute;
-      top: 19px;
-      left: 48px;
-      width: 48px;
-    }
-
-    .p-about-line-under {
-      position: absolute;
-      width: 67px;
-      left: 14px;
-    }
-
-  .p-about-detail {
-    position: absolute;
-    left: 450px;
-    top: 350px;
-    width: 130px;
-  }
-
-  .p-about-blueline {
-    position: absolute;
-    width: 96px;
-    height: 50px;
-    top: 24x;
-    right: 0px;
-  }
-
-  .p-Ivent-detail-more {
-    position: absolute;
-    left: 350px;
-  }
-
-  .p-Tournament-information-title {
-    position: absolute;
-    left: 350px;
-    font-size: 30px;
-  }
-
-  .p-Tournament-information-title::before,
-  .p-Tournament-information-title::after {
-    content: "";
-    position: absolute;
-    height: 1px; /* 線の太さ */
-    background-color: #0000ff; /* 線の色 */
-    top: 50%; /* h2の中央位置に線を合わせる */
-    width: 110%; /* ページ全幅 */
-    left: -700px;
-    transform: translateY(-50%); /* 縦位置調整 */
-  }
-  
-    .p-Tournament-information-line {
-      display: none;
-    }
-
-  .p-Tournament-information-title::before {
-    right: -100px;
-    width: 100px;
-  }
-
-
-  .p-Tournament-information-title::after {
-    left: 150px;
-  }
-
-    .p-Tournament-information-buleline {
-      display: none;
-    }
-
-    .p-Ivent {
-      height: 900px;
-    }
-
-    .p-Ivent-detail {
-      position: absolute;
-      top: 50px;
-      height: 300px;
-    }
-
-    .p-Ivent-detail-more {
-      position: absolute;
-      top: 750px;
-      left: 300px;
-    }
-
-  .p-Tournament-information-content {
-    position: absolute;
-    left: 100px;
-    width: 80%;
-  }
-
-  .p-Tournament-information-more {
-    position: absolute;
-    left: 340px;
-  }
-
-  .p-Join {
-    width: 100%;
-    height: 2000px;
-  }
-
-    .p-join-every-title-left {
-      display: none;
-    }
-
-    .p-join-every-title-mobile {
-      font-size: 40px;
-      width: 500px;
-      height: 47px;
-      position: absolute;
-      left: 185px;
-      top: 95px;
-    }
-
-    //大会情報
-
-    .p-information {
-      position: relative;
-      width: 100%;
-      height: 300px;
-    }
-  
   .p-information-title {
     position: absolute;
     left: 50px;
@@ -2371,145 +2331,145 @@ footer {
     align-items: center;
   }
 
-    .p-Join-line-center-right {
-      position: absolute;
-      width: 20%;
-      height: 24px;
-      top: 0px;
-      right: 0px;
-    }
+  .p-Join-line-center-right {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    top: 0px;
+    right: 0px;
+  }
 
-    .p-Join-line-center-right-top {
-      position: absolute;
-      width: 48px;
-      right: 48px;
-      top: 0px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-    }
+  .p-Join-line-center-right-top {
+    position: absolute;
+    width: 48px;
+    right: 48px;
+    top: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
 
-    .p-Join-line-center-right-middle {
-      position: absolute;
-      width: 48px;
-      right: 0px;
-      top: 19px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-    }
+  .p-Join-line-center-right-middle {
+    position: absolute;
+    width: 48px;
+    right: 0px;
+    top: 19px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
 
-    .p-Join-line-center-right-under {
-      position: absolute;
-      width: 67px;
-      right: 14px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-      bottom: 0px;
-    }
+  .p-Join-line-center-right-under {
+    position: absolute;
+    width: 67px;
+    right: 14px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    bottom: 0px;
+  }
 
-    .p-Join-line-center-left {
-      position: absolute;
-      width: 20%;
-      height: 24px;
-      top: 100px;
-      left: 0px;
-    }
+  .p-Join-line-center-left {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    top: 100px;
+    left: 0px;
+  }
 
-    .p-Join-line-center-left-top {
-      position: absolute;
-      width: 10px;
-      left: 0px;
-      top: 0px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-    }
+  .p-Join-line-center-left-top {
+    position: absolute;
+    width: 10px;
+    left: 0px;
+    top: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
 
-    .p-Join-line-center-left-middle {
-      position: absolute;
-      width: 48px;
-      left: 17px;
-      top: 19px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-    }
+  .p-Join-line-center-left-middle {
+    position: absolute;
+    width: 48px;
+    left: 17px;
+    top: 19px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
 
-    .p-Join-line-center-left-under {
-      position: absolute;
-      width: 50px;
-      left: 0px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-      bottom: 0px;
-    }
+  .p-Join-line-center-left-under {
+    position: absolute;
+    width: 50px;
+    left: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    bottom: 0px;
+  }
 
-    .p-Join-line-bottom-left {
-      position: absolute;
-      width: 20%;
-      height: 24px;
-      top: 800px;
-      left: 0px;
-    }
+  .p-Join-line-bottom-left {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    top: 800px;
+    left: 0px;
+  }
 
-    .p-Join-line-bottom-left-top {
-      position: absolute;
-      width: 40px;
-      left: 0px;
-      top: 0px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-    }
+  .p-Join-line-bottom-left-top {
+    position: absolute;
+    width: 40px;
+    left: 0px;
+    top: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
 
-    .p-Join-line-bottom-left-middle {
-      position: absolute;
-      width: 48px;
-      left: 41px;
-      top: 19px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-    }
+  .p-Join-line-bottom-left-middle {
+    position: absolute;
+    width: 48px;
+    left: 41px;
+    top: 19px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
 
-    .p-Join-line-bottom-left-under {
-      position: absolute;
-      width: 67px;
-      left: 7px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-      bottom: 0px;
-    }
+  .p-Join-line-bottom-left-under {
+    position: absolute;
+    width: 67px;
+    left: 7px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    bottom: 0px;
+  }
 
-    .p-Join-line-bottom-right {
-      position: absolute;
-      width: 20%;
-      height: 24px;
-      top: 700px;
-      right: 0px;
-    }
+  .p-Join-line-bottom-right {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    top: 700px;
+    right: 0px;
+  }
 
-    .p-Join-line-bottom-right-top {
-      position: absolute;
-      width: 48px;
-      right: 24px;
-      top: 0px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-    }
+  .p-Join-line-bottom-right-top {
+    position: absolute;
+    width: 48px;
+    right: 24px;
+    top: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
 
-    .p-Join-line-bottom-right-middle {
-      position: absolute;
-      width: 20px;
-      right: 0px;
-      top: 19px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-    }
+  .p-Join-line-bottom-right-middle {
+    position: absolute;
+    width: 20px;
+    right: 0px;
+    top: 19px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+  }
 
-    .p-Join-line-bottom-right-under {
-      position: absolute;
-      width: 60px;
-      right: 0px;
-      height: 1px; /* 線の太さ */
-      background-color: #33ccff; /* 線の色 */
-      bottom: 0px;
-    }
+  .p-Join-line-bottom-right-under {
+    position: absolute;
+    width: 60px;
+    right: 0px;
+    height: 1px; /* 線の太さ */
+    background-color: #33ccff; /* 線の色 */
+    bottom: 0px;
+  }
 
   .p-Join {
     width: 100%;
@@ -2545,88 +2505,88 @@ footer {
     top: 950px;
     left: 130px;
   }
-  
-    .p-inquiry {
-      width: 100%;
-    }
 
-    .p-inquiry-line {
-      position: absolute;
-      width: 20%;
-      height: 24px;
-      top: 300px;
-      left: 0px;
-    }
+  .p-inquiry {
+    width: 100%;
+  }
 
-    .p-inquiry-line-top {
-      position: absolute;
-      width: 48px;
-      left: 0px;
-      top: 0px;
-    }
+  .p-inquiry-line {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    top: 300px;
+    left: 0px;
+  }
 
-    .p-inquiry-line-middle {
-      position: absolute;
-      width: 48px;
-      left: 48px;
-      top: 19px;
-    }
+  .p-inquiry-line-top {
+    position: absolute;
+    width: 48px;
+    left: 0px;
+    top: 0px;
+  }
 
-    .p-inquiry-line-under {
-      position: absolute;
-      width: 67px;
-      left: 15px;
-    }
+  .p-inquiry-line-middle {
+    position: absolute;
+    width: 48px;
+    left: 48px;
+    top: 19px;
+  }
 
-    .p-inquiry-blueline {
-      position: absolute;
-      right: -90px;
-      top: 0px;
-      width: 20%;
-      height: 24px;
-    }
+  .p-inquiry-line-under {
+    position: absolute;
+    width: 67px;
+    left: 15px;
+  }
 
-    .p-inquiry-blueline-top {
-      position: absolute;
-      width: 48px;
-      left: -16px;
-      top: 0px;
-    }
+  .p-inquiry-blueline {
+    position: absolute;
+    right: -90px;
+    top: 0px;
+    width: 20%;
+    height: 24px;
+  }
 
-    .p-inquiry-blueline-middle {
-      position: absolute;
-      width: 20px;
-      left: 43px;
-      top: 19px;
-    }
+  .p-inquiry-blueline-top {
+    position: absolute;
+    width: 48px;
+    left: -16px;
+    top: 0px;
+  }
 
-    .p-inquiry-blueline-under {
-      position: absolute;
-      width: 40px;
-      left: 25px;
-      bottom: 0px;
-    }
+  .p-inquiry-blueline-middle {
+    position: absolute;
+    width: 20px;
+    left: 43px;
+    top: 19px;
+  }
 
-    .p-inquiry-line {
-      position: absolute;
-      height: 24px;
-      width: 20%;
-      left: 0px;
-      top: 100px;
-    }
+  .p-inquiry-blueline-under {
+    position: absolute;
+    width: 40px;
+    left: 25px;
+    bottom: 0px;
+  }
 
-    //大会詳細
-    .p-detail-main {
-      width: 100%;
-      height: 300px;
-    }
+  .p-inquiry-line {
+    position: absolute;
+    height: 24px;
+    width: 20%;
+    left: 0px;
+    top: 100px;
+  }
 
-    .p-detail-main-title {
-      position: absolute;
-      width: 300px;
-      text-align: left;
-      font-size: 30px;
-    }
+  //大会詳細
+  .p-detail-main {
+    width: 100%;
+    height: 300px;
+  }
+
+  .p-detail-main-title {
+    position: absolute;
+    width: 300px;
+    text-align: left;
+    font-size: 30px;
+  }
 
   //大会詳細
   .p-detail-main {
@@ -2666,19 +2626,19 @@ footer {
     font-size: 15px;
   }
 
-    .p-detail-mainphoto-img {
-      width: 80%;
-      height: 300px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
+  .p-detail-mainphoto-img {
+    width: 80%;
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
 
-    .p-detail-subphoto-left {
-      width: 30%;
-      height: 200px;
-      margin-left: 70px;
-      margin-top: -60px;
-    }
+  .p-detail-subphoto-left {
+    width: 30%;
+    height: 200px;
+    margin-left: 70px;
+    margin-top: -60px;
+  }
 
   .p-detail-subphoto-right {
     display: none;
@@ -3085,506 +3045,7 @@ footer {
       /*-------------　ここまで-------------*/
 
       /*-------------　ここから-------------*/
-      @media screen and (max-width: 768px) {
-        body {
-          margin: 0 auto;
-          overflow-x: hidden; /* 横スクロールを無効化 */
-        }
-
-        //トップページ
-        .p-top {
-          width: 100%;
-          height: 300px;
-        }
-
-        .p-top-slide {
-          width: 100%;
-          height: 150px;
-        }
-
-        .p-top-mail {
-          display: none;
-        }
-
-        .p-about {
-          position: relative;
-          width: 100%;
-          height: 333px;
-        }
-
-        .p-about-bluebox-big {
-          position: absolute;
-          width: 23px;
-          height: 23px;
-          top: 40px;
-          left: 100px;
-        }
-
-        .p-about-bluebox-small {
-          position: absolute;
-          top: 30px;
-          left: 90px;
-          width: 17px;
-          height: 17px;
-        }
-
-        .p-about-title {
-          position: absolute;
-          top: 70px;
-          margin: 0 auto; /* ページ全体で中央揃え */
-          font-size: 30px;
-        }
-
-        .p-about-content {
-          position: absolute;
-          top: 150px;
-          margin: 0 auto; /* ページ全体で中央揃え */
-          font-size: 20px;
-        }
-
-        .p-about-glrybox {
-          display: none;
-        }
-
-        .p-about-university {
-          position: absolute;
-          left: 200px;
-          top: 350px;
-          width: 121px;
-        }
-
-        .p-about-detail {
-          position: absolute;
-          left: 450px;
-          top: 350px;
-          width: 130px;
-        }
-
-        .p-about-blueline {
-          position: absolute;
-          width: 96px;
-          height: 50px;
-          top: 24x;
-          right: 0px;
-        }
-
-        .p-Ivent-detail-more {
-          position: absolute;
-          left: 350px;
-        }
-
-        .p-Tournament-information-title {
-          position: absolute;
-          left: 350px;
-          font-size: 30px;
-        }
-
-        .p-Tournament-information-title::before,
-        .p-Tournament-information-title::after {
-          content: "";
-          position: absolute;
-          height: 1px; /* 線の太さ */
-          background-color: #0000ff; /* 線の色 */
-          top: 50%; /* h2の中央位置に線を合わせる */
-          width: 110%; /* ページ全幅 */
-          left: -700px;
-          transform: translateY(-50%); /* 縦位置調整 */
-        }
-
-        .p-Tournament-information-title::before {
-          right: -100px;
-          width: 100px;
-        }
-
-        .p-Tournament-information-title::after {
-          left: 150px;
-        }
-
-        .p-Tournament-information-content {
-          position: absolute;
-          left: 100px;
-          width: 80%;
-        }
-
-        .p-Tournament-information-more {
-          position: absolute;
-          left: 340px;
-        }
-
-        .p-Join {
-          width: 100%;
-          height: 2000px;
-        }
-
-        //大会情報
-
-        .p-information {
-          width: 100%;
-          height: 300px;
-        }
-
-        .p-information-title {
-          position: absolute;
-          left: 50px;
-          top: 127px;
-          font-size: 30px;
-        }
-
-        .p-information-search {
-          position: absolute;
-          width: 250px;
-          height: 40px;
-          left: 350px;
-          top: 200px;
-          line-height: 2.5;
-        }
-
-        .p-line {
-          display: none;
-        }
-
-        .p-blue-line {
-          display: none;
-        }
-
-        .p-bottom-line {
-          display: none;
-        }
-
-        .p-bottom-blueline {
-          display: none;
-        }
-
-        .p-bottom-blueline-right {
-          display: none;
-        }
-
-        .p-content-bluebox-big {
-          display: none;
-        }
-
-        .p-content-bluebox-small {
-          display: none;
-        }
-
-        .p-content-sentence {
-          display: flex;
-          flex-flow: column;
-          align-items: center;
-          width: 100%;
-        }
-
-        .p-content-sentence-archive {
-          width: 100%;
-          height: 400px;
-          align-items: center; /* 子要素を中央揃え */
-          text-align: center; /* テキストを中央揃え（必要に応じて） */
-          margin: 0 auto; /* ページ全体で中央揃え */
-        }
-
-        .p-content-sentence-archive-title {
-          text-align: center;
-          font-size: 40px;
-          margin-bottom: 40px;
-        }
-
-        .p-content-sentence-archive-everyday {
-          display: flex;
-          gap: 50px; /* 子要素間にスペースを追加 */
-          justify-content: center; /* 子要素を中央揃え */
-        }
-
-        .p-content-sentence-archive-day {
-          font-size: 40px;
-        }
-
-        .p-content-sentence-every {
-          width: 80%;
-          align-items: center;
-        }
-
-        .p-Join {
-          width: 100%;
-          left: 0px;
-          height: 1500px;
-        }
-
-        .p-Join-every {
-          position: absolute;
-          left: 0px;
-        }
-
-        .p-join-bluebox-big-right {
-          display: none;
-        }
-
-        .p-join-bluebox-small-right {
-          display: none;
-        }
-
-        .p-join-every-content-left {
-          margin-bottom: 10px;
-        }
-
-        .p-join-every-title-right {
-          position: absolute;
-          top: 900px;
-          left: 190px;
-        }
-
-        .p-join-every-content-right {
-          position: absolute;
-          top: 950px;
-          left: 130px;
-        }
-
-        //大会詳細
-        .p-detail-main {
-          width: 100%;
-          height: 120px;
-        }
-
-        .p-detail-main-title {
-          position: absolute;
-          width: 172px;
-          left: 33px;
-          top: 49px;
-          font-size: 18px;
-        }
-
-        .p-detail-sentence {
-          margin-left: 37px;
-          margin-top: 26px;
-        }
-
-        .p-detail-bluebox-big {
-          position: absolute;
-          width: 17px;
-          height: 17px;
-          left: 5px;
-          top: 5px;
-        }
-
-        .p-detail-bluebox-small {
-          width: 12px;
-          height: 12px;
-        }
-
-        .p-detail-sentence-content {
-          margin-top: 10px;
-          margin-left: 20px;
-          font-size: 15px;
-        }
-
-        .p-detail-mainphoto-img {
-          width: 307px;
-          height: 140px;
-          margin: 0 auto;
-        }
-
-        .p-detail-subphoto-left {
-          width: 140px;
-          height: 140px;
-          margin-left: 10px;
-          margin-top: -60px;
-        }
-
-        .p-detail-subphoto-right {
-          display: none;
-        }
-
-        .p-detail-subphoto {
-          margin-bottom: 60px;
-        }
-
-        .p-detail-line {
-          width: 96px;
-          height: 24px;
-        }
-
-        .p-detail-line-top {
-          position: absolute;
-          width: 48px;
-          right: 48px;
-        }
-
-        .p-detail-line-middle {
-          position: absolute;
-          top: 19px;
-          width: 48px;
-        }
-
-        .p-detail-line-under {
-          position: absolute;
-          right: 14px;
-          width: 67px;
-        }
-
-        .p-detail-blue-line {
-          position: absolute;
-          width: 96px;
-          height: 24px;
-          top: 756px;
-          left: 0px;
-        }
-
-        .p-detail-blue-line-top {
-          position: absolute;
-          left: 0px;
-          width: 10px;
-        }
-
-        .p-detail-blue-line-middle {
-          position: absolute;
-          left: 12px;
-          top: 19px;
-          width: 48px;
-        }
-
-        .p-detail-blue-line-under {
-          position: absolute;
-          left: 0px;
-          width: 48px;
-        }
-
-        .p-detail-bottom-line {
-          display: none;
-        }
-
-        .p-detail-bottom-blueline {
-          display: none;
-        }
-
-        //イベント詳細
-        .p-Ivent-line-right {
-          right: 0px;
-          height: 24px;
-          top: 400px;
-        }
-
-        .p-Ivent-line-right-top {
-          position: absolute;
-          width: 10%;
-          right: 0px;
-        }
-
-        .p-Ivent-line-right-middle {
-          display: none;
-        }
-
-        .p-Ivent-line-right-under {
-          width: 30px;
-          right: 0px;
-        }
-
-        .p-Ivent-line-left {
-          left: 0px;
-          height: 24px;
-          width: 10%;
-        }
-
-        .p-Ivent-line-left-top {
-          display: none;
-        }
-
-        .p-Ivent-line-left-middle {
-          position: absolute;
-          width: 50%;
-          left: 0px;
-          top: 20px;
-        }
-
-        .p-Ivent-line-bottom-left {
-          display: none;
-        }
-
-        .p-Ivent-line-center-right {
-          display: none;
-        }
-
-        .p-Ivent-line-center-left {
-          height: 90%;
-          width: 10%;
-          top: 1920px;
-        }
-
-        .p-Ivent-line-center-left-top {
-          width: 8%;
-        }
-
-        .p-Ivent-line-center-left-middle {
-          position: absolute;
-          width: 50%;
-          left: 8px;
-          top: 19px;
-        }
-
-        .p-Ivent-line-center-left-under {
-          position: absolute;
-          width: 40%;
-          left: 0px;
-          top: 20px;
-        }
-
-        .p-Ivent-line-bottom-right {
-          position: absolute;
-          width: 10%;
-          height: 5%;
-          top: 1500px;
-          right: 0px;
-        }
-
-        .p-Ivent-line-bottom-right-top {
-          position: absolute;
-          width: 50%;
-          right: 8px;
-        }
-
-        .p-Ivent-line-bottom-right-middle {
-          position: absolute;
-          width: 10%;
-          right: 0px;
-          top: 20px;
-        }
-
-        .p-Ivent-line-bottom-right-under {
-          position: absolute;
-          width: 30%;
-          right: 0px;
-          top: 24px;
-        }
-
-        .p-Ivent-main {
-          position: relative;
-          height: 150px;
-        }
-
-        .p-Ivent-main-title {
-          position: absolute;
-          top: 60px;
-          left: 33px;
-          width: 196px;
-          height: 22px;
-          font-size: 18px;
-        }
-
-        .p-Ivent-sentence {
-          margin-top: 35px;
-          margin-left: 43px;
-        }
-
-        .p-Ivent-photo-main {
-          width: 80%;
-          margin: 0 auto;
-        }
-
-        .p-Ivent-photo-sub {
-          width: 80%;
-          margin: 0 auto;
-          margin-bottom: 70px;
-        }
-      }
-      /*-------------　ここまで-------------*/
+      /*-------------ここまで-------------*/
     }
   }
 }

@@ -45,46 +45,28 @@ const admission = responseAdmission.contents[0];
 		</section>
 
 		<section id="" class="p-about">
-			<div class="p-about-blueline">
-				<div class="p-about-blueline-top"></div>
-				<div class="p-about-blueline-middle"></div>
-				<div class="p-about-blueline-under"></div>
-			</div>
 			<div class="">
 				<div class="p-about-bluebox-big"></div>
 				<div class="p-about-bluebox-small"></div>
 				<h1 class="p-about-title">全日本釣魚連盟関東支部について</h1>
 				<p class="p-about-content">{aboutDescription}</p>
-				<img src={aboutImage.url} alt="" class="p-about-glrybox">
-				<a href="" class="p-about-university">加盟大学一覧</a>
-				<a href="" class="p-about-detail">詳しくはこちら</a>
-			</div>
-			<div class="p-about-line">
-				<p class="p-about-line-top"></p>
-				<p class="p-about-line-middle"></p>
-				<p class="p-about-line-under"></p>
+				<img src={aboutImage.url} alt="" class="p-about-image">
+				<div class="p-about-links">
+					<a href="" class="p-about-university">加盟大学一覧</a>
+					<a href="" class="p-about-detail">詳しくはこちら</a>
+				</div>
 			</div>
 		</section>
 
 		<section id="" class="p-Tournament"> 
 			<div class="p-Tournament-information">
 				<h2 class="p-Tournament-information-title">大会情報</h2>
-				<div class="p-Tournament-information-line">
-					<div class="p-Tournament-information-line-top"></div>
-					<div class="p-Tournament-information-line-middle"></div>
-					<div class="p-Tournament-information-line-under"></div>
-				</div>
 				<div class="p-Tournament-information-content">
 					{firstThreeTournaments.map((tournament) => {
 						if(tournament){
 							return <TournamentComponent title={tournament.title} content={tournament.content} id={tournament.id}/>
 						}
 					})}
-				</div>
-				<div class="p-Tournament-information-buleline">
-					<div class="p-Tournament-information-buleline-top"></div>
-					<div class="p-Tournament-information-buleline-middle"></div>
-					<div class="p-Tournament-information-buleline-under"></div>
 				</div>
 				<a class="p-Tournament-information-more" href="/Tournamentinformation">さらに表示</a>
 			</div>
@@ -168,18 +150,8 @@ const admission = responseAdmission.contents[0];
 		</section>
 
 		<div class="p-inquiry">
-			<div class="p-inquiry-line">
-				<div class="p-inquiry-line-top"></div>
-				<div class="p-inquiry-line-middle"></div>
-				<div class="p-inquiry-line-under"></div>
-			</div>
 			<div class="p-inquiry-box">
 				<a href="/contact" class="p-inquiry-box-content">お問合せはこちら</a>
-			</div>
-			<div class="p-inquiry-blueline">
-				<div class="p-inquiry-blueline-top"></div>
-				<div class="p-inquiry-blueline-middle"></div>
-				<div class="p-inquiry-blueline-under"></div>
 			</div>
 		</div>
 	</main>
