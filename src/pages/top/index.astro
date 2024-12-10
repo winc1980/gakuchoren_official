@@ -9,6 +9,10 @@ const og_image = "";
 import Carousel from '../../components/Carousel.astro'
 import TournamentComponent from '../../components/Tournament .astro'
 import IventComponent from '../../components/Ivent.astro'
+import { getAbout } from "@/lib/microcms";
+const response = await getAbout({fields: ["description", "images"]});
+const aboutDescription = response.contents[0].description;
+const aboutImage = response.contents[0].images[0];
 ---
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -38,8 +42,8 @@ import IventComponent from '../../components/Ivent.astro'
 				<div class="p-about-bluebox-big"></div>
 				<div class="p-about-bluebox-small"></div>
 				<h1 class="p-about-title">全日本釣魚連盟関東支部について</h1>
-				<p class="p-about-content">あああああ</p>
-				<div class="p-about-glrybox"></div>
+				<p class="p-about-content">{aboutDescription}</p>
+				<img src={aboutImage.url} alt="" class="p-about-glrybox">
 				<a href="" class="p-about-university">加盟大学一覧</a>
 				<a href="" class="p-about-detail">詳しくはこちら</a>
 			</div>
@@ -176,12 +180,12 @@ import IventComponent from '../../components/Ivent.astro'
 	  const moreBtn = document.querySelector(".p-Tournament-information-more");
 	  const hiddenItems = document.querySelector(".hidden-items");
   
-	  moreBtn.addEventListener("click", () => {
+	  moreBtn!.addEventListener("click", () => {
 		// 隠れている項目をトグル表示
-		hiddenItems.classList.toggle("is-visible");
+		hiddenItems!.classList.toggle("is-visible");
   
 		// ボタンのテキストを切り替え
-		moreBtn.textContent = hiddenItems.classList.contains("is-visible") ? "閉じる" : "さらに表示";
+		moreBtn!.textContent = hiddenItems!.classList.contains("is-visible") ? "閉じる" : "さらに表示";
 	  });
 	});
   </script>

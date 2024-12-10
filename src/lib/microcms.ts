@@ -119,10 +119,14 @@ export type Admission = {
   revisedAt: string;
   firstStep: string;
   secondStep: string;
+<<<<<<< HEAD
   thirdStep: string;
   firstStepGroup: string;
   secondStepGroup: string;
   thirdStepGroup: string;
+=======
+  ThirdStep: string;
+>>>>>>> 642e81ce365b5fcbea57229b2d54cd815c207a76
 };
 export type AdmissionResponse = {
   totalCount: number;
@@ -235,4 +239,8 @@ export const getAdmissionDetail = async (
     contentId,
     queries,
   });
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 642e81ce365b5fcbea57229b2d54cd815c207a76

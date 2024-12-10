@@ -1,6 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-
+import { getAbout } from "@/lib/microcms";
+const response = await getAbout({fields: ["content", "images"]});
+const about = response.contents[0];
 const title = "団体について";
 const description = "全日本釣魚連盟の概要を紹介します。";
 const og_image = "/images/about.jpg";
@@ -17,14 +19,16 @@ const og_image = "/images/about.jpg";
     <section class="about-section">
       <!-- 첫 번째 단락 -->
       <div class="about-item">
-        <div class="image-placeholder highlight"></div>
-        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+        <!-- <div class="image-placeholder highlight"></div> -->
+         {about.images[0] && <img src={about.images[0].url} class="image-placeholder highlight" alt="">}
+        <p>{about.content}</p>
       </div>
 
       <!-- 두 번째 단락 -->
       <div class="about-item 2">
         <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-        <div class="image-placeholder highlight"></div>
+        {about.images[1] && <img src={about.images[1].url} class="image-placeholder highlight" alt="">}
+        {/* <div class="image-placeholder highlight"></div> */}
       </div>
 
       <!-- 세 번째 단락 -->
