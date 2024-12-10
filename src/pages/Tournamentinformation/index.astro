@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import "../../scss/styles.scss";
-import TournamentComponent from "../../components/information.astro";
+import TournamentComponent from "../../components/Tournament .astro";
 import { getTournaments } from "../../lib/microcms";
 import type { Tournament } from "../../lib/microcms";
 
@@ -10,113 +10,91 @@ const description: string = "";
 const og_image: string = "";
 
 const response = await getTournaments({
-    fields: [
-        "id",
-        "title",
-        "description",
-        "content",
-        "images",
-        "og_image",
-        "createdAt",
-        "publishedAt",
-    ],
+  fields: [
+    "id",
+    "title",
+    "description",
+    "content",
+    "images",
+    "og_image",
+    "createdAt",
+    "publishedAt",
+  ],
 });
 const tournaments = response.contents;
 // 月ごとにグルーピング
 const groupedTournaments = tournaments.reduce<Record<string, Tournament[]>>(
-    (acc: any, tournament: Tournament) => {
-        const date = new Date(tournament.createdAt);
-        const yearMonth = `${date.getFullYear()}年${String(date.getMonth() + 1).padStart(2, "0")}月`;
+  (acc: any, tournament: Tournament) => {
+    const date = new Date(tournament.createdAt);
+    const yearMonth = `${date.getFullYear()}年${String(date.getMonth() + 1).padStart(2, "0")}月`;
 
-        if (!acc[yearMonth]) {
-            acc[yearMonth] = [];
-        }
-        acc[yearMonth].push(tournament);
-        return acc;
-    },
-    {},
+    if (!acc[yearMonth]) {
+      acc[yearMonth] = [];
+    }
+    acc[yearMonth].push(tournament);
+    return acc;
+  },
+  {}
 );
 
 // 月別に並び替え（新しい順）
 const sortedMonths = Object.keys(groupedTournaments).sort((a, b) =>
-    b.localeCompare(a),
+  b.localeCompare(a)
 );
 ---
-<Layout title={title} description={description} og_image={og_image}>
-    <main>
-        <section id="">
-            <div class="p-information">
-                <h1 class="p-information-title">大会情報</h1>
-                <div class="p-information-search">
-                    <p class="">検索</p>
-                </div>
-            </div>
-        </section>
-        <div class="p-line">
-            <div class="p-line-top"></div>
-            <div class="p-line-middle"></div>
-            <div class="p-line-under"></div>
-        </div>
-        <div class="p-blue-line">
-            <div class="p-blue-line-top"></div>
-            <div class="p-blue-line-under"></div>
-        </div>
-        <div class="p-bottom-line">
-            <div class="p-bottom-line-top"></div>
-            <div class="p-bottom-line-middle"></div>
-            <div class="p-bottom-line-under"></div>
-        </div>
-        <div class="p-bottom-blueline">
-            <div class="p-bottom-blueline-top"></div>
-            <div class="p-bottom-blueline-middle"></div>
-            <div class="p-bottom-blueline-under"></div>
-        </div>
-        <div class="p-bottom-blueline-right">
-            <div class="p-bottom-blueline-right-top"></div>
-            <div class="p-bottom-blueline-right-middle"></div>
-            <div class="p-bottom-blueline-right-under"></div>
-        </div>
-        <section id="" class="p-content">
-            <div class="p-content-bluebox-big"></div>
-            <div class="p-content-bluebox-small"></div>
-            <div class="p-content-sentence">
-                <div class="p-content-sentence-every">
-                    {
-                        sortedMonths.map((month) => (
-                            <div class="month-section">
-                                <h2 id={month}>{month}</h2>
-                                {groupedTournaments[month].map(
-                                    (tournament: Tournament) => (
-                                        <TournamentComponent
-                                            title={tournament.title}
-                                            content={tournament.content}
-                                            tournament={tournament}
-                                        />
-                                    ),
-                                )}
-                            </div>
-                        ))
-                    }
-                </div>
 
-                <div class="p-content-sentence-archive">
-                    <p class="p-content-sentence-archive-title">
-                        月別アーカイブ
-                    </p>
-                    <div class="p-content-sentence-archive-everyday">
-                        {
-                            sortedMonths.map((month) => (
-                                <p class="p-content-sentence-archive-day">
-                                    <a href={`#${month}`}>
-                                        {month}(
-                                        {groupedTournaments[month].length})
-                                    </a>
-                                </p>
-                            ))
-                        }
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+<Layout title={title} description={description} og_image={og_image}>
+  <main>
+    <section id="">
+      <div class="p-information">
+        <h1 class="p-information-title">大会情報</h1>
+        <div class="p-information-search">
+          <p class="">検索</p>
+        </div>
+      </div>
+    </section>
+    <div class="p-line">
+      <div class="p-line-top"></div>
+      <div class="p-line-middle"></div>
+      <div class="p-line-under"></div>
+    </div>
+    <section id="" class="p-content">
+      <div class="p-content-bluebox-big"></div>
+      <div class="p-content-bluebox-small"></div>
+      <div class="p-content-sentence">
+        <div class="p-content-sentence-every">
+          {
+            sortedMonths.map(month => (
+              <div class="month-section">
+                <h2 id={month}>{month}</h2>
+                {groupedTournaments[month].map((tournament: Tournament) => (
+                  <TournamentComponent
+                    title={tournament.title}
+                    content={tournament.content}
+                    id={tournament.id}
+                    tournament={tournament}
+                  />
+                ))}
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="p-content-sentence-archive">
+          <p class="p-content-sentence-archive-title">月別アーカイブ</p>
+          <div class="p-content-sentence-archive-everyday">
+            {
+              sortedMonths.map(month => (
+                <p class="p-content-sentence-archive-day">
+                  <a href={`#${month}`}>
+                    {month}({groupedTournaments[month].length})
+                  </a>
+                </p>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>;
