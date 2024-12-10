@@ -1,77 +1,144 @@
 ---
-const { image, title, content } = Astro.props;
+const { image, title, content, id } = Astro.props;
 ---
 
-<div class="my-component">
-  <!-- 画像を表示 -->
-  <div>
-    {image && <img src={image} alt="Image" class="component-image" />}
-  </div>
-  <div>
-    <h1>{title}</h1>
-    <p class="shortened-text">{content}</p>
-    <p class="next read-more-btn">続きを読む>></p>
+<div class="event-component-wrapper">
+  <div class="event-component">
+    <div class="event-component-inner-wrapper">
+      <!-- 画像を表示 -->
+      <div class="event-component-image">
+        {image && <img src={image} alt="Image" class="component-image" />}
+      </div>
+      <div>
+        <h1>{title}</h1>
+        <p class="shortened-text">{content}</p>
+        <a class="next read-more-btn" href={`/Iventdetail/${id}`}
+          >続きを読む>></a
+        >
+      </div>
+    </div>
+    <hr class="event-component-hr" />
   </div>
 </div>
 
 <style>
-  .my-component {
+  .event-component-wrapper {
+    background-color: #f0f0f0;
+  }
+
+  .event-component-inner-wrapper {
+    display: flex;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .event-component {
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 80%;
+  }
+
+  .event-component-image {
+    display: block;
+    margin-right: 10px;
+    object-fit: cover;
+    /* width: 100%; */
+  }
+
+  .event-component-hr {
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 100%;
+    padding-bottom: 10px;
+    border-color: black;
+  }
+
+  .event-component h1 {
+    color: black;
+    font-size: 25px;
+    margin-bottom: 10px;
+    /* white-space: nowrap; */
+  }
+
+  .read-more-btn {
+    display: block;
+    text-align: right;
+    color: #2589d0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .shortened-text {
+    width: 90%;
+    margin-left: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  /* .my-component {
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 5px;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
-    align-items: center; /* 画像とテキストを縦方向に中央揃え */
-    gap: 20px; /* 画像とテキストの間にスペースを追加 */
+    align-items: center; 
+    gap: 20px; 
     position: relative;
   }
 
   .my-component h1 {
     color: #2589d0;
-    width: 125px;
-    height: 36px;
     font-size: 30px;
+    width: 90%;
     margin-bottom: 20px;
+    white-space: nowrap;
   }
 
   .my-component .shortened-text {
     width: 100%;
     font-size: 20px;
-    overflow: hidden; /* 必要に応じてスクロールを隠す */
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* 最大3行まで表示 */
-    -webkit-box-orient: vertical;
-    line-height: 1.5; /* 行の高さ */
-    max-height: calc(1.5em * 3); /* 3行分の高さ */
+
+    line-height: 1.5; 
+    max-height: calc(1.5em * 3); 
     margin-bottom: 20px;
   }
 
   .my-component.expanded .shortened-text {
-    -webkit-line-clamp: none; /* 制限を解除 */
+    -webkit-line-clamp: none; 
     max-height: none;
   }
 
   .my-component .next {
     color: #33CCFF;
-    cursor: pointer; /* ボタン風にする */
+    cursor: pointer; 
     position: absolute;
-    left: 950px;
+    right: 10px;
     top: 170px;
   }
 
   .component-image {
-    max-width: 205px; /* 画像の最大幅を設定 */
+    max-width: 205px; 
     height: 205px;
     height: auto;
     border-radius: 5px;
     margin-bottom: 15px;
-  }
+  } */
 
   @media screen and (max-width: 768px) {
-    .my-component .next{
-    display: none;
-  }
+    .my-component .next {
+      display: none;
+    }
+
+    .event-component h1 {
+      font-size: 18px;
+    }
+
+    .shortened-text {
+      font-size: 15px;
+    }
   }
 </style>
 
@@ -80,15 +147,15 @@ const { image, title, content } = Astro.props;
     const readMoreBtn = document.querySelector(".read-more-btn");
     const textContainer = document.querySelector(".my-component");
 
-    readMoreBtn.addEventListener("click", () => {
+    readMoreBtn!.addEventListener("click", () => {
       // "expanded" クラスを付け替え
-      textContainer.classList.toggle("expanded");
+      textContainer!.classList.toggle("expanded");
 
       // ボタンの表示テキストを切り替え
-      if (textContainer.classList.contains("expanded")) {
-        readMoreBtn.textContent = "閉じる>>";
+      if (textContainer!.classList.contains("expanded")) {
+        readMoreBtn!.textContent = "閉じる>>";
       } else {
-        readMoreBtn.textContent = "続きを読む>>";
+        readMoreBtn!.textContent = "続きを読む>>";
       }
     });
   });

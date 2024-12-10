@@ -1,11 +1,13 @@
 ---
-const { title, content ,next } = Astro.props;
+import Tournament from "./Tournament .astro";
+
+const { title, content , tournament} = Astro.props;
 ---
 
 <div class="my-component">
   <h1>{title}</h1>
   <p>{content}</p>
-  <a href="{next}">続きを読む>></a>
+  <a href={`/Tournamentdetail/${tournament.id}`}>続きを読む>></a>
 </div>
 
 <style>
@@ -20,7 +22,7 @@ const { title, content ,next } = Astro.props;
   .my-component h1 {
     padding-top: 43px;
     padding-bottom: 60px;
-    width: 140px;
+    min-width: 140px;
     height: 62px;
     font-size: 30px;
   }

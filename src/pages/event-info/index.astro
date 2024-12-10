@@ -1,9 +1,44 @@
 ---
+import Search from "@/components/Search.astro";
 import Layout from "@/layouts/Layout.astro";
+import { getEvents } from "@/lib/microcms";
+import type { Event } from "@/lib/microcms";
 
 const title = "イベント情報";
 const description = "全日本釣魚連盟のイベントを紹介します";
 const og_image = "/images/university1.png";
+
+const response = await getEvents({
+  fields: [
+    "id",
+    "title",
+    "description",
+    "content",
+    "images",
+    "og_image",
+    "createdAt",
+    "publishedAt",
+  ],
+});
+const events = response.contents;
+//月ごとにグルーピング
+const groupedEvents = events.reduce<Record<string, Event[]>>(
+  (acc: any, event: Event) => {
+    const date = new Date(event.publishedAt);
+    const yearMonth = `${date.getFullYear()}年${String(date.getMonth() + 1).padStart(2, "0")}月`;
+
+    if (!acc[yearMonth]) {
+      acc[yearMonth] = [];
+    }
+    acc[yearMonth].push(event);
+    return acc;
+  },
+  {}
+);
+//月別人ら控え
+const sortedMonths = Object.keys(groupedEvents).sort((a, b) =>
+  b.localeCompare(a)
+);
 ---
 
 <Layout title={title} description={description} og_image={og_image}>
@@ -12,7 +47,8 @@ const og_image = "/images/university1.png";
     <section class="event-header">
       <h1>イベント情報</h1>
       <div class="search-box">
-        <input type="text" placeholder="検索" />
+        <Search />
+        <!-- <input type="text" placeholder="検索" /> -->
       </div>
     </section>
 
@@ -20,29 +56,43 @@ const og_image = "/images/university1.png";
     <section class="event-content">
       <!-- 이벤트 리스트 -->
       <div class="event-list">
-        {Array.from({ length: 10 }, (_, i) => (
-          <div class="event-item">
-            <div class="event-image">
-              <div class="image-placeholder"></div>
+        {
+          sortedMonths.map(month => (
+            <div class="month-section">
+              <h2 id={month} class="event-month-section-title">
+                {month}
+              </h2>
+              {groupedEvents[month].map((event: Event) => (
+                <div class="event-item">
+                  <div class="event-image">
+                    <img src={event.images[0].url} alt="" />
+                  </div>
+                  <div class="event-details">
+                    <h2 class="event-title">{event.title}</h2>
+                    <p class="event-description">{event.description}</p>
+                    <a href={`/Iventdetail/${event.id}`} class="event-link">
+                      続きを読む&gt;&gt;
+                    </a>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div class="event-details">
-              <h2 class="event-title">タイトル</h2>
-              <p class="event-description">
-                あああああああああああああああああああああああああああああああああああああ
-              </p>
-              <a href="#" class="event-link">続きを読む&gt;&gt;</a>
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
 
       <!-- 오른쪽 아카이브 -->
       <aside class="event-archive">
         <h3>月別アーカイブ</h3>
-        <ul>
-          <li><a href="#">2024/08</a></li>
-          <li><a href="#">2024/07</a></li>
-        </ul>
+        {
+          sortedMonths.map(month => (
+            <p class="p-content-sentence-archive-day">
+              <a href={`#${month}`}>
+                {month}({groupedEvents[month].length})
+              </a>
+            </p>
+          ))
+        }
       </aside>
     </section>
   </main>
