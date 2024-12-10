@@ -1,13 +1,16 @@
-<header class="site-header">
+  <header class="site-header">
     <div class="logo">
-      <h1>全日本釣魚連盟関東支部</h1>
+      <a href="/top">全日本釣魚連盟関東支部</a>
     </div>
+    <button class="hamburger-menu" aria-label="メニュー">
+      &#9776;
+    </button>
     <nav class="navigation">
       <ul>
         <li><a href="/about">団体について</a></li>
-        <li><a href="/event-info">大会情報</a></li>
+        <li><a href="/Tournamentinformation">大会情報</a></li>
         <li><a href="/universities">加盟大学</a></li>
-        <li><a href="#">ご入会方法</a></li>
+        <li><a href="/top#join">ご入会方法</a></li>
         <li><a href="/contact">お問い合わせ</a></li>
       </ul>
     </nav>
@@ -22,12 +25,19 @@
       color: #041470;
       padding: 10px 20px;
       border-bottom: solid 3px #0000FF;
+      position: relative;
     }
   
-    .logo h1 {
-      font-size: 18px;
+    .logo a {
+      font-size: 20px;
       margin: 0;
       font-weight: bold;
+      color: #041470;
+    }
+  
+    /* ナビゲーションのデフォルト表示 */
+    .navigation {
+      display: flex;
     }
   
     .navigation ul {
@@ -38,14 +48,76 @@
       padding: 0;
     }
   
+    .navigation li {
+      padding: 0;
+    }
+  
     .navigation a {
       text-decoration: none;
       color: black;
-      font-size: 10px;
+      font-size: 14px;
+      display: block;
+      padding: 5px 10px;
     }
   
     .navigation a:hover {
       text-decoration: underline;
     }
+  
+    .hamburger-menu {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #041470;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+    }
+  
+    @media (max-width: 728px) {
+      /* 728px以下でナビゲーション非表示 */
+      .navigation {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        width: 200px;
+      }
+  
+      .navigation ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+      }
+  
+      /* ハンバーガーメニューを表示 */
+      .hamburger-menu {
+        display: block;
+      }
+  
+      /* メニューが開いているときの表示 */
+      .navigation.active {
+        display: block;
+      }
+    }
   </style>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburgerMenu = document.querySelector(".hamburger-menu");
+      const navigation = document.querySelector(".navigation");
+  
+      hamburgerMenu.addEventListener("click", () => {
+        navigation.classList.toggle("active");
+      });
+    });
+  </script>
+  
   

@@ -1,4 +1,5 @@
 ---
+import Search from "@/components/Search.astro";
 import Layout from "@/layouts/Layout.astro";
 
 const title = "イベント情報";
@@ -15,7 +16,8 @@ const events = response.contents;
     <section class="event-header">
       <h1>イベント情報</h1>
       <div class="search-box">
-        <input type="text" placeholder="検索" />
+        <Search />
+        <!-- <input type="text" placeholder="検索" /> -->
       </div>
     </section>
 

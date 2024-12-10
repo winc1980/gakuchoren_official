@@ -27,7 +27,7 @@ const university = await getUniversityDetail(id);
 
     <!-- 텍스트 및 이미지 섹션 -->
     <section class="university-content">
-      <p>{university.description}</p>
+      <p>{university.content}</p>
       <div class="image-placeholder">
         <img src={university.image.url} alt={university.name} class="university-image" />
       </div>

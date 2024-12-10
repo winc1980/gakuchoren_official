@@ -33,21 +33,13 @@ const event = await getEventDetail(id);
         <div class="p-Ivent-sentence">
             <p>{event.content}</p>
         </div>
-        {event.images.map((image) => {
-            return (
-                <div class="p-Ivent-photo-main">
-                    <img class="p-Ivent-photo-main-img" src={image.url} alt="">
-                </div>
-            )
-        })}
+        {event.images.map((image) => (
+            <div class="p-Ivent-photo-main">
+                <a href={image.url} data-lightbox="event-images" data-title={image.url}>
+                    <img class="p-Ivent-photo-main-img" src={image.url} alt="Image for events">
+                </a>
+            </div>
+        ))}
     </section>
-    <!-- <section>
-        <div class="p-Ivent-sentence">
-            <p>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ</p>
-        </div>
-        <div class="p-Ivent-photo-sub">
-            <img class="p-Ivent-photo-sub-img" src="../../../public/assets/hasu_1.jpg" alt="">
-        </div>
-    </section> -->
 </main>
 </Layout>
