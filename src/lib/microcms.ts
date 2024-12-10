@@ -119,20 +119,10 @@ export type Admission = {
   revisedAt: string;
   firstStep: string;
   secondStep: string;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 8fefd7b67859b7827589060d29673d3d5529373a
   thirdStep: string;
   firstStepGroup: string;
   secondStepGroup: string;
   thirdStepGroup: string;
-<<<<<<< HEAD
-=======
-  ThirdStep: string;
->>>>>>> 642e81ce365b5fcbea57229b2d54cd815c207a76
-=======
->>>>>>> 8fefd7b67859b7827589060d29673d3d5529373a
 };
 export type AdmissionResponse = {
   totalCount: number;
@@ -245,12 +235,5 @@ export const getAdmissionDetail = async (
     contentId,
     queries,
   });
-<<<<<<< HEAD
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 642e81ce365b5fcbea57229b2d54cd815c207a76
-=======
-};
->>>>>>> 8fefd7b67859b7827589060d29673d3d5529373a
+
