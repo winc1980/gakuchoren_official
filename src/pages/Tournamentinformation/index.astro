@@ -25,7 +25,7 @@ const tournaments = response.contents;
 // 月ごとにグルーピング
 const groupedTournaments = tournaments.reduce<Record<string, Tournament[]>>(
   (acc: any, tournament: Tournament) => {
-    const date = new Date(tournament.createdAt);
+    const date = new Date(tournament.publishedAt);
     const yearMonth = `${date.getFullYear()}年${String(date.getMonth() + 1).padStart(2, "0")}月`;
 
     if (!acc[yearMonth]) {
