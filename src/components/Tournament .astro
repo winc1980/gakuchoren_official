@@ -7,23 +7,28 @@ const { title, content, id } = Astro.props;
   <p class="shortened-text">{content}</p>
   <a class="read-more-btn" href={`/Tournamentdetail/${id}`}>続きを読む>></a>
   <button class="close-btn" style="display: none;">閉じる>></button>
-  <hr>
+  <hr />
 </div>
 
 <style>
-  .tournament-component{
+  .tournament-component {
     gap: 20px;
     border-radius: 5px;
     width: 80%;
     margin: 20px auto;
   }
 
-  .tournament-component-title{
+  /* .tournament-component hr {
+    border-color: black;
+  } */
+
+  .tournament-component-title {
     font-size: 25px;
+    /* font-weight: bold; */
+    margin-bottom: 10px;
   }
 
-
-  .read-more-btn{
+  .read-more-btn {
     display: block;
     text-align: right;
     color: #2589d0;
@@ -31,12 +36,12 @@ const { title, content, id } = Astro.props;
     margin-top: 10px;
   }
 
-  .shortened-text{
+  .shortened-text {
     width: 90%;
     margin-left: 10px;
-    overflow: hidden; 
+    overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
   /* .my-component {
@@ -84,9 +89,17 @@ const { title, content, id } = Astro.props;
   } */
 
   @media screen and (max-width: 768px) {
-  .close-btn {
-    display: none;
-  }
+    .close-btn {
+      display: none;
+    }
+
+    .tournament-component-title {
+      font-size: 18px;
+    }
+
+    .shortened-text {
+      font-size: 15px;
+    }
   }
 </style>
 
@@ -109,4 +122,3 @@ const { title, content, id } = Astro.props;
   //   });
   // });
 </script>
-

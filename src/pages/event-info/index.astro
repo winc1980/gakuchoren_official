@@ -33,13 +33,12 @@ const groupedEvents = events.reduce<Record<string, Event[]>>(
     acc[yearMonth].push(event);
     return acc;
   },
-  {},
+  {}
 );
 //月別人ら控え
 const sortedMonths = Object.keys(groupedEvents).sort((a, b) =>
-    b.localeCompare(a),
+  b.localeCompare(a)
 );
----
 ---
 
 <Layout title={title} description={description} og_image={og_image}>
@@ -58,22 +57,24 @@ const sortedMonths = Object.keys(groupedEvents).sort((a, b) =>
       <!-- 이벤트 리스트 -->
       <div class="event-list">
         {
-          sortedMonths.map((month)=>(
+          sortedMonths.map(month => (
             <div class="month-section">
-              <h2 id={month}>{month}</h2>
-              {groupedEvents[month].map((event: Event)=>(
+              <h2 id={month} class="event-month-section-title">
+                {month}
+              </h2>
+              {groupedEvents[month].map((event: Event) => (
                 <div class="event-item">
-                <div class="event-image">
-                  <img src={event.images[0].url} alt="" />
+                  <div class="event-image">
+                    <img src={event.images[0].url} alt="" />
+                  </div>
+                  <div class="event-details">
+                    <h2 class="event-title">{event.title}</h2>
+                    <p class="event-description">{event.description}</p>
+                    <a href={`/Iventdetail/${event.id}`} class="event-link">
+                      続きを読む&gt;&gt;
+                    </a>
+                  </div>
                 </div>
-                <div class="event-details">
-                  <h2 class="event-title">{event.title}</h2>
-                  <p class="event-description">{event.description}</p>
-                  <a href={`/Iventdetail/${event.id}`} class="event-link">
-                    続きを読む&gt;&gt;
-                  </a>
-                </div>
-              </div>
               ))}
             </div>
           ))
@@ -84,15 +85,14 @@ const sortedMonths = Object.keys(groupedEvents).sort((a, b) =>
       <aside class="event-archive">
         <h3>月別アーカイブ</h3>
         {
-          sortedMonths.map((month) => (
-              <p class="p-content-sentence-archive-day">
-                  <a href={`#${month}`}>
-                      {month}(
-                      {groupedEvents[month].length})
-                  </a>
-              </p>
+          sortedMonths.map(month => (
+            <p class="p-content-sentence-archive-day">
+              <a href={`#${month}`}>
+                {month}({groupedEvents[month].length})
+              </a>
+            </p>
           ))
-      }
+        }
       </aside>
     </section>
   </main>

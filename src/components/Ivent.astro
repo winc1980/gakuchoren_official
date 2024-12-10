@@ -5,48 +5,49 @@ const { image, title, content, id } = Astro.props;
 <div class="event-component-wrapper">
   <div class="event-component">
     <div class="event-component-inner-wrapper">
-    <!-- 画像を表示 -->
-        <div class="event-component-image">
-          {image && <img src={image} alt="Image" class="component-image" />}
-        </div>
-        <div>
-          <h1>{title}</h1>
-          <p class="shortened-text">{content}</p>
-          <a class="next read-more-btn" href={`/Iventdetail/${id}`}>続きを読む>></a>
-        </div>
+      <!-- 画像を表示 -->
+      <div class="event-component-image">
+        {image && <img src={image} alt="Image" class="component-image" />}
+      </div>
+      <div>
+        <h1>{title}</h1>
+        <p class="shortened-text">{content}</p>
+        <a class="next read-more-btn" href={`/Iventdetail/${id}`}
+          >続きを読む>></a
+        >
+      </div>
     </div>
-    <hr class="event-component-hr">
+    <hr class="event-component-hr" />
   </div>
-  
 </div>
 
 <style>
-  .event-component-wrapper{
+  .event-component-wrapper {
     background-color: #f0f0f0;
   }
 
-  .event-component-inner-wrapper{
+  .event-component-inner-wrapper {
     display: flex;
     width: 95%;
     margin: 0 auto;
   }
 
-  .event-component{
+  .event-component {
     margin: 0 auto;
     padding-top: 20px;
     width: 80%;
   }
 
-  .event-component-image{
+  .event-component-image {
     display: block;
     margin-right: 10px;
     object-fit: cover;
     /* width: 100%; */
   }
 
-  .event-component-hr{
+  .event-component-hr {
     display: block;
-    margin: 0 auto;
+    margin: 20px auto 0 auto;
     width: 100%;
     padding-bottom: 10px;
     border-color: black;
@@ -54,11 +55,12 @@ const { image, title, content, id } = Astro.props;
 
   .event-component h1 {
     color: black;
-    font-size: 30px;
-    white-space: nowrap;
+    font-size: 25px;
+    margin-bottom: 10px;
+    /* white-space: nowrap; */
   }
 
-  .read-more-btn{
+  .read-more-btn {
     display: block;
     text-align: right;
     color: #2589d0;
@@ -66,12 +68,12 @@ const { image, title, content, id } = Astro.props;
     margin-top: 10px;
   }
 
-  .shortened-text{
+  .shortened-text {
     width: 90%;
     margin-left: 10px;
-    overflow: hidden; 
+    overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
 
@@ -125,11 +127,17 @@ const { image, title, content, id } = Astro.props;
     margin-bottom: 15px;
   } */
 
-
-
   @media screen and (max-width: 768px) {
-    .my-component .next{
+    .my-component .next {
       display: none;
+    }
+
+    .event-component h1 {
+      font-size: 18px;
+    }
+
+    .shortened-text {
+      font-size: 15px;
     }
   }
 </style>

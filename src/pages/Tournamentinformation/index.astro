@@ -66,7 +66,9 @@ const sortedMonths = Object.keys(groupedTournaments).sort((a, b) =>
           {
             sortedMonths.map(month => (
               <div class="month-section">
-                <h2 id={month}>{month}</h2>
+                <h2 id={month} class="tournament-month-section-title">
+                  {month}
+                </h2>
                 {groupedTournaments[month].map((tournament: Tournament) => (
                   <TournamentComponent
                     title={tournament.title}

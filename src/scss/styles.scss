@@ -119,8 +119,10 @@ footer {
 }
 
 // ===== Contact 페이지 스타일 =====
+// ===== Contact ページスタイル =====
 .contact-main {
-  background-color: white;
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
 }
 
 .contact-header {
@@ -140,72 +142,180 @@ footer {
 .contact-section {
   display: flex;
   flex-direction: column;
-  gap: $spacing-large;
-  padding: $spacing-large;
+  gap: 2rem;
+  padding: 2rem;
 
   .contact-form-wrapper {
+    position: relative;
     background-color: white;
-    padding: $spacing-medium;
+    // border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 2rem;
+    // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     h2 {
-      font-size: 18px;
+      position: relative;
+      font-size: 20px;
       font-weight: bold;
-      margin-bottom: $spacing-medium;
-      color: black;
-      text-align: center;
+      color: #333;
+      text-align: left;
+      margin-bottom: 1.5rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        background-color: #007bff;
+        box-shadow: 5px 5px #9dc3ff;
+      }
     }
 
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: $spacing-medium;
+      gap: 1rem;
 
       .form-row {
         display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: $spacing-small;
+        flex-direction: column;
+        gap: 0.5rem;
 
         label {
-          width: 150px;
-          text-align: right;
           font-size: 14px;
-          color: $text-color;
+          color: #666;
         }
 
         input,
         textarea {
-          flex: 1;
-          padding: $spacing-small;
+          width: 100%;
+          padding: 0.8rem;
           border: 1px solid #ccc;
-          background-color: #ccc;
+          border-radius: 4px;
+          background-color: #f4f4f4;
           font-size: 14px;
+          transition: border-color 0.2s;
+
+          &:focus {
+            border-color: #007bff;
+            outline: none;
+            background-color: #ffffff;
+          }
         }
 
         textarea {
           resize: vertical;
-          min-height: 100px;
+          min-height: 120px;
         }
       }
 
       button {
         align-self: flex-start;
-        margin-left: 160px;
         background-color: #0000ff;
         color: white;
         border: none;
-        padding: $spacing-small;
+        padding: 0.8rem 1.5rem;
         font-size: 14px;
         border-radius: 4px;
         cursor: pointer;
+        transition: background-color 0.2s;
 
         &:hover {
-          background-color: darken($primary-color, 10%);
+          background-color: #0056b3;
         }
       }
     }
   }
 }
+
+// ===== レスポンシブ対応 =====
+@media (min-width: 768px) {
+  .contact-section {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .contact-form-wrapper {
+    flex: 1 1 calc(50% - 1rem);
+  }
+}
+
+// .contact-main {
+//   background-color: white;
+// }
+
+// .contact-section {
+//   display: flex;
+//   flex-direction: column;
+//   gap: $spacing-large;
+//   padding: $spacing-large;
+
+//   .contact-form-wrapper {
+//     background-color: white;
+//     padding: $spacing-medium;
+
+//     h2 {
+//       font-size: 18px;
+//       font-weight: bold;
+//       margin-bottom: $spacing-medium;
+//       color: black;
+//       text-align: center;
+//     }
+
+//     .contact-form {
+//       display: flex;
+//       flex-direction: column;
+//       gap: $spacing-medium;
+
+//       .form-row {
+//         display: flex;
+//         flex-wrap: wrap;
+//         align-items: center;
+//         gap: $spacing-small;
+
+//         label {
+//           width: 150px;
+//           text-align: right;
+//           font-size: 14px;
+//           color: $text-color;
+//         }
+
+//         input,
+//         textarea {
+//           flex: 1;
+//           padding: $spacing-small;
+//           border: 1px solid #ccc;
+//           background-color: #ccc;
+//           font-size: 14px;
+//         }
+
+//         textarea {
+//           resize: vertical;
+//           min-height: 100px;
+//         }
+//       }
+
+//       button {
+//         align-self: flex-start;
+//         margin-left: 160px;
+//         background-color: #0000ff;
+//         color: white;
+//         border: none;
+//         padding: $spacing-small;
+//         font-size: 14px;
+//         border-radius: 4px;
+//         cursor: pointer;
+
+//         &:hover {
+//           background-color: darken($primary-color, 10%);
+//         }
+//       }
+//     }
+//   }
+// }
 
 // ===== University List 페이지 스타일 =====
 .universities-main {
@@ -489,7 +599,8 @@ footer {
       display: flex;
       gap: 15px;
       border-bottom: 1px solid skyblue;
-      padding-bottom: 20px;
+      padding-bottom: 15px;
+      padding-top: 30px;
 
       .event-image {
         width: 120px;
@@ -508,8 +619,9 @@ footer {
         .event-title {
           font-size: 18px;
           color: black;
-          margin: 0 0 10px;
+          margin: 0;
           min-width: 140px;
+          text-align: left;
         }
 
         .event-description {
@@ -542,9 +654,10 @@ footer {
     padding: 20px;
 
     h3 {
-      font-size: 16px;
+      font-size: 20px;
       color: black;
       margin-bottom: 10px;
+      font-weight: bold;
     }
 
     ul {
@@ -1436,11 +1549,18 @@ footer {
 .month-section {
   margin-left: 40px;
 }
-.month-section h2 {
+.event-month-section-title,
+.tournament-month-section-title {
   margin-left: 80px;
   font-size: 30px;
   font-weight: bold;
   border-bottom: #2589d0 2px solid;
+}
+
+.event-month-section-title {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 0;
 }
 
 .p-content-sentence {
@@ -1483,6 +1603,7 @@ footer {
 
 .p-content-sentence-archive-day a {
   text-decoration: underline;
+  font-size: 20px;
 }
 
 /*-------------　ここまで-------------*/
@@ -2253,7 +2374,8 @@ footer {
     margin-left: 0;
   }
 
-  .month-section h2 {
+  .event-month-section-title,
+  .tournament-month-section-title {
     text-align: center;
     margin: 0 auto;
     padding-bottom: 20px;

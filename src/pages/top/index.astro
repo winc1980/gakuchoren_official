@@ -6,168 +6,220 @@ import "../../scss/styles.scss";
 const title = "";
 const description = "";
 const og_image = "";
-import Carousel from '../../components/Carousel.astro'
-import TournamentComponent from '../../components/Tournament .astro'
-import IventComponent from '../../components/Ivent.astro'
-import { getAbout, getTournaments, getEvents, getAdmissions } from "@/lib/microcms";
+import Carousel from "../../components/Carousel.astro";
+import TournamentComponent from "../../components/Tournament .astro";
+import IventComponent from "../../components/Ivent.astro";
+import {
+  getAbout,
+  getTournaments,
+  getEvents,
+  getAdmissions,
+} from "@/lib/microcms";
 
-const responseAbout = await getAbout({fields: ["description", "images"]});
+const responseAbout = await getAbout({ fields: ["description", "images"] });
 const aboutDescription = responseAbout.contents[0].description;
 const aboutImage = responseAbout.contents[0].images[0];
 
-const responseTournaments = await getTournaments({fields: ["id", "title", "content"]});
+const responseTournaments = await getTournaments({
+  fields: ["id", "title", "content"],
+});
 const tournaments = responseTournaments.contents;
-const firstThreeTournaments = tournaments.slice(0,3);
+const firstThreeTournaments = tournaments.slice(0, 3);
 
-const responseEvents = await getEvents({fields: ["id", "title", "content", "images"]});
+const responseEvents = await getEvents({
+  fields: ["id", "title", "content", "images"],
+});
 const events = responseEvents.contents;
-const firstThreeEvents = events.slice(0,3);
+const firstThreeEvents = events.slice(0, 3);
 
-const responseAdmission = await getAdmissions({fields: ["firstStep", "secondStep", "thirdStep", "firstStepGroup", "secondStepGroup", "thirdStepGroup"]});
+const responseAdmission = await getAdmissions({
+  fields: [
+    "firstStep",
+    "secondStep",
+    "thirdStep",
+    "firstStepGroup",
+    "secondStepGroup",
+    "thirdStepGroup",
+  ],
+});
 const admission = responseAdmission.contents[0];
 ---
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
 
 <Layout title={title} , description={description} og_image={og_image}>
-	<main>
+  <main>
+    <section id="top" class="p-top">
+      <div>
+        <div class="p-top-slide">
+          <Carousel />
+        </div>
+        <div class="p-top-mail">
+          <a href="/contact" class="p-top-mail-content">お問合せはこちら</a>
+        </div>
+      </div>
+    </section>
 
-		<section id="top" class="p-top">
-			<div>
-				<div class="p-top-slide">
-					<Carousel />
-				</div>
-				<div class="p-top-mail">
-					<a href="" class="p-top-mail-content">お問合せはこちら</a>
-				</div>
-			</div>
-		</section>
+    <section id="" class="p-about">
+      <div class="">
+        <div class="p-about-bluebox-big"></div>
+        <div class="p-about-bluebox-small"></div>
+        <h1 class="p-about-title">全日本釣魚連盟関東支部について</h1>
+        <p class="p-about-content">{aboutDescription}</p>
+        <img src={aboutImage.url} alt="" class="p-about-image" />
+        <div class="p-about-links">
+          <a href="/universities" class="p-about-university">加盟大学一覧</a>
+          <a href="/about" class="p-about-detail">詳しくはこちら</a>
+        </div>
+      </div>
+    </section>
 
-		<section id="" class="p-about">
-			<div class="">
-				<div class="p-about-bluebox-big"></div>
-				<div class="p-about-bluebox-small"></div>
-				<h1 class="p-about-title">全日本釣魚連盟関東支部について</h1>
-				<p class="p-about-content">{aboutDescription}</p>
-				<img src={aboutImage.url} alt="" class="p-about-image">
-				<div class="p-about-links">
-					<a href="" class="p-about-university">加盟大学一覧</a>
-					<a href="" class="p-about-detail">詳しくはこちら</a>
-				</div>
-			</div>
-		</section>
+    <section id="" class="p-Tournament">
+      <div class="p-Tournament-information">
+        <div class="p-Tournament-information-title">
+          <p>大会情報</p>
+          <hr class="p-tournament-information-hr" />
+        </div>
 
-		<section id="" class="p-Tournament"> 
-			<div class="p-Tournament-information">
-				<h2 class="p-Tournament-information-title">大会情報</h2>
-				<div class="p-Tournament-information-content">
-					{firstThreeTournaments.map((tournament) => {
-						if(tournament){
-							return <TournamentComponent title={tournament.title} content={tournament.content} id={tournament.id}/>
-						}
-					})}
-				</div>
-				<a class="p-Tournament-information-more" href="/Tournamentinformation">さらに表示</a>
-			</div>
-		</section>
+        <div class="p-Tournament-information-content">
+          {
+            firstThreeTournaments.map(tournament => {
+              if (tournament) {
+                return (
+                  <TournamentComponent
+                    title={tournament.title}
+                    content={tournament.content}
+                    id={tournament.id}
+                  />
+                );
+              }
+            })
+          }
+        </div>
+        <a class="p-Tournament-information-more" href="/Tournamentinformation"
+          >さらに表示</a
+        >
+      </div>
+    </section>
 
-		<section id="" class="p-Ivent">
-			<div class="p-Ivent-detail">
-				<h2 class="p-Ivent-detail-title">イベント情報（活動記録）</h2>
-				<div class="p-Ivent-detail-content">
-					{firstThreeEvents.map((event) => {
-						if(event){
-							return <IventComponent image={event.images[0].url} title={event.title} content={event.content} id={event.id}/>
-						}
-					})}
-				</div>
-				<a class="p-Ivent-detail-more" href="/event-info">さらに表示</a>
-			</div>
-		</section>
+    <section id="" class="p-Ivent">
+      <div class="p-Ivent-detail">
+        <h2 class="p-Ivent-detail-title">イベント情報（活動記録）</h2>
+        <div class="p-Ivent-detail-content">
+          {
+            firstThreeEvents.map(event => {
+              if (event) {
+                return (
+                  <IventComponent
+                    image={event.images[0].url}
+                    title={event.title}
+                    content={event.content}
+                    id={event.id}
+                  />
+                );
+              }
+            })
+          }
+        </div>
+        <a class="p-Ivent-detail-more" href="/event-info">さらに表示</a>
+      </div>
+    </section>
 
-		<div id="join" class="p-Join">
-			<div class="p-Join-box">
-				<div class="p-Join-every">
-					<div class="p-join-bluebox-big-left"></div>
-					<div class="p-join-bluebox-small-left "></div>
-					<div>
-						<div>
-							<h2 class="p-join-every-title-left">ご入会までの流れ（個人）</h2>
-							<h2 class="p-join-every-title-mobile">ご入会までの流れ</h2>
-							<p class="p-join-every-title-nmobile-Individual">個人の場合</p>
-						</div>
-						<div class="p-join-every-content-left">
-              <div>
-                <p class="p-join-every-content-number-left">01</p>
-                <p class="p-join-every-content-sentence-left">{admission.firstStep}</p>
-              </div>
-              <div class="p-join-every-content-under-left">
-                <span class="p-join-every-content-underline-left"></span>
-              </div>
-              <div>
-                <p class="p-join-every-content-number-left">02</p>
-                <p class="p-join-every-content-sentence-left">{admission.secondStep}</p>
-              </div>
-              <div class="p-join-every-content-under-aicon-left">
-                <span class="p-join-every-content-underline-left"></span>
-              </div>
-              <div>
-                <p class="p-join-every-content-number-left">03</p>
-                <p class="p-join-every-content-sentence-left">{admission.thirdStep}</p>
-							</div>
-						</div>
-					</div>
-				</div>
-						<div class="p-join-bluebox-big-right"></div>
-						<div class="p-join-bluebox-small-right "></div>
-						<divn class="p-Join-every-right">
-							<div class="p-join-every-title-right">
-								<h2 class="p-join-every-title-pc">ご入会までの流れ（団体）</h2>
-								<p class="p-join-every-title-Organization">団体の場合</p>
-							</div>
-				<div class="p-join-every-content-right">
-					<div>
-						<p class="p-join-every-content-number-right">01</p>
-						<p class="p-join-every-content-sentence-right">{admission.firstStepGroup}</p>
-					</div>
-					<div class="p-join-every-content-under-right">
-						<span class="p-join-every-content-underline-right"></span>
-					</div>
-					<div>
-						<p class="p-join-every-content-number-right">02</p>
-						<p class="p-join-every-content-sentence-right">{admission.secondStepGroup}</p>
-					</div>
-					<div class="p-join-every-content-under-aicon-right">
-						<span class="p-join-every-content-underline-right"></span>
-					</div>
-					<div>
-						<p class="p-join-every-content-number-right">03</p>
-						<p class="p-join-every-content-sentence-right">{admission.thirdStepGroup}</p>
-					</div>
-				</div>
-			</div>
-		</section>
+    <h2 class="p-join-main-title">ご入会までの流れ</h2>
+    <div id="join" class="p-join">
+      <div class="p-join-personal">
+        <div class="p-join-bluebox-big-left"></div>
+        <div class="p-join-bluebox-small-left"></div>
+        <div>
+          <p class="p-join-case-title">個人の場合</p>
+        </div>
+        <div class="p-join-every-content-left">
+          <div>
+            <p class="p-join-every-content-number">01</p>
+            <p class="p-join-every-content-sentence-left">
+              {admission.firstStep}
+            </p>
+          </div>
+          <div class="p-join-every-content-under-left">
+            <span class="p-join-every-content-underline-left"></span>
+          </div>
+          <div>
+            <p class="p-join-every-content-number">02</p>
+            <p class="p-join-every-content-sentence-left">
+              {admission.secondStep}
+            </p>
+          </div>
+          <div class="p-join-every-content-under-aicon-left">
+            <span class="p-join-every-content-underline-left"></span>
+          </div>
+          <div>
+            <p class="p-join-every-content-number">03</p>
+            <p class="p-join-every-content-sentence-left">
+              {admission.thirdStep}
+            </p>
+          </div>
+        </div>
+      </div>
 
-		<div class="p-inquiry">
-			<div class="p-inquiry-box">
-				<a href="/contact" class="p-inquiry-box-content">お問合せはこちら</a>
-			</div>
-		</div>
-	</main>
+      <div class="p-join-group">
+        <div class="p-join-bluebox-big-right"></div>
+        <div class="p-join-bluebox-small-right"></div>
+        <div class="p-join-every-title-right">
+          <p class="p-join-case-title">団体の場合</p>
+        </div>
+        <div class="p-join-every-content-right">
+          <div>
+            <p class="p-join-every-content-number">01</p>
+            <p class="p-join-every-content-sentence-right">
+              {admission.firstStepGroup}
+            </p>
+          </div>
+          <div class="p-join-every-content-under-right">
+            <span class="p-join-every-content-underline-right"></span>
+          </div>
+          <div>
+            <p class="p-join-every-content-number">02</p>
+            <p class="p-join-every-content-sentence-right">
+              {admission.secondStepGroup}
+            </p>
+          </div>
+          <div class="p-join-every-content-under-aicon-right">
+            <span class="p-join-every-content-underline-right"></span>
+          </div>
+          <div>
+            <p class="p-join-every-content-number">03</p>
+            <p class="p-join-every-content-sentence-right">
+              {admission.thirdStepGroup}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-inquiry">
+      <div class="p-inquiry-box">
+        <a href="/contact" class="p-inquiry-box-content">お問合せはこちら</a>
+      </div>
+    </div>
+  </main>
 </Layout>
 
 <script>
-	document.addEventListener("DOMContentLoaded", () => {
-	  const moreBtn = document.querySelector(".p-Tournament-information-more");
-	  const hiddenItems = document.querySelector(".hidden-items");
-  
-	  moreBtn!.addEventListener("click", () => {
-		// 隠れている項目をトグル表示
-		hiddenItems!.classList.toggle("is-visible");
-  
-		// ボタンのテキストを切り替え
-		moreBtn!.textContent = hiddenItems!.classList.contains("is-visible") ? "閉じる" : "さらに表示";
-	  });
-	});
-  </script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const moreBtn = document.querySelector(".p-Tournament-information-more");
+    const hiddenItems = document.querySelector(".hidden-items");
+
+    moreBtn!.addEventListener("click", () => {
+      // 隠れている項目をトグル表示
+      hiddenItems!.classList.toggle("is-visible");
+
+      // ボタンのテキストを切り替え
+      moreBtn!.textContent = hiddenItems!.classList.contains("is-visible")
+        ? "閉じる"
+        : "さらに表示";
+    });
+  });
+</script>
