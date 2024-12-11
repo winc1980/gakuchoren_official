@@ -4,15 +4,17 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://gakuchoren.github.io",
+  base: "/official",
   vite: {
     resolve: {
       alias: {
-        "@": "/src"
-      }
-    }
+        "@": "/src",
+      },
+    },
   },
   build: {
-    format: "preserve" // NOTE: 出力ファイルの設定
+    format: "preserve", // NOTE: 出力ファイルの設定
   },
-  integrations: [tailwind()]
+  integrations: [tailwind()],
 });

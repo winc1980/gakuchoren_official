@@ -6,10 +6,14 @@ import Footer from "@/components/Footer.astro";
 // タイトル等をPropsとして受け取る。default
 let { title = "", description = "", og_image = "" } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="ja">
   <head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
@@ -29,11 +33,12 @@ let { title = "", description = "", og_image = "" } = Astro.props;
     <link rel="icon" sizes="32x32" type="image/png" href="" />
     <link rel="shortcut icon" href="" />
     <!-- Lightbox2 CSS -->
-    <link href="/lightbox2/dist/css/lightbox.min.css" rel="stylesheet">
+    <link href="/lightbox2/dist/css/lightbox.min.css" rel="stylesheet" />
   </head>
   <body>
     <Header />
     <slot />
+    <p>aaa</p>
     <Footer />
     <!-- Lightbox2 JavaScript -->
     <script is:inline src="/lightbox2/dist/js/lightbox-plus-jquery.js"></script>
