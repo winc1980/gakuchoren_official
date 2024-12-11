@@ -4,6 +4,8 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://gakuchoren.github.io',
+  base: '/gakuchoren-hp',
   vite: {
     resolve: {
       alias: {
