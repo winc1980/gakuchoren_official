@@ -7,12 +7,7 @@ on:
     branches: [ main ]
   # このワークフローを GitHub の Actions タブから手動で実行できるようにします。
   workflow_dispatch:
-
-# このジョブがリポジトリをクローンし、ページデプロイメントを作成することを許可します。
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    types: [update_post]
 
 jobs:
   build:
@@ -37,6 +32,10 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    # このジョブがリポジトリをクローンし、ページデプロイメントを作成することを許可します。
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
